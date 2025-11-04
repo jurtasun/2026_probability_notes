@@ -71,3 +71,5 @@ Meeting Steel Wagstaff at Pressboks
 Equation vs in-line equation.
 Add ordered references.
 How to access presaved versions, apart from manually pressing "Save". Ctrl+S does not really save content.
+
+Paragraphs, spacing and indentation.
