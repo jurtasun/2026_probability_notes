@@ -16,10 +16,32 @@
  border: 0;
 }
 
+/* Equations */
+.equation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25rem auto;
+  max-width: 80%;
+}
+
+.equation .MathJax, 
+.equation mjx-container {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.eq-number {
+  font-size: 1em;
+  color: inherit;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
 /* Figures */
 figure {
  margin: 1.25rem auto;
- text-align: center;
+ text-align: left;
 }
 figure > img {
  height: auto;
