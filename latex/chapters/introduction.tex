@@ -1,49 +1,8 @@
-% Introduction .........................................................................................................................................................
+% Introduction ........................................................................................................
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
 \epigraph{\textit{The theory of probabilities is at bottom nothing but common sense reduced to calculation.}}{— Pierre-Simon Laplace}
-
-\section*{The purpose of these notes}
-\addcontentsline{toc}{section}{The purpose of these notes}
-
-In the following pages one will find an introductory course to the theory of probability and statistical inference, aiming to cover both foundations and basic mathematical concepts, but also practical tools to deal with real data science problems, such as bayesian probability and hypothesis testing. The text is composed by five chapters, together with some appendix sections reviewing basic mathematical notions, and a bibliographic note. The purpose of these lecture notes is to make both probability and statistical analysis an easy, engaging and exciting topic for anyone interested, without the need for prior experience.
-
-\medskip
-
-Both, predictive probability and descriptive statistics have deep historical roots, from ancient works on chance and divination to modern scientific topics oriented towards information theory, modelling and data analysis. As one could guess, rivers of ink have been written about such topics, and endless literature sources are available. However, after following many different courses at both bachelor and postgraduate levels, and teaching such topics myself during the last three years, I have found that most resources belong, almost certainly, to one of the next three classes. Either ($i$) deeply mathematical, and hence out of reach for most experimental or clinically oriented scientists, ($ii$) laboratory oriented, focusing on inference and experimental design, and hence missing most of the mathematical background, or ($iii$) with a direct focus towards programming and computation, relying on domain specific notebooks (Python, R, Matlab, SPSS, etc), and online resources with precompiled libraries for simulation, which again miss most of the mathematical and formal intuitions. Indeed, the misuse of statistics in experimental sciences is a critical topic in modern times, as mathematicians have extensively discussed during the last decades. The well-known article by John P. A. Ioannidis, \textit{"Why most published research findings are false"} \cite{ioannidis2005why}, serves as a prominent example, and it may serve as motivation for a rigorous study.
-
-As a matter of fact, when it comes to modern statistics, data analysis or experimental design, concepts like \textit{stochasticity, randomness, sampling, hypothesis, significance, statistic test, p-value} - just to mention some of them - are frequently used, but for most bachelor and even master's level degrees they are rarely introduced or properly defined. Indeed, for most experimental and clinically oriented degrees, they are not introduced at all, leaving the student with just a superficial knowledge relying on intuition about some particular cases. Hence, developing high-quality, simple, and accessible open source material for present and future generations, covering both probability and statistical inference from both a fundamental \textit{and} applied level, remains an urgent task for scientists and educators.
-
-\medskip
-
-This is intended to be a complete introductory course, and no previous mathematical background is required. By keeping the theory simple and always followed by examples, we will build the definitions and quantities from simple to more complex. All mathematical formulas will be introduced with rigorous notation, but keeping in mind that it is not the symbols or the numbers, but the intuitions and the general understanding, what we are after. Additionally, all topics will be introduced alongside with some short historical discussion and context, as we believe that a purely technical knowledge just grasps the complexity - and beauty - of scientific topics. As one could anticipate already, a proper understanding of  ideas such as uncertainty, variation, chance, probability, inference, etc, can be applied to describing a vast amount of real-world phenomena, ranging from gambling and to data analysis to modelling in physics, biology, machine learning and quantum mechanics, among many others.
-
-\medskip
-
-As mentioned, the course is organised in five chapters. In the first two we will introduce the idea of sampling, probability and random events with simple and intuitive examples, and we will see how different approaches have been used to model information and chance in different times. The introduction here is twofold. Chapter 1 \textit{Descriptive statistics} introduces the idea of uncertainty, sampling, and central tendency, aiming to describe and understand populations and observation sets, while Chapter 2 \textit{Probability and random events} focuses on the mathematical definition of probability. Here we will cover the idea of random processes - also referred to as \textit{stochastic}, probability and distribution, as a set of tools that enables mathematical predictions in uncertain cases, such as the \textit{expected value}.
-
-Chapter 3 \textit{Parameter estimation} will introduce the essential difference between prediction and inference, and revisit the concept of sampling and population in more detail. We will discuss how to build \textit{estimator} quantities out of our samples, as a way to reconstruct - or \textit{infer} - the underlying phenomena of a population given a finite set of observations. Here we will see some general results which may sound familiar already, such as \textit{"The Law of Large Numbers"}, the \textit{"The Central Limit Theorem"}, or the \textit{"Maximum Likelihood Estimation"} method.
-
-In Chapter 4 we will discuss a group of topics commonly referred to as \textit{hypothesis testing}. Here we will introduce the idea of hypothesis, how to quantify certainty and bias, how to model significance with the so-called \textit{p-values}, and some common examples of statistic tests. Chapter 5 will cover with some detail conditional and Bayesian probability, revisit the idea of stochasticity and introduce the so called Markov processes.
-
-\medskip
-
-At the end of each chapter there will be a series of exercises and coding examples to illustrate and demonstrate the concepts discussed. To avoid misconceptions, let us emphasize here that both, probability and statistics are just branches of mathematics dealing chance and information in random events, \textit{much earlier} than computers, coding languages, Python, R or P-values were even conceived. The data-oriented, practical ways in which probability and statistics are usually taught, relying heavily on computation, is just a consequence of the fact that automatized measurements are nowadays available and trendy in modern times [...].
-
-\medskip
-
-Example textbooks covering introduction to probability and statistical inference, for further reading:
-
-\begin{itemize}
-\item A simple, intuitive introduction to statistics with few mathematical concepts is provided in Spiegelhalter's \textit{"The Art of Statistics: How to Learn from Data"} \cite{spiegelhalter2019art}. 
-\item A more foundational textbook, with more advanced mathematical approach, can be found at DeGroot and Schervish's \textit{"Probability and Statistics"} \cite{degroot2012probability}.   
-\item For a philosophical and historical perspective on probability and statistics, please find Forster and Bandyopadhyay's handbook \textit{"Philosophy of Statistics"} \cite{bandyopadhyay2011philosophy}.
-\item A comprehensive introduction with focus on practical applications and modern data analysis tools is can be found at Diez, Barr \& Mine \textit{"OpenIntro Statistics"} \cite{openintro2025}.
-\item For fundamental concepts in probability and statistics, including random variables, distributions and statistical inference, with practical examples and exercises follow Hossein Pishro-Nik's \textit{"Probability, Statistics \& Random Processes"} \cite{pishronik2014introduction}.
-\end{itemize}
-
-\newpage
 
 \section*{A bit of history}
 \addcontentsline{toc}{section}{A bit of history}
@@ -63,4 +22,3 @@ The formalization of probability as a mathematical discipline did not occur unti
 \medskip
 
 The modern axiomatic formulation of probability was introduced in the early 20th century by the Russian mathematician Andrey Kolmogorov. In his 1933 monograph \textit{"Grundbegriffe der Wahrscheinlichkeitsrechnung"} (\textit{"Foundations of the Theory of Probability"}) \cite{kolmogorov1933grundbegriffe}, Kolmogorov synthesized classical and frequentist ideas into a rigorous mathematical framework based on measure theory. His axioms remain the standard foundation for probability theory to this day. It may seem surprising that a concept with such ancient origins was not formally axiomatized until relatively recent times, and we will return to Kolmogorov’s formulation and its implications in greater detail in Chapter 5. Nevertheless, philosophical discussions about the interpretation of probability and its relation to the physical sciences - especially in the context of determinism, epistemology and modern topics such as quantum mechanics - predate Kolmogorov's formulation and continue to evolve to this day.
-

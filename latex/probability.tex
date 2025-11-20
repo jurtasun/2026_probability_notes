@@ -1,19 +1,18 @@
 \documentclass[12pt]{book}
 
-% --- CONFIG ---
-\input{00_config/packages}
-\input{00_config/commands}
+% Config files
+\input{00_config/packages.tex}
+\input{00_config/commands.tex}
 
-% --- BIBLIOGRAPHY ---
+% Bibliography
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography/references.bib}
 
 \begin{document}
 
-% ---------------------------------------------------------
-% CUSTOM TITLE PAGE
-% ---------------------------------------------------------
+% Custom frontpage
 \begin{titlepage}
+
     \thispagestyle{empty}
 
     \begin{center}
@@ -45,34 +44,37 @@
         {\large \today\par}
 
     \end{center}
+    
 \end{titlepage}
 
-% ---------------------------------------------------------
-% FRONT MATTER (no numbering or optional Roman)
-% ---------------------------------------------------------
+
+% Front matter: no numbering or optional Roman
 \frontmatter
 \tableofcontents
 
-% ---------------------------------------------------------
-% MAIN MATTER: Arabic numbering begins here
-% ---------------------------------------------------------
+% Main matter: Arabic numbering begins here
 \mainmatter
 \setcounter{page}{1}
 
-% --- CHAPTERS ---
+% Preface & Introduction
 \include{chapters/preface}
 \include{chapters/introduction}
 
+% Chapters
 \include{chapters/chapter1}
 \include{chapters/chapter2}
 \include{chapters/chapter3}
 \include{chapters/chapter4}
 \include{chapters/chapter5}
 
-% --- APPENDIX ---
-\include{chapters/appendix}
+% Appendix
+\appendix
+\renewcommand{\thechapter}{Appendix \arabic{chapter}}
+\include{chapters/appendix1}
+\include{chapters/appendix2}
+\include{chapters/appendix3}
 
-% --- BIBLIOGRAPHY ---
+% Bibliography
 \printbibliography
 
 \end{document}

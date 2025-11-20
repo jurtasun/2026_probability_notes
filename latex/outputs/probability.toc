@@ -1,18 +1,44 @@
 \contentsline {chapter}{Preface}{1}{chapter*.2}%
-\contentsline {chapter}{Introduction}{3}{chapter*.3}%
-\contentsline {section}{The purpose of these notes}{3}{section*.4}%
-\contentsline {section}{A bit of history}{6}{section*.4}%
-\contentsline {chapter}{\numberline {1}Descriptive statistics}{9}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Sampling and data types}{10}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Central tendency and variation}{11}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Data visualization}{16}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Dependency, linearity, correlation}{18}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Foundations of Probability}{27}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Sample Spaces}{27}{section.2.1}%
-\contentsline {chapter}{\numberline {3}Prediction and inference}{29}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Sample Spaces}{29}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Introduction to hypothesis testing}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Sample Spaces}{31}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Introduction to conditional probaility}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Sample Spaces}{33}{section.5.1}%
-\contentsline {chapter}{\numberline {A}Additional Results}{35}{appendix.A}%
+\contentsline {section}{The purpose of these notes}{1}{section*.3}%
+\contentsline {chapter}{Introduction}{5}{chapter*.4}%
+\contentsline {section}{A bit of history}{5}{section*.5}%
+\contentsline {chapter}{\numberline {1}Descriptive statistics}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Population and sampling}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Central tendency and variation}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Data visualization}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Dependency and correlation}{7}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Foundations of Probability}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}What is probability?}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Discrete random variables}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Bernoulli events}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Binomial distribution}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Poisson distribution}{11}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Discrete uniform distribution}{11}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Continuous random variables}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Continuous uniform distribution}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Exponential distribution}{11}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Gaussian distribution}{11}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Expectation values}{11}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Prediction and inference}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Prediction vs inference}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The Law of Large Numbers}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Central Limit Theorem}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Application to Generalized Linear Models}{15}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Introduction to hypothesis testing}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Prediction vs inference revisted}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}General approach to hypothesis testing}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Statistical tests: some examples}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Compare sample mean with hypothesized value - One sample t-test}{19}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Compare sample means of two independent groups - Two sample t-test}{19}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Compare variation on more than two groups - Fisher's ANOVA}{19}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Compare distributions and testing for normality - $\chi ^{2}$ test}{19}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Parametric and non-parametric tests}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparing data and normalization}{19}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Introduction to conditional probability}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Motivation and philosophy}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Mathematical definition}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Some examples of conditional probility}{23}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Stochasticity and Markov processes}{23}{section.5.4}%
+\contentsline {chapter}{\numberline {Appendix 1}Vectors and matrices: a quick review}{27}{appendix.A}%
+\contentsline {chapter}{\numberline {Appendix 2}Functions and derivatives: a quick review}{29}{appendix.B}%
+\contentsline {chapter}{\numberline {Appendix 3}Integral calculus: a quick review}{31}{appendix.C}%
