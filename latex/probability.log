@@ -2,7 +2,7 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded forma
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**probability.tex
+**probability
 (./probability.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -692,12 +692,7 @@ Writing index file probability.idx
 ! Undefined control sequence.
 l.22 \epigraphfontsize
                       {\small}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+? 
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
 
@@ -939,7 +934,28 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 \@quotelevel=\count442
 \@quotereset=\count443
 
-(outputs/probability.aux)
+(./probability.aux (./chapters/preface.aux) (./chapters/introduction.aux)
+(./chapters/chapter1.aux
+
+LaTeX Warning: Label `fig:histogram1' multiply defined.
+
+
+LaTeX Warning: Label `fig:histogram1@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:histogram1' multiply defined.
+
+
+LaTeX Warning: Label `fig:histogram1@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:histogram1' multiply defined.
+
+
+LaTeX Warning: Label `fig:histogram1@cref' multiply defined.
+
+) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux)
+(./chapters/chapter5.aux) (./chapters/appendix.aux))
 \openout1 = `probability.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 11.
@@ -1374,29 +1390,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
 <to be read again> 
                    \relax 
 l.129 \begin{equation}
-                      
-
-LaTeX Warning: Reference `eq:sample_mean1' on page 12 undefined on input line 1
-40.
-
-
-LaTeX Warning: Reference `eq:sample_mean2' on page 12 undefined on input line 1
-40.
-
-
-LaTeX Warning: Reference `eq:sample_mean2' on page 12 undefined on input line 1
-44.
-
-[12 <./figures/chapter1/histogram1_bins_small.png> <./figures/chapter1/histogra
-m2_bins_small.png>]
-
-LaTeX Warning: Reference `eq:sample_mean2' on page 13 undefined on input line 1
-59.
-
-
-LaTeX Warning: Reference `eq:median' on page 13 undefined on input line 177.
-
-[13
+                       [12 <./figures/chapter1/histogram1_bins_small.png> <./fi
+gures/chapter1/histogram2_bins_small.png>] [13
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
 6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1409,24 +1404,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
                                                   \__shipout_drop_firstpage_...
 l.178 \begin{equation}
                        <./figures/chapter1/histogram1_bins_large.png> <./figure
-s/chapter1/histogram2_bins_large.png>]
-
-LaTeX Warning: Reference `eq:median' on page 14 undefined on input line 191.
-
-
-LaTeX Warning: Reference `fig:histogram_comparison1' on page 14 undefined on in
-put line 196.
-
-
-LaTeX Warning: Reference `eq:sample_variance' on page 14 undefined on input lin
-e 216.
-
-[14]
-
-LaTeX Warning: Reference `eq:sample_variance' on page 15 undefined on input lin
-e 233.
-
-[15
+s/chapter1/histogram2_bins_large.png>] [14] [15
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
 13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1439,23 +1417,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
                                                   \__shipout_drop_firstpage_...
 l.269 
       ]
-<figures/chapter1/box_1.png, id=214, 498.4221pt x 317.0244pt>
+<figures/chapter1/box_1.png, id=223, 498.4221pt x 317.0244pt>
 File: figures/chapter1/box_1.png Graphic file (type png)
 <use figures/chapter1/box_1.png>
 Package pdftex.def Info: figures/chapter1/box_1.png  used on input line 274.
 (pdftex.def)             Requested size: 225.4819pt x 157.8394pt.
-<figures/chapter1/box_2.png, id=215, 498.4221pt x 317.0244pt>
+<figures/chapter1/box_2.png, id=224, 498.4221pt x 317.0244pt>
 File: figures/chapter1/box_2.png Graphic file (type png)
 <use figures/chapter1/box_2.png>
 Package pdftex.def Info: figures/chapter1/box_2.png  used on input line 281.
 (pdftex.def)             Requested size: 225.4819pt x 157.8394pt.
-<figures/chapter1/violin_1.png, id=216, 498.4221pt x 317.0244pt>
+<figures/chapter1/violin_1.png, id=225, 498.4221pt x 317.0244pt>
 File: figures/chapter1/violin_1.png Graphic file (type png)
 <use figures/chapter1/violin_1.png>
 Package pdftex.def Info: figures/chapter1/violin_1.png  used on input line 293.
 
 (pdftex.def)             Requested size: 225.4819pt x 157.8394pt.
-<figures/chapter1/violin_2.png, id=217, 498.4221pt x 317.0244pt>
+<figures/chapter1/violin_2.png, id=226, 498.4221pt x 317.0244pt>
 File: figures/chapter1/violin_2.png Graphic file (type png)
 <use figures/chapter1/violin_2.png>
 Package pdftex.def Info: figures/chapter1/violin_2.png  used on input line 300.
@@ -1465,62 +1443,39 @@ Package pdftex.def Info: figures/chapter1/violin_2.png  used on input line 300.
 
 LaTeX Warning: Citation 'pearson1892' on page 16 undefined on input line 314.
 
-
-LaTeX Warning: Reference `fig:histogram_comparison1' on page 16 undefined on in
-put line 314.
-
-
-LaTeX Warning: Reference `fig:histogram_comparison1' on page 16 undefined on in
-put line 314.
-
 [16 <./figures/chapter1/box_1.png> <./figures/chapter1/box_2.png>]
-
-LaTeX Warning: Reference `fig:histogram_comparison2' on page 17 undefined on in
-put line 318.
-
-
-LaTeX Warning: Reference `fig:histogram_comparison3' on page 17 undefined on in
-put line 318.
-
-<figures/chapter1/mean_std_hist.png, id=225, 498.4221pt x 317.5062pt>
+<figures/chapter1/mean_std_hist.png, id=238, 498.4221pt x 317.5062pt>
 File: figures/chapter1/mean_std_hist.png Graphic file (type png)
 <use figures/chapter1/mean_std_hist.png>
 Package pdftex.def Info: figures/chapter1/mean_std_hist.png  used on input line
  324.
 (pdftex.def)             Requested size: 281.85587pt x 179.5512pt.
-<figures/chapter1/mean_std_box.png, id=226, 498.4221pt x 316.5426pt>
+<figures/chapter1/mean_std_box.png, id=239, 498.4221pt x 316.5426pt>
 File: figures/chapter1/mean_std_box.png Graphic file (type png)
 <use figures/chapter1/mean_std_box.png>
 Package pdftex.def Info: figures/chapter1/mean_std_box.png  used on input line 
 331.
 (pdftex.def)             Requested size: 281.85587pt x 179.00629pt.
-<figures/chapter1/mean_std_violin.png, id=227, 498.4221pt x 316.5426pt>
+<figures/chapter1/mean_std_violin.png, id=240, 498.4221pt x 316.5426pt>
 File: figures/chapter1/mean_std_violin.png Graphic file (type png)
 <use figures/chapter1/mean_std_violin.png>
 Package pdftex.def Info: figures/chapter1/mean_std_violin.png  used on input li
 ne 338.
 (pdftex.def)             Requested size: 281.85587pt x 179.00629pt.
 
+
 LaTeX Warning: Citation 'tukey1977' on page 17 undefined on input line 343.
-
-
-LaTeX Warning: Reference `fig:box_comparison' on page 17 undefined on input lin
-e 343.
-
-
-LaTeX Warning: Reference `fig:histogram_comparison1' on page 17 undefined on in
-put line 343.
 
 
 LaTeX Warning: Citation 'hintze1997' on page 17 undefined on input line 347.
 
 [17 <./figures/chapter1/violin_1.png> <./figures/chapter1/violin_2.png>]
-<figures/chapter1/linear1.png, id=235, 498.663pt x 318.9516pt>
+<figures/chapter1/linear1.png, id=250, 498.663pt x 318.9516pt>
 File: figures/chapter1/linear1.png Graphic file (type png)
 <use figures/chapter1/linear1.png>
 Package pdftex.def Info: figures/chapter1/linear1.png  used on input line 363.
 (pdftex.def)             Requested size: 281.85587pt x 180.27611pt.
-<figures/chapter1/quadratic1.png, id=236, 498.663pt x 318.7107pt>
+<figures/chapter1/quadratic1.png, id=251, 498.663pt x 318.7107pt>
 File: figures/chapter1/quadratic1.png Graphic file (type png)
 <use figures/chapter1/quadratic1.png>
 Package pdftex.def Info: figures/chapter1/quadratic1.png  used on input line 37
@@ -1535,11 +1490,6 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.4.
                                                   \__shipout_drop_firstpage_...
 l.450 \end{align}
                   <./figures/chapter1/linear1.png>]
-
-LaTeX Warning: Reference `eq:correlation' on page 22 undefined on input line 45
-9.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.4.
 23}) has been already used, duplicate ignored
 <to be read again> 
@@ -1663,11 +1613,9 @@ Appendix A.
 
 LaTeX Warning: Empty bibliography on input line 76.
 
-(outputs/probability.aux (outputs/chapters/preface.aux)
-(outputs/chapters/introduction.aux) (outputs/chapters/chapter1.aux)
-(outputs/chapters/chapter2.aux) (outputs/chapters/chapter3.aux)
-(outputs/chapters/chapter4.aux) (outputs/chapters/chapter5.aux)
-(outputs/chapters/appendix.aux))
+(./probability.aux (./chapters/preface.aux) (./chapters/introduction.aux)
+(./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux)
+(./chapters/chapter4.aux) (./chapters/chapter5.aux) (./chapters/appendix.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1677,7 +1625,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `probability.out' has not changed.
 (rerunfilecheck)             Checksum: 32CC83CB8BE941062D906554A0633B15;2892.
@@ -1691,13 +1639,13 @@ Package logreq Info: Writing requests to 'probability.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28635 strings out of 474116
- 499129 string characters out of 5743681
+ 28657 strings out of 474116
+ 499469 string characters out of 5743681
  1941187 words of memory out of 5000000
- 50086 multiletter control sequences out of 15000+600000
+ 50094 multiletter control sequences out of 15000+600000
  635537 words of font info for 413 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,12n,134p,1577b,1405s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,12n,134p,1573b,1405s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></us
 r/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/loc
 al/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/tex
@@ -1708,10 +1656,10 @@ nts/type1/public/newtx/txsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type
 1/public/newtx/ztmb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/
 newtx/ztmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/ztm
 ri.pfb>
-Output written on outputs/probability.pdf (39 pages, 1368617 bytes).
+Output written on probability.pdf (39 pages, 1368750 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
+ 420 PDF objects out of 1000 (max. 8388607)
+ 324 compressed objects within 4 object streams
  91 named destinations out of 1000 (max. 500000)
  84193 words of extra memory for PDF output out of 89155 (max. 10000000)
 

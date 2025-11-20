@@ -3,7 +3,8 @@ $out_dir = 'outputs';
 $aux_dir = 'outputs';
 
 # Use Biber for biblatex
-$biber = 'biber';
+$bibtex_use = 2; # use biber
+$biber = 'biber --output-directory=outputs';
 
 # Latex command — preserve relative paths so \input and \include work
 $pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';

@@ -5,23 +5,64 @@
 \input{00_config/commands}
 
 % --- BIBLIOGRAPHY ---
-\usepackage[backend=biber,style=authoryear]{biblatex}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography/references.bib}
-
-\title{Probability Theory}
-\author{Your Name}
-\date{\today}
 
 \begin{document}
 
-\maketitle
+% ---------------------------------------------------------
+% CUSTOM TITLE PAGE
+% ---------------------------------------------------------
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{center}
+
+        % Logo
+        \vspace*{2cm}
+        \includegraphics[width=0.45\textwidth]{figures/frontpage/icl_logo.jpeg}
+
+        % Space between logo and title
+        \vspace{3cm}
+
+        % Title
+        {\Huge\bfseries Introduction to probability theory\\[0.4em]
+        and statistical inference\par}
+
+        \vspace{1.8cm}
+
+        % Author
+        {\Large Jes\'us Urtasun Elizari\par}
+
+        \vspace{1.2cm}
+
+        % Department
+        {\Large Research Computing and Data Science\par}
+
+        \vspace{2cm}
+
+        % Date
+        {\large \today\par}
+
+    \end{center}
+\end{titlepage}
+
+% ---------------------------------------------------------
+% FRONT MATTER (no numbering or optional Roman)
+% ---------------------------------------------------------
+\frontmatter
 \tableofcontents
 
-% --- FRONT MATTER ---
+% ---------------------------------------------------------
+% MAIN MATTER: Arabic numbering begins here
+% ---------------------------------------------------------
+\mainmatter
+\setcounter{page}{1}
+
+% --- CHAPTERS ---
 \include{chapters/preface}
 \include{chapters/introduction}
 
-% --- MAIN CHAPTERS ---
 \include{chapters/chapter1}
 \include{chapters/chapter2}
 \include{chapters/chapter3}
