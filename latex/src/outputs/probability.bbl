@@ -377,11 +377,23 @@ Augustin-Louis Cauchy.
 \newblock {\em ``{Cours d'Analyse de l'Ecole Royale Polytechnique}''}.
 \newblock Debure, Paris, 1821.
 
+\bibitem{fourier_1878_heat}
+Jean-Baptiste~Joseph Fourier.
+\newblock {\em ``{The Analytical Theory of Heat}''}.
+\newblock Cambridge University Press, Cambridge, 1878.
+\newblock English translation by Alexander Freeman.
+
 \bibitem{galton_1886_regression}
 Francis Galton.
 \newblock {``\emph{Regression towards Mediocrity in Hereditary Stature}''}.
 \newblock {\em The Journal of the Anthropological Institute of Great Britain
   and Ireland}, 15:246--263, 1886.
+
+\bibitem{legendre_1805_least}
+Adrien-Marie Legendre.
+\newblock {\em ``{Nouvelles méthodes pour la détermination des orbites des
+  comètes}''}.
+\newblock F. Didot, Paris, 1805.
 
 \bibitem{strang_2016_linear}
 Gilbert Strang.
