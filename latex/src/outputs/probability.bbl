@@ -230,6 +230,16 @@ Siméon-Denis Poisson.
 \newblock {\em ``{Recherches sur la probabilité des jugements}''}.
 \newblock 1837.
 
+\bibitem{rao_1973_linear}
+C.~R. Rao.
+\newblock {\em ``{Linear Statistical Inference and Its Applications}''}.
+\newblock Wiley, 1973.
+
+\bibitem{lehmann_1998_theory}
+Erich~L. Lehmann and George Casella.
+\newblock {\em ``{Theory of Point Estimation}''}.
+\newblock Springer, 2 edition, 1998.
+
 \bibitem{pearson_neyman_1933_efficient}
 Jerzy Neyman and Egon~S. Pearson.
 \newblock {``\emph{On the Problem of the Most Efficient Tests of Statistical
