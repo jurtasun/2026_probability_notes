@@ -1,51 +1,43 @@
-% Chapter - Introduction to Bayesian probability ..............................................................
-
+% Chapter - Introduction to Bayesian probability ......................................................................
 \chapter{Introduction to Bayesian probability}
 \label{chapter6}
 
 \epigraph{\textit{Probability statements are just summaries\\of repeated observations.}}{— W. V. Quine}
 
-Bayesian probability plays a central role in modern statistical reasoning, providing a principled framework for quantifying and updating uncertainty. In this approach, probability is not restricted to long-run frequencies but is interpreted more generally as a measure of uncertainty about events, parameters, or hypotheses. This flexibility allows Bayesian methods to address a wide range of inferential problems in a coherent and unified manner \cite{degroot_2012_probability, jaynes_2003_logic}.
+Bayesian probability plays a central role in modern statistical reasoning, providing a framework for quantifying and updating uncertainty. As a mathematical framework, it has deep philosophical roots, and it is grounded in the idea that probabilities do not represent only long-run frequencies, but they should be interpreted more generally as a measure of uncertainty about events \textit{and} prior information. This flexibility allows Bayesian methods to address a wide range of inferential problems in a coherent and unified manner, and they are widely used in the scientific community to represent uncertainty, incorporate prior knowledge, and update conclusions as new data become available \cite{degroot_2012_probability, jaynes_2003_logic}.
 
 \medskip
 
-As discussed in the previous chapter, classical hypothesis testing is primarily concerned with controlling Type~I and Type~II errors. While this framework has been highly influential, it introduces important limitations: inference is reduced to binary decisions, and conclusions depend critically on arbitrary significance thresholds. Moreover, $p$-values do not directly quantify the probability of a hypothesis being true, which often leads to misinterpretation in practice \cite{lehmann_1959_testing, cox_2006_principles}.
-
-\medskip
+As discussed in the previous chapter, classical hypothesis testing is primarily concerned with \(p\)-values, and then controlling Type~I and Type~II errors. While this framework has been highly influential, it introduces important limitations: inference is reduced to binary decisions, and conclusions depend critically on arbitrary significance thresholds, as we saw in previous chapters. Moreover, $p$-values do not directly quantify the probability of a hypothesis being true, but rather cumulative probabilities of certain intermediate quantities, such as statistic tests, which often leads to misinterpretation in practice \cite{lehmann_1959_testing, cox_2006_principles}.
 
 Attempts to address these issues include adjusting $p$-values (e.g.\ for multiple comparisons) or returning to Fisher’s original interpretation of significance as a measure of evidence rather than a strict decision rule \cite{fisher_1925_statistical, fisher_1935_design}. However, such modifications do not fully resolve concerns about the reliability and interpretation of statistical conclusions.
 
 \medskip
 
-A more fundamental response is to reconsider the epistemological foundations of statistical inference. Instead of viewing statistics as a tool for hypothesis rejection, one may interpret it as a formal mechanism for updating beliefs in light of evidence. This perspective aligns naturally with Bayesian reasoning, in which prior information is combined with observed data to produce posterior conclusions.
+A more fundamental response is to reconsider the epistemological foundations of statistical inference. Instead of viewing statistics as a tool for hypothesis rejection, one may interpret it as a formal mechanism for updating beliefs in light of evidence. This perspective, rethinking what we mean by probability in the first place, what is a hypothesis, how to quantify or change a degree of belief as new evidence comes available, is what is normally referred to as \textit{Bayesian reasoning}, in which prior information is combined with observed data to produce posterior conclusions.
 
 \medskip
 
-From a philosophical standpoint, this shift reflects broader debates on the nature of probability and scientific reasoning. The frequentist interpretation, associated with the work of von Mises \cite{vonmises_1928_truth}, defines probability through limiting frequencies of repeatable experiments, whereas the Bayesian and subjectivist interpretations, developed by Ramsey and de Finetti, treat probability as an expression of rational belief under uncertainty \cite{ramsey_1931_foundations, definetti_1974_probability}. These perspectives are discussed extensively in the philosophy of statistics literature \cite{bandyopadhyay_2011_philosophy}.
-
-\medskip
-
-In contemporary practice, statistics is increasingly viewed as a discipline concerned with reasoning, interpretation, and communication. As Spiegelhalter \cite{spiegelhalter_2019_art} emphasizes, \textit{Statistics is the science of learning from data, and of measuring, controlling and communicating uncertainty}. Within this perspective, Bayesian methods provide a natural and transparent way to represent uncertainty, incorporate prior knowledge, and update conclusions as new data become available.
+From a philosophical standpoint, this shift reflects broader debates on the nature of probability, scientific reasoning, and theory of knowledge itself. As we discuss in the first two chapters, the frequentist interpretation, associated with the work of von Mises \cite{vonmises_1928_truth}, defines probability through limiting frequencies of repeated measurements. The Bayesian and subjectivist interpretations, as we will see, rooted in the works of Thomas Bayes, and further developed by Ramsey and de Finetti, treat probability as an expression of rational belief under uncertainty \cite{ramsey_1931_foundations, definetti_1974_probability}. These perspectives are discussed extensively in the philosophy of statistics literature \cite{bandyopadhyay_2011_philosophy}.
 
 % Independent and conditional events ..................................................................................
 \section{Independent and conditional events}
 
-In many situations involving uncertainty, we are interested not only in whether events occur, but in how the occurrence of one event influences another. For instance, observing an outcome may change our expectations about what follows. The language of conditional probability provides a precise way to describe this dependence, forming the basis for reasoning under uncertainty.
+In many situations involving uncertainty, we are interested not only in whether events occur, but in how the occurrence of one event influences another. In many situations, observing an outcome may change our expectations about what follows. The language of conditional probability provides a precise way to describe this dependence, forming the basis for reasoning under uncertainty.
 
-A central question is therefore whether two events are related or not. If knowing that one event has occurred does not change our assessment of the other, the events are said to be independent; otherwise, they are dependent. This distinction is fundamental, as it determines whether information can be ignored or must be incorporated into our reasoning. In particular, conditional probability allows us to update probabilities when new information becomes available, a principle that will be essential when we later consider inverse problems and Bayes’ rule.
+A central question is therefore whether two events are related or not. If knowing that one event has occurred does not change our assessment of the other, the events are said to be \textit{independent}; otherwise, we say they are \textit{dependent}. This distinction is fundamental, as it determines whether information can be ignored or must be incorporated into our reasoning. In particular, conditional probability allows us to update probabilities when new information becomes available, a principle that will be essential when we later consider inverse problems and the Bayes’ rule.
 
 \medskip
 
-Events $A$ and $B$ are said to be independent if the occurrence of one does not affect the probability of the other:
+Two events $A$ and $B$ are said to be independent if the occurrence of one does not affect the probability of the other:
 \begin{equation}
-    P(A \cap B) = P(A)P(B).
+    P(A \cap B) = P(A)P(B) \; ,
 \end{equation}
 
-Equivalently,
+this means that the probability of both events occurring, or the \textit{intersection} \(P(A \cap B)\), is just the product of probabilities \(P(A)P(B)\). 
 \begin{equation}
-    P(A \mid B) = P(A).
+    P(A \mid B) = P(A) \; .
 \end{equation}
-
 
 \textbf{Examples of independent events:}
 
@@ -56,23 +48,22 @@ Equivalently,
 \]
 and indeed $P(A\cap B)=P(A)P(B)=\tfrac{1}{4}$, so the events are independent.
 
-\item \textit{Two dice:} Let $A$ be “first die shows a 6” and $B$ be “second shows even number.” Then
+\item \textit{Two dice:} Let $A$ be “first roll shows a 6” and $B$ be “second shows even number.” Then
 \[
     P(A)=\tfrac{1}{6}, \quad P(B)=\tfrac{3}{6}=\tfrac{1}{2}, \quad P(A\cap B)=\tfrac{1}{12},
 \]
-which again satisfies $P(A\cap B)=P(A)P(B)$.
+which again satisfies $P(A\cap B)=P(A)P(B)$, and hence both dice rolls are also independent.
 \end{itemize}
 
-When this property fails, events are what we call \textit{dependent}, and conditioning becomes essential:
+When this property fails, $A$ and $B$ are what we call \textit{dependent}, and $P(A \mid B)$ is given by:
 \begin{equation}
     P(A \mid B)=\frac{P(A\cap B)}{P(B)}.
 \end{equation}
 
-
 \textbf{Examples of dependent events:}
 
 \begin{itemize}
-\item \textit{Drawing cards without replacement.} Consider a standard deck of 52 cards. In this case, it we let $A$ be “first card is an Ace” and $B$ be “second card is an Ace.” Then
+\item \textit{Drawing cards without replacement.} Consider a standard deck of 52 cards. In this case, if we let $A$ be “first card is an Ace” and $B$ be “second card is an Ace.” Then
 \[
     P(A)=\tfrac{4}{52}, \qquad P(B)=\tfrac{4}{52},
 \]
@@ -100,205 +91,209 @@ The notion of conditional probability introduced in the previous section natural
 
 \medskip
 
-Bayes’ rule provides a principled solution to this question. It follows directly from the symmetry of joint probability,
+The mathematical solution to this question originates in the work of Thomas Bayes, whose posthumous essay \textit{``An Essay towards Solving a Problem in the Doctrine of Chances''} addressed the problem of inferring causes from observed events \cite{bayes_1763_doctrine}. The significance of this result was later recognized and greatly extended by Laplace, who developed it into a general framework for scientific reasoning \cite{laplace_1812_theorie}. Philosophically, Bayes’ rule embodies the idea that learning from data consists in updating prior beliefs in a consistent and quantitative manner.
+
+\medskip
+
+It follows directly from the symmetry of joint probability,
 \begin{equation}
-    P(A \cap B) = P(B \cap A),
+    P(A \cap B) = P(B \cap A) \; ,
 \end{equation}
 
-together with the definition of conditional probability. Rearranging terms yields
+which, together with the definition of conditional probability, leads to the famous \textit{Bayes' rule}
 \begin{equation}
-    P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}.
+    P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} \; .
 \end{equation}
 
-This formula shows how prior beliefs $P(A)$ are updated in light of observed evidence $B$ through the likelihood $P(B \mid A)$. The elements of this expression are named as follows:
+This formula shows how prior beliefs $P(A)$ are updated in light of observed evidence $B$ through the likelihood $P(B \mid A)$, and normalized by the total probability of $B$, ensuring that the result is a valid probability. The elements of this expression are named as follows:
 
 \begin{itemize}
-    \item{Prior.}
-    \item{Likelihood.}
-    \item{Total marginal probability.}
-    \item{Posterior, updated, conditional probability.}
+    \item{$P(A)$ is the \textbf{prior} probability, representing initial beliefs about the event $A$.}
+    \item{$P(B \mid A)$ is the \textbf{likelihood}, describing how probable the observed event $B$ is given $A$.}
+    \item{$P(B)$ is the \textbf{marginal} probability of observing $B$.}
+    \item{$P(A \mid B)$ is the \textbf{posterior} probability, representing the updated belief about $A$ after observing $B$, or \textit{given that} $B$ happened.}
 \end{itemize}
 
 \medskip
 
-Historically, this idea originates in the work of Thomas Bayes, whose posthumous essay \cite{bayes_1763_doctrine} addressed the problem of inferring causes from observed events. The significance of this result was later recognized and greatly extended by Laplace, who developed it into a general framework for scientific reasoning \cite{laplace_1812_theorie}. Philosophically, Bayes’ rule embodies the idea that learning from data consists in updating prior beliefs in a consistent and quantitative manner.
+\textbf{Example 1: biased vs.\ fair die.}
 
 \medskip
 
-\textbf{Example 1: biased vs fair die.}
-
-Suppose we are given two dice: one fair and one biased such that $P(6)=\tfrac{1}{2}$. One die is chosen at random and rolled once, resulting in a $6$. What is the probability that the chosen die is biased?
+Suppose we are given two dice: one fair and one biased, such that $P(6 \mid \text{biased})=\tfrac{1}{2}.$
+One die is chosen at random and rolled once, resulting in a $6$. What is the probability that the chosen die is biased?
 
 \medskip
 
 \textit{Hypotheses:}
 \[
-H_1:\ \text{die is biased}, \qquad H_2:\ \text{die is fair}.
+    H_1:\ \text{die is biased}, \qquad H_2:\ \text{die is fair}.
 \]
 
 \textit{Priors:}
 \[
-P(H_1)=\tfrac{1}{2}, \qquad P(H_2)=\tfrac{1}{2}.
+    P(H_1)=\tfrac{1}{2}, \qquad P(H_2)=\tfrac{1}{2}.
 \]
 
 \textit{Likelihoods:}
 \[
-P(6 \mid H_1)=\tfrac{1}{2}, \qquad P(6 \mid H_2)=\tfrac{1}{6}.
+    P(6 \mid H_1)=\tfrac{1}{2}, \qquad P(6 \mid H_2)=\tfrac{1}{6}.
 \]
 
 \textit{Marginal probability:}
 \[
-P(6)=P(6 \mid H_1)P(H_1)+P(6 \mid H_2)P(H_2)
-= \tfrac{1}{2}\cdot\tfrac{1}{2}+\tfrac{1}{6}\cdot\tfrac{1}{2}
-= \tfrac{1}{4}+\tfrac{1}{12}
-= \tfrac{1}{3}.
+    P(6)=P(6 \mid H_1)P(H_1)+P(6 \mid H_2)P(H_2)
+    = \tfrac{1}{2}\cdot\tfrac{1}{2}+\tfrac{1}{6}\cdot\tfrac{1}{2}
+    = \tfrac{1}{4}+\tfrac{1}{12}
+    = \tfrac{1}{3}.
 \]
 
 \textit{Posterior:}
 \[
-P(H_1 \mid 6)=\frac{P(6 \mid H_1)P(H_1)}{P(6)}
-=\frac{\tfrac{1}{2}\cdot\tfrac{1}{2}}{\tfrac{1}{3}}
-=\frac{\tfrac{1}{4}}{\tfrac{1}{3}}
-=\tfrac{3}{4}.
+    P(H_1 \mid 6)=\frac{P(6 \mid H_1)P(H_1)}{P(6)}
+    =\frac{\tfrac{1}{2}\cdot\tfrac{1}{2}}{\tfrac{1}{3}}
+    =\tfrac{3}{4}.
 \]
 
 \medskip
 
 \textbf{Example 2: medical testing.}
 
-Suppose a disease has prevalence $P(D)=0.05$. A test has sensitivity $P(+ \mid D)=0.99$ and false positive rate $P(+ \mid D^c)=0.01$. Given a positive test result, what is the probability of having the disease?
+\medskip
+
+Suppose a disease has prevalence $P(H_1)=0.05$. A test has sensitivity $P(+ \mid H_1)=0.99$ and false positive rate $P(+ \mid H_2)=0.01$. Given a positive test result, what is the probability of having the disease?
 
 \medskip
 
 \textit{Hypotheses:}
 \[
-H_1:\ \text{disease present}, \qquad H_2:\ \text{no disease}.
+    H_1:\ \text{disease present}, \qquad H_2:\ \text{no disease}.
 \]
 
 \textit{Priors:}
 \[
-P(H_1)=0.05, \qquad P(H_2)=0.95.
+    P(H_1)=0.05, \qquad P(H_2)=0.95.
 \]
 
 \textit{Likelihoods:}
 \[
-P(+ \mid H_1)=0.99, \qquad P(+ \mid H_2)=0.01.
+    P(+ \mid H_1)=0.99, \qquad P(+ \mid H_2)=0.01.
 \]
 
 \textit{Marginal probability:}
 \[
-P(+)=0.99\cdot 0.05 + 0.01\cdot 0.95
-=0.0495+0.0095
-=0.059.
+    P(+)=0.99\cdot 0.05 + 0.01\cdot 0.95
+    =0.0495+0.0095
+    =0.059.
 \]
 
 \textit{Posterior:}
 \[
-P(H_1 \mid +)=\frac{0.99\cdot 0.05}{0.059}
-\approx 0.84.
+    P(H_1 \mid +)=\frac{0.99\cdot 0.05}{0.059}
+    \approx 0.84.
 \]
 
 \medskip
 
-\textbf{Example 3: Monty Hall problem (extended).}
+\textbf{Example 3: Monty Hall problem.}
 
-Suppose one of three doors hides a prize. A contestant selects a door. The host, who knows where the prize is, opens one of the remaining doors revealing no prize, and offers the option to switch.
+\medskip
+
+The Monty Hall problem became widely known through its popularization in the late twentieth century, where a contestant must choose one of several doors, one of which hides a prize. After the initial choice, the host—who knows where the prize is—opens one of the remaining doors, revealing no prize, and offers the option to switch \cite{vos_savant_1990_monty}.
 
 \medskip
 
 \textit{Hypotheses:}
 \[
-H_1:\ \text{initial choice is correct}, \qquad
-H_2:\ \text{initial choice is incorrect}.
+    H_1:\ \text{initial choice is correct}, \qquad
+    H_2:\ \text{initial choice is incorrect}.
 \]
 
 \textit{Priors:}
 \[
-P(H_1)=\tfrac{1}{3}, \qquad P(H_2)=\tfrac{2}{3}.
+    P(H_1)=\tfrac{1}{3}, \qquad P(H_2)=\tfrac{2}{3}.
 \]
 
-Let $E$ be the event “host opens a door with no prize.”
+Let $E$ be the event “the host opens a specific door showing no prize.”
 
 \medskip
 
 \textit{Likelihoods:}
 \[
-P(E \mid H_1)=\tfrac{1}{2}, \qquad P(E \mid H_2)=1,
+    P(E \mid H_1)=\tfrac{1}{2}, \qquad P(E \mid H_2)=1,
 \]
-since if the initial choice is correct, the host has two possible doors to open, whereas if it is incorrect, the host has only one choice.
+since if the initial choice is correct, the host has two possible doors to open, whereas if it is incorrect, only one door can be opened.
 
 \medskip
 
 \textit{Marginal probability:}
 \[
-P(E)=\tfrac{1}{2}\cdot\tfrac{1}{3} + 1\cdot\tfrac{2}{3}
-=\tfrac{1}{6}+\tfrac{2}{3}
-=\tfrac{5}{6}.
+    P(E)=\tfrac{1}{2}\cdot\tfrac{1}{3} + 1\cdot\tfrac{2}{3}
+    =\tfrac{1}{6}+\tfrac{2}{3}
+    =\tfrac{5}{6}.
 \]
 
 \textit{Posterior:}
 \[
-P(H_1 \mid E)=\frac{\tfrac{1}{2}\cdot\tfrac{1}{3}}{\tfrac{5}{6}}
-=\frac{\tfrac{1}{6}}{\tfrac{5}{6}}
-=\tfrac{1}{5}.
+    P(H_1 \mid E)=\frac{\tfrac{1}{2}\cdot\tfrac{1}{3}}{\tfrac{5}{6}}
+    =\tfrac{1}{5}.
 \]
 
 Thus,
 \[
-P(\text{win by switching}) = 1 - P(H_1 \mid E) = \tfrac{4}{5},
+    P(\text{win by switching}) = 1 - P(H_1 \mid E) = \tfrac{4}{5}.
 \]
-illustrating how conditioning on the host’s action changes the probability structure and favors switching.
 
 \medskip
 
-The Monty Hall problem became widely known through its popularization in the late twentieth century, notably in discussions following its presentation in a magazine column \cite{vos_savant_1990_monty}. It is often perceived as paradoxical because it contradicts the intuitive belief that, after one door is opened, the remaining doors should each have probability $\tfrac{1}{2}$. The resolution lies in recognizing that the host’s action is not independent of the underlying state: the information revealed is conditional and therefore alters the probability space. This example highlights the importance of carefully accounting for the data-generating mechanism when applying conditional probability and Bayes’ rule.
+This result may seem counterintuitive, as one might expect the remaining doors to have equal probability $\tfrac{1}{2}$. However, the key point is that the host’s action is not independent of the underlying situation: the information revealed is conditional and therefore changes the probability structure. This example illustrates the importance of accounting for how data are generated when applying conditional probability and Bayes’ rule.
 
 % Frequentist vs Bayesian .............................................................................................
 \section{Frequentist vs Bayesian}
 
-The frequentist interpretation defines probability as long-run relative frequency and treats parameters as fixed but unknown constants, while randomness arises from sampling variation \cite{vonmises_1928_truth,degroot_2012_probability}. In this view, probability statements are understood through hypothetical repetition: probabilities describe the behavior of a procedure if it were repeated indefinitely under identical conditions.
+The frequentist interpretation defines probability as long-run relative frequency and treats parameters as fixed but unknown constants, while randomness arises from sampling variation \cite{degroot_2012_probability, vonmises_1928_truth}. In this view, probability statements are understood through hypothetical repetition: probabilities describe the behavior of a procedure if it were repeated indefinitely under identical conditions.
 
 \medskip
 
-In this framework, statements such as “the probability that the parameter lies in an interval is 0.95” are avoided, since the parameter is not random; instead, one constructs procedures that produce intervals containing the true parameter in 95\% of repeated samples. This leads to the notion of confidence intervals, which are properties of methods rather than probability statements about specific parameters.
+In this framework, statements such as \textit{“the probability that the parameter lies in an interval is 0.95”} are avoided, since the parameter is not random; instead, one constructs procedures that produce intervals containing the true parameter in 95\% of repeated samples. This grounds better the notion of confidence intervals, which are properties of methods rather than probability statements about specific parameters.
 
 \medskip
 
-The Bayesian interpretation, by contrast, treats probability as a coherent degree of belief constrained by rational consistency, allowing probabilities to be assigned to hypotheses and parameters themselves \cite{ramsey_1931_foundations,definetti_1974_probability}. This interpretation extends the use of probability beyond repeatable experiments to situations involving uncertainty about fixed but unknown quantities.
+The Bayesian interpretation, by contrast, treats probability as a coherent degree of belief constrained by rational consistency, allowing probabilities to be assigned to hypotheses and parameters themselves \cite{ramsey_1931_foundations}. This interpretation extends the use of probability beyond repeatable experiments to situations involving uncertainty about fixed but unknown quantities.
 
 \medskip
 
-Under this view, parameters are modeled as random variables with prior distributions reflecting initial uncertainty, and inference consists of updating this distribution through Bayes’ rule when data are observed. The resulting posterior distribution directly answers questions of interest, such as the probability that a parameter lies within a given interval.
+Under this view, \textit{parameters are modeled as random variables} with prior distributions reflecting initial uncertainty, and inference consists of updating this distribution through Bayes’ rule when data are observed. The resulting posterior distribution directly answers questions of interest, such as the probability that a parameter lies within a given interval.
 
 \medskip
 
-Philosophically, the difference concerns meaning rather than mathematics: frequentism anchors probability in hypothetical repetition, whereas Bayesianism interprets probability as rational belief updated by evidence. As a consequence, Bayesian inference provides a unified framework in which learning, uncertainty, and decision-making are naturally integrated within the probabilistic model itself.
+Philosophically, the difference concerns meaning rather than mathematics: frequentism anchors probability in hypothetical repetition, whereas Bayesianism interprets probability as rational belief updated by evidence. As a consequence, Bayesian inference provides a unified framework in which learning, uncertainty, and decision-making are naturally integrated within the probabilistic model itself \cite{definetti_1974_probability}.
 
 % Bayesian inference ..................................................................................................
 \section{Bayesian inference}
 
-Bayesian probability provides a general interpretation of probability as a degree of belief under uncertainty. Bayesian \emph{statistics}, in contrast, is the application of this interpretation to infer unknown quantities from data. In this setting, unknown parameters are treated as random variables, and inference consists in updating our beliefs about these parameters after observing data.
+As we have seen, bayesian probability provides a general interpretation of probability as a degree of belief under uncertainty. Bayesian \emph{statistics}, in contrast, is the application of this interpretation to \textit{infer unknown quantities from data}. In this setting, unknown parameters are treated as random variables, and inference consists in updating our beliefs about these parameters after observing data.
 
-More precisely, Bayesian statistics combines prior information with observed evidence in a coherent mathematical framework. This represents a conceptual shift from classical approaches: rather than estimating fixed but unknown parameters, we describe uncertainty about them through probability distributions and update these distributions as new data become available.
+More precisely, Bayesian statistics combines prior information with observed evidence in a coherent mathematical framework. This represents a conceptual shift from classical approaches: rather than estimating fixed but unknown parameters, we describe uncertainty \textit{about them} through probability distributions and update these distributions as new data become available.
 
 \medskip
 
-Bayesian inference is based on Bayes’ rule applied to parameters:
+Bayesian inference is based on Bayes’ rule applied to parameters $\theta$ given some data $x$:
 \[
-\pi(\theta \mid x)=\frac{p(x\mid \theta)\,\pi(\theta)}{p(x)}.
+    \pi(\theta \mid x)=\frac{p(x\mid \theta)\,\pi(\theta)}{p(x)}.
 \]
 
-Each term has a clear interpretation:
+This is common notation in inference contexts, and each term has a clear interpretation:
 \begin{itemize}
-\item $\pi(\theta)$ is the \textbf{prior}, representing initial beliefs about the parameter $\theta$,
-\item $p(x \mid \theta)$ is the \textbf{likelihood}, describing how probable the observed data $x$ are for a given $\theta$,
-\item $\pi(\theta \mid x)$ is the \textbf{posterior}, representing updated beliefs after observing $x$,
-\item $p(x)$ is a normalizing constant ensuring the posterior integrates to one.
+    \item $\pi(\theta)$ is the \textbf{prior}, representing initial beliefs about the parameter $\theta$,
+    \item $p(x \mid \theta)$ is the \textbf{likelihood}, describing how probable the observed data $x$ are for a given $\theta$,
+    \item $p(x)$ is the \textbf{marginal} normalization constant, ensuring the posterior integrates to one.
+    \item $\pi(\theta \mid x)$ is the \textbf{posterior}, representing updated beliefs after observing $x$,
 \end{itemize}
 
 This relationship is often summarized as
 \[
-\text{Posterior} \propto \text{Likelihood} \times \text{Prior},
+    \text{Posterior} \propto \text{Likelihood} \times \text{Prior},
 \]
 emphasizing that learning consists of combining prior information with evidence.
 
@@ -310,52 +305,54 @@ emphasizing that learning consists of combining prior information with evidence.
 
 Suppose we want to estimate the probability $\theta$ of obtaining heads when tossing a coin. Before observing any data, we express our uncertainty through a prior distribution. A common choice is the Beta distribution:
 \[
-\theta \sim \mathrm{Beta}(\alpha,\beta),
+    \theta \sim \mathrm{Beta}(\alpha,\beta),
 \]
 which is defined on the interval $[0,1]$ and is therefore well-suited for modeling probabilities. Its parameters $\alpha$ and $\beta$ can be interpreted as prior counts: roughly speaking, $\alpha-1$ prior “heads” and $\beta-1$ prior “tails.”
 
 Now suppose we observe $n$ coin tosses, with $k$ heads. The likelihood of the data is binomial:
 \[
-p(x \mid \theta) \propto \theta^k (1-\theta)^{n-k}.
+    p(x \mid \theta) \propto \theta^k (1-\theta)^{n-k}.
 \]
 
 A key feature of the Beta distribution is that it is \emph{conjugate} to the binomial likelihood, meaning the posterior has the same functional form:
 \[
-\theta \mid x \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
+    \theta \mid x \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
 \]
 
 \textit{Interpretation:} the posterior parameters are obtained by adding the observed counts to the prior counts. For example, if $\alpha=\beta=1$ (a uniform prior) and we observe $k=7$ heads in $n=10$ tosses, then
 \[
-\theta \mid x \sim \mathrm{Beta}(8,4),
+    \theta \mid x \sim \mathrm{Beta}(8,4),
 \]
 reflecting an updated belief that favors larger values of $\theta$.
 
 \medskip
 
-\textbf{Frequentist comparison (coin example).}  
+\textit{Frequentist comparison.}  
+
+\medskip
 
 In a classical hypothesis testing framework, we would approach this problem differently. We would formulate hypotheses such as
 \[
-H_0:\ \theta = 0.5 \quad \text{(fair coin)}, \qquad
-H_1:\ \theta \neq 0.5,
+    H_0:\ \theta = 0.5 \quad \text{(fair coin)}, \qquad
+    H_1:\ \theta \neq 0.5,
 \]
 collect data (the $n$ coin tosses), and compute a test statistic, for example the number of heads $k$ or the sample proportion $\hat{\theta}=k/n$. We would then calculate a $p$-value, representing how likely it is to observe data at least as extreme as $k$ under the assumption that $H_0$ is true. Based on this $p$-value, we would decide whether to reject $H_0$ or not. In contrast, the Bayesian approach does not produce a binary decision: instead, it yields a full distribution for $\theta$, directly quantifying uncertainty and allowing probabilistic statements about the parameter.
 
 \medskip
 
-\textbf{Example: Gaussian mean.}
+\textbf{Example 2: Gaussian mean.}
 
 \medskip
 
 Suppose we observe data $X_1,\dots,X_n$ that are normally distributed:
 \[
-X_i \sim \mathcal{N}(\mu,\sigma^2),
+    X_i \sim \mathcal{N}(\mu,\sigma^2),
 \]
 where the variance $\sigma^2$ is known, and the goal is to infer the unknown mean $\mu$.
 
 We begin by expressing our prior belief about $\mu$:
 \[
-\mu \sim \mathcal{N}(\mu_0,\sigma_0^2),
+    \mu \sim \mathcal{N}(\mu_0,\sigma_0^2),
 \]
 where $\mu_0$ represents our initial guess for the mean, and $\sigma_0^2$ reflects how uncertain we are about this guess (a larger value means more uncertainty).
 
@@ -363,11 +360,11 @@ where $\mu_0$ represents our initial guess for the mean, and $\sigma_0^2$ reflec
 
 After observing data $x=(x_1,\dots,x_n)$, the likelihood function describes how plausible different values of $\mu$ are given the data:
 \[
-p(x \mid \mu) \propto \exp\!\left(-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right).
+    p(x \mid \mu) \propto \exp\!\left(-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right).
 \]
 This expression is maximized when $\mu$ is close to the sample mean
 \[
-\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i,
+    \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i,
 \]
 so the data suggest values of $\mu$ near $\bar{x}$.
 
@@ -375,7 +372,7 @@ so the data suggest values of $\mu$ near $\bar{x}$.
 
 The prior also has a Gaussian form:
 \[
-\pi(\mu) \propto \exp\!\left(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2\right),
+    \pi(\mu) \propto \exp\!\left(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2\right),
 \]
 which favors values of $\mu$ close to $\mu_0$.
 
@@ -383,7 +380,7 @@ which favors values of $\mu$ close to $\mu_0$.
 
 Bayesian inference combines these two pieces of information:
 \[
-\pi(\mu \mid x) \propto p(x \mid \mu)\,\pi(\mu).
+    \pi(\mu \mid x) \propto p(x \mid \mu)\,\pi(\mu).
 \]
 Multiplying the two exponentials results in another quadratic expression in $\mu$, which corresponds again to a Gaussian distribution. This is why the normal prior is called \emph{conjugate} to the normal likelihood.
 
@@ -391,18 +388,19 @@ Multiplying the two exponentials results in another quadratic expression in $\mu
 
 The posterior distribution is therefore
 \[
-\mu \mid x \sim \mathcal{N}\!\left(
-\frac{\tfrac{n}{\sigma^2}\bar{x} + \tfrac{1}{\sigma_0^2}\mu_0}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}},
-\;\frac{1}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}}
-\right).
+    \mu \mid x \sim \mathcal{N}\!\left(
+    \frac{\tfrac{n}{\sigma^2}\bar{x} + \tfrac{1}{\sigma_0^2}\mu_0}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}},
+    \;\frac{1}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}}
+    \right).
 \]
 
 \medskip
 
 \textit{Interpretation.} The posterior mean is a weighted average of two quantities:
+
 \begin{itemize}
-\item the sample mean $\bar{x}$ (information from the data),
-\item the prior mean $\mu_0$ (initial belief).
+    \item the sample mean $\bar{x}$ (information from the data),
+    \item the prior mean $\mu_0$ (initial belief).
 \end{itemize}
 
 The weights depend on the \emph{precision} (inverse variance). If we have many observations (large $n$), the term $\tfrac{n}{\sigma^2}$ becomes large, and the posterior mean is close to $\bar{x}$. If instead the prior is very precise (small $\sigma_0^2$), more weight is given to $\mu_0$.
@@ -413,7 +411,9 @@ In simple terms, the posterior balances prior belief and observed data: it moves
 
 \medskip
 
-\textbf{Frequentist comparison (Gaussian mean).}  
+\textit{Frequentist comparison.}  
+
+\medskip
 
 Similarly, in the Gaussian setting, a classical approach would begin by specifying hypotheses such as
 \[
