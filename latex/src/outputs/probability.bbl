@@ -410,6 +410,17 @@ Gilbert Strang.
 \newblock {\em ``{Introduction to Linear Algebra}''}.
 \newblock Wellesley--Cambridge Press, 5 edition, 2016.
 
+\bibitem{wright_1921_correlation}
+Sewall Wright.
+\newblock {``\emph{Correlation and Causation}''}.
+\newblock {\em Journal of Agricultural Research}, 20(7):557--585, 1921.
+
+\bibitem{vos_savant_1990_monty}
+Marilyn vos Savant.
+\newblock {``\emph{Ask Marilyn: The Monty Hall Problem}''}.
+\newblock {\em Parade Magazine}, 1990.
+\newblock Popularization of the Monty Hall problem and ensuing discussion.
+
 \bibitem{axler_2015_linear}
 Sheldon Axler.
 \newblock {\em ``{Linear Algebra Done Right}''}.

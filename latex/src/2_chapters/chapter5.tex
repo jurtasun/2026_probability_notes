@@ -41,11 +41,11 @@ Quadratic relationships appear when the rate of change itself varies linearly, a
     x(t) = x_0 + v_0t + \tfrac{1}{2}at^2 \; ,
 \]
 
-where $x_0$ and $v_0$ are the initial position and velocity. Apart from plynomial dependency, periodic phenomena are described by sinusoidal functions, which model oscillatory systems such as springs, waves, and currents:
+where $x_0$ and $v_0$ are the initial position and velocity. Apart from polynomial dependency, periodic phenomena are described by sinusoidal functions, which model oscillatory systems such as springs, waves, and currents:
 \[
     x(t) = A\cos(\omega t + \phi) \; .
 \]
-Here $A$ is the amplitud of the oscillation, $\omega$ represents the frequency, and $\phi$ the phase.
+Here $A$ is the amplitude of the oscillation, $\omega$ represents the frequency, and $\phi$ the phase.
 
 \medskip
 
@@ -90,7 +90,7 @@ In practice, observed data rarely follow these idealized forms exactly. Measurem
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/sinusoidal.png}
-        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x)$. Example of there are, for instance, the positon of a wirte with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
+        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x)$. Example of there are, for instance, the position of a wirte with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
         \label{fig:sinusoidal1}
     \end{subfigure}
 
@@ -149,7 +149,7 @@ The use of uppercase letters \(X, Y\), quite common in statistics textbooks, ref
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/sinusoidal_noise.png}
-        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x) \pm \varepsilon$. Example of there are, for instance, the positon of a wirte with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
+        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x) \pm \varepsilon$. Example of there are, for instance, the position of a write with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
         \label{fig:sinusoidal2}
     \end{subfigure}
 
@@ -254,13 +254,17 @@ To illustrate the computation of covariance, consider two short data sets:
 \]
 Their sample means are \(\bar{x} = 2\) and \(\bar{y} = 4\). The covariance is obtained by averaging the products of deviations from the means:
 \[
-    \mathrm{Cov}(X,Y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}).
+    \mathrm{Cov}(X,Y) = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}).
 \]
 Substituting the values:
 \[
-    \mathrm{Cov}(X,Y) = \frac{1}{3}\big[(-1)(-2) + (0)(0) + (1)(2)\big] = \frac{4}{3}.
+    \mathrm{Cov}(X,Y) = \frac{1}{2}\big[(-1)(-2) + (0)(0) + (1)(2)\big] = 2.
 \]
 This positive value reflects the fact that the variables increase together. In general, larger covariance indicates stronger joint variation, while values near zero suggest weak or no linear relationship.
+
+\medskip
+
+Covariance is \textit{scale}—or \textit{unit}—dependent. It is not a bounded quantity, and that can make it not very informative if we are not very careful about the units we used to measure \(x\) and \(y\). Correlation is designed to account for this precise issue.
 
 \medskip
 
@@ -268,19 +272,19 @@ This positive value reflects the fact that the variables increase together. In g
 
 \medskip
 
-To address the scale dependence, we can define the correlation coefficient, which normalizes covariance with the variances of both variables:
+To address the \textit{scale dependence}, we can define the correlation coefficient, which normalizes covariance with the variances of both variables:
 \begin{equation}
     \rho = \frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y} \; .
 \end{equation}
 
 \medskip
 
-As we discusseed in Chapter \ref{chapter1} and Chapter \ref{chapter3} population quantities such as \(\rho\) are typically unknown, and must be estimated from data. The most common estimator for the correlation is Pearson’s \textit{sample correlation coefficient}:
+As we discussed in Chapter \ref{chapter1} and Chapter \ref{chapter3} population quantities such as \(\rho\) are typically unknown, and must be estimated from data. The most common estimator for the correlation is Pearson’s \textit{sample correlation coefficient}:
 \begin{equation}
     r = \frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum (x_i-\bar{x})^2}\sqrt{\sum (y_i-\bar{y})^2}} \; .
 \end{equation}
 
-While Pearson’s coefficient measures linear association, alternative measures have been proposed to capture more general forms of dependence. In particular, Spearman \cite{spearman_1904_association} introduced a rank-based correlation that is sensitive to monotonic relationships and less affected by outliers.
+This quantity is then scale independent, and bound between \(-1\) and \(1\). While Pearson’s coefficient measures linear association, alternative measures have been proposed to capture more general forms of dependence. In particular, Spearman \cite{spearman_1904_association} introduced a rank-based correlation that is sensitive to monotonic relationships and less affected by outliers.
 
 \medskip
 
@@ -322,3 +326,11 @@ In compact form, the model can be written using matrix notation:
 \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon},
 \]
 which reveals its connection to linear algebra. In this setting, estimation by least squares corresponds to projecting the observed data onto the subspace spanned by the columns of \(\mathbf{X}\) \cite{strang_2016_linear}. This geometric interpretation provides additional insight into the structure of the problem, linking statistical estimation with concepts from vector spaces and orthogonality.
+
+\medskip
+
+A final note, back to correlation. The Pearson sample correlation coefficient $r$, introduced by Karl Pearson in 1895, measures the strength and direction of linear association between two variables, taking values in the interval $[-1,1]$. In simple linear regression, people sometimes confuse that with its square $r^2$, normally called \textit{linear correlation coefficient}. 
+
+\medskip
+
+This measure, bounded between \(0\) and \(1\), was later interpreted by Sewall Wright in 1921 as the coefficient of determination, representing the proportion of variance in the response variable explained by the linear relationship with the predictor \cite{wright_1921_correlation}. However, a high $r^2$ does not imply causation and may be misleading if the underlying relationship is non-linear, influenced by outliers, or driven by omitted variables. The frequent confusion between $r$ and $r^2$ arises because both quantify aspects of linear association and coincide in sign and magnitude only in special cases, while $r^2$, being always non-negative, is often reported as a measure of explanatory power rather than direction.
