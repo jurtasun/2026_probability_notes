@@ -42,17 +42,17 @@ this means that the probability of both events occurring, or the \textit{interse
 \textbf{Examples of independent events:}
 
 \begin{itemize}
-\item \textit{Two coin tosses:} Let $A$ be “first toss is heads” and $B$ be “second toss is heads.” Then
-\[
-    P(A)=\tfrac{1}{2}, \quad P(B)=\tfrac{1}{2}, \quad P(A\cap B)=\tfrac{1}{4},
-\]
-and indeed $P(A\cap B)=P(A)P(B)=\tfrac{1}{4}$, so the events are independent.
+    \item \textit{Two coin tosses:} Let $A$ be “first toss is heads” and $B$ be “second toss is heads.” Then
+    \[
+        P(A)=\tfrac{1}{2}, \quad P(B)=\tfrac{1}{2}, \quad P(A\cap B)=\tfrac{1}{4},
+    \]
+    and indeed $P(A\cap B)=P(A)P(B)=\tfrac{1}{4}$, so the events are independent.
 
-\item \textit{Two dice:} Let $A$ be “first roll shows a 6” and $B$ be “second shows even number.” Then
-\[
-    P(A)=\tfrac{1}{6}, \quad P(B)=\tfrac{3}{6}=\tfrac{1}{2}, \quad P(A\cap B)=\tfrac{1}{12},
-\]
-which again satisfies $P(A\cap B)=P(A)P(B)$, and hence both dice rolls are also independent.
+    \item \textit{Two dice:} Let $A$ be “first roll shows a 6” and $B$ be “second shows even number.” Then
+    \[
+        P(A)=\tfrac{1}{6}, \quad P(B)=\tfrac{3}{6}=\tfrac{1}{2}, \quad P(A\cap B)=\tfrac{1}{12},
+    \]
+    which again satisfies $P(A\cap B)=P(A)P(B)$, and hence both dice rolls are also independent.
 \end{itemize}
 
 When this property fails, $A$ and $B$ are what we call \textit{dependent}, and $P(A \mid B)$ is given by:
@@ -63,25 +63,25 @@ When this property fails, $A$ and $B$ are what we call \textit{dependent}, and $
 \textbf{Examples of dependent events:}
 
 \begin{itemize}
-\item \textit{Drawing cards without replacement.} Consider a standard deck of 52 cards. In this case, if we let $A$ be “first card is an Ace” and $B$ be “second card is an Ace.” Then
-\[
-    P(A)=\tfrac{4}{52}, \qquad P(B)=\tfrac{4}{52},
-\]
-but we have to be careful,
-\[
-    P(B \mid A)=\tfrac{3}{51} \neq \tfrac{4}{52},
-\]
-since one Ace has already been removed from the deck. Hence the events are dependent.
+    \item \textit{Drawing cards without replacement.} Consider a standard deck of 52 cards. In this case, if we let $A$ be “first card is an Ace” and $B$ be “second card is an Ace.” Then
+    \[
+        P(A)=\tfrac{4}{52}, \qquad P(B)=\tfrac{4}{52},
+    \]
+    but we have to be careful,
+    \[
+        P(B \mid A)=\tfrac{3}{51} \neq \tfrac{4}{52},
+    \]
+    since one Ace has already been removed from the deck. Hence the events are dependent.
 
-\item \textit{Urn example.} Suppose an urn contains 3 red and 2 blue balls. Let $A$ be “first draw is red” and $B$ be “second draw is red,” without replacement. Then
-\[
-    P(A)=\tfrac{3}{5}, \qquad P(B \mid A)=\tfrac{2}{4}=\tfrac{1}{2},
-\]
-while the second ball is again conditional to which one we picked first:
-\[
-    P(B)=\tfrac{3}{5}.
-\]
-Thus $P(B \mid A) \neq P(B)$, confirming dependence.
+    \item \textit{Urn example.} Suppose an urn contains 3 red and 2 blue balls. Let $A$ be “first draw is red” and $B$ be “second draw is red,” without replacement. Then
+    \[
+        P(A)=\tfrac{3}{5}, \qquad P(B \mid A)=\tfrac{2}{4}=\tfrac{1}{2},
+    \]
+    while the second ball is again conditional to which one we picked first:
+    \[
+        P(B)=\tfrac{3}{5}.
+    \]
+    Thus $P(B \mid A) \neq P(B)$, confirming dependence.
 \end{itemize}
 
 % The Bayes rule ......................................................................................................
@@ -272,7 +272,7 @@ Philosophically, the difference concerns meaning rather than mathematics: freque
 % Bayesian inference ..................................................................................................
 \section{Bayesian inference}
 
-As we have seen, bayesian probability provides a general interpretation of probability as a degree of belief under uncertainty. Bayesian \emph{statistics}, in contrast, is the application of this interpretation to \textit{infer unknown quantities from data}. In this setting, unknown parameters are treated as random variables, and inference consists in updating our beliefs about these parameters after observing data.
+As we have seen, Bayesian probability provides a general interpretation of probability as a degree of belief under uncertainty. Bayesian \emph{statistics}, in contrast, is the application of this interpretation to \textit{infer unknown quantities from data}. In this setting, unknown parameters are treated as random variables, and inference consists in updating our beliefs about these parameters after observing data.
 
 More precisely, Bayesian statistics combines prior information with observed evidence in a coherent mathematical framework. This represents a conceptual shift from classical approaches: rather than estimating fixed but unknown parameters, we describe uncertainty \textit{about them} through probability distributions and update these distributions as new data become available.
 
@@ -287,11 +287,13 @@ This is common notation in inference contexts, and each term has a clear interpr
 \begin{itemize}
     \item $\pi(\theta)$ is the \textbf{prior}, representing initial beliefs about the parameter $\theta$,
     \item $p(x \mid \theta)$ is the \textbf{likelihood}, describing how probable the observed data $x$ are for a given $\theta$,
-    \item $p(x)$ is the \textbf{marginal} normalization constant, ensuring the posterior integrates to one.
-    \item $\pi(\theta \mid x)$ is the \textbf{posterior}, representing updated beliefs after observing $x$,
+    \item $p(x)$ is the \textbf{marginal} normalization constant, ensuring the posterior integrates to one. It is obtained by integrating over all possible values of $\theta$:
+    \[
+        p(x) = \int_0^1 p(x \mid \theta)\,\pi(\theta)\,d\theta.
+    \]
 \end{itemize}
 
-This relationship is often summarized as
+$\pi(\theta \mid x)$ is the \textbf{posterior} distribution, often summarized as
 \[
     \text{Posterior} \propto \text{Likelihood} \times \text{Prior},
 \]
@@ -307,17 +309,34 @@ Suppose we want to estimate the probability $\theta$ of obtaining heads when tos
 \[
     \theta \sim \mathrm{Beta}(\alpha,\beta),
 \]
-which is defined on the interval $[0,1]$ and is therefore well-suited for modeling probabilities. Its parameters $\alpha$ and $\beta$ can be interpreted as prior counts: roughly speaking, $\alpha-1$ prior “heads” and $\beta-1$ prior “tails.”
+which is defined on the interval $[0,1]$ and is therefore well-suited for modeling probabilities. 
+
+\medskip
+
+Its parameters $\alpha$ and $\beta$ can be interpreted as prior pseudo-counts, with $\alpha$ representing prior evidence for heads and $\beta$ for tails; in general, $\alpha$ and $\beta$ act as effective sample sizes. More precisely, $\alpha-1$ and $\beta-1$ can be interpreted as \textit{prior counts only under a particular parametrization}; in general, $\alpha$ and $\beta$ act as effective sample sizes.
 
 Now suppose we observe $n$ coin tosses, with $k$ heads. The likelihood of the data is binomial:
 \[
-    p(x \mid \theta) \propto \theta^k (1-\theta)^{n-k}.
+    p(x \mid \theta) = \binom{n}{k}\theta^k (1-\theta)^{n-k} \; ,
+\]
+
+Since the binomial coefficient does not depend on $\theta$, we may write
+\[
+    p(x \mid \theta) \propto \theta^k (1-\theta)^{n-k} \; .
 \]
 
 A key feature of the Beta distribution is that it is \emph{conjugate} to the binomial likelihood, meaning the posterior has the same functional form:
 \[
     \theta \mid x \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
 \]
+
+The posterior mean is
+\[
+    \mathbb{E}[\theta \mid x] = \frac{\alpha + k}{\alpha + \beta + n},
+\]
+which can be interpreted as a weighted average between prior information and observed data.
+
+\medskip
 
 \textit{Interpretation:} the posterior parameters are obtained by adding the observed counts to the prior counts. For example, if $\alpha=\beta=1$ (a uniform prior) and we observe $k=7$ heads in $n=10$ tosses, then
 \[
