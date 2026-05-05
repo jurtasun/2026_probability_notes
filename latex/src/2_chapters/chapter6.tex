@@ -305,57 +305,58 @@ emphasizing that learning consists of combining prior information with evidence.
 
 \medskip
 
-Suppose we want to estimate the probability $\theta$ of obtaining heads when tossing a coin. Before observing any data, we express our uncertainty through a prior distribution. A common choice is the Beta distribution:
+We want to estimate the probability $\theta$ of obtaining heads when tossing a coin.
+
+\medskip
+
+\textbf{i) Prior distribution.} Before observing any data, we express our uncertainty about $\theta$ through a prior distribution. A natural choice is the Beta distribution,
 \[
     \theta \sim \mathrm{Beta}(\alpha,\beta),
 \]
-which is defined on the interval $[0,1]$ and is therefore well-suited for modeling probabilities. 
+since it is defined on $[0,1]$ and is therefore well-suited for modeling probabilities. The parameters $\alpha$ and $\beta$ act as effective sample sizes: $\alpha$ encodes prior evidence for heads and $\beta$ for tails. For example, $\alpha=\beta=1$ gives a uniform prior, expressing no preference for any value of $\theta$. When $\alpha=\beta=10$, the distribution peaks at $1/2$, indicating a strong belief that the coin is fair.
 
 \medskip
 
-Its parameters $\alpha$ and $\beta$ can be interpreted as prior pseudo-counts, with $\alpha$ representing prior evidence for heads and $\beta$ for tails; in general, $\alpha$ and $\beta$ act as effective sample sizes. More precisely, $\alpha-1$ and $\beta-1$ can be interpreted as \textit{prior counts only under a particular parametrization}; in general, $\alpha$ and $\beta$ act as effective sample sizes.
-
-Now suppose we observe $n$ coin tosses, with $k$ heads. The likelihood of the data is binomial:
+\textbf{ii) Likelihood.} Suppose we observe $n$ coin tosses, of which $k$ result in heads. The probability of this outcome, given $\theta$, is binomial:
 \[
-    p(x \mid \theta) = \binom{n}{k}\theta^k (1-\theta)^{n-k} \; ,
+    p(k;\, n,\theta) = \binom{n}{k}\theta^k (1-\theta)^{n-k}.
 \]
-
-Since the binomial coefficient does not depend on $\theta$, we may write
+Since the binomial coefficient $\binom{n}{k}$ does not depend on $\theta$, the likelihood simplifies to
 \[
-    p(x \mid \theta) \propto \theta^k (1-\theta)^{n-k} \; .
+    p(k;\, n,\theta) \propto \theta^k (1-\theta)^{n-k}.
 \]
-
-A key feature of the Beta distribution is that it is \emph{conjugate} to the binomial likelihood, meaning the posterior has the same functional form:
-\[
-    \theta \mid x \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
-\]
-
-The posterior mean is
-\[
-    \mathbb{E}[\theta \mid x] = \frac{\alpha + k}{\alpha + \beta + n},
-\]
-which can be interpreted as a weighted average between prior information and observed data.
 
 \medskip
 
-\textit{Interpretation:} the posterior parameters are obtained by adding the observed counts to the prior counts. For example, if $\alpha=\beta=1$ (a uniform prior) and we observe $k=7$ heads in $n=10$ tosses, then
+\textbf{iii) Marginal likelihood.} The marginal likelihood normalizes the posterior and is obtained by integrating over all possible values of $\theta$:
 \[
-    \theta \mid x \sim \mathrm{Beta}(8,4),
+    p(k;\, n) = \int_0^1 p(k;\,n,\theta)\,\pi(\theta)\,\mathrm{d}\theta.
+\]
+This quantity does not depend on $\theta$ and acts purely as a normalizing constant.
+
+\medskip
+
+\textbf{iv) Posterior via Bayes' rule.} Applying Bayes' rule,
+\[
+    \pi(\theta \mid k) = \frac{p(k;\,n,\theta)\,\pi(\theta)}{p(k;\,n)} \propto \theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1}.
+\]
+This is again a Beta distribution, so the posterior is:
+\[
+    \theta \mid k \sim \mathrm{Beta}(\alpha+k,\,\beta+n-k).
+\]
+This property---that the posterior has the same form as the prior---is called \emph{conjugacy}. The posterior mean,
+\[
+    \mathbb{E}[\theta \mid k] = \frac{\alpha + k}{\alpha + \beta + n},
+\]
+is a weighted average between prior belief and observed data.
+
+\medskip
+
+\textit{Numerical example.} Take $\alpha=\beta=1$ (uniform prior) and observe $k=7$ heads in $n=10$ tosses. Then
+\[
+    \theta \mid k \sim \mathrm{Beta}(8,\,4),
 \]
 reflecting an updated belief that favors larger values of $\theta$.
-
-\medskip
-
-\textit{Frequentist comparison.}  
-
-\medskip
-
-In a classical hypothesis testing framework, we would approach this problem differently. We would formulate hypotheses such as
-\[
-    H_0:\ \theta = 0.5 \quad \text{(fair coin)}, \qquad
-    H_1:\ \theta \neq 0.5,
-\]
-collect data (the $n$ coin tosses), and compute a test statistic, for example the number of heads $k$ or the sample proportion $\hat{\theta}=k/n$. We would then calculate a $p$-value, representing how likely it is to observe data at least as extreme as $k$ under the assumption that $H_0$ is true. Based on this $p$-value, we would decide whether to reject $H_0$ or not. In contrast, the Bayesian approach does not produce a binary decision: instead, it yields a full distribution for $\theta$, directly quantifying uncertainty and allowing probabilistic statements about the parameter.
 
 \medskip
 
@@ -363,79 +364,124 @@ collect data (the $n$ coin tosses), and compute a test statistic, for example th
 
 \medskip
 
-Suppose we observe data $X_1,\dots,X_n$ that are normally distributed:
+We observe $x_1,\dots,x_n$ and assume each $x_i$ is drawn independently from a normal distribution with unknown mean $\mu$ and known variance $\sigma^2$:
 \[
-    X_i \sim \mathcal{N}(\mu,\sigma^2),
+    X_i \sim \mathcal{N}(\mu,\sigma^2).
 \]
-where the variance $\sigma^2$ is known, and the goal is to infer the unknown mean $\mu$.
+The goal is to infer $\mu$ from the data.
 
-We begin by expressing our prior belief about $\mu$:
+\medskip
+
+\textbf{i) Prior distribution.} We express our initial belief about $\mu$ through a Gaussian prior:
 \[
     \mu \sim \mathcal{N}(\mu_0,\sigma_0^2),
 \]
-where $\mu_0$ represents our initial guess for the mean, and $\sigma_0^2$ reflects how uncertain we are about this guess (a larger value means more uncertainty).
+where $\mu_0$ is our initial guess and $\sigma_0^2$ reflects our uncertainty about it. A large $\sigma_0^2$ encodes a vague prior; a small $\sigma_0^2$ encodes a confident one.
 
 \medskip
 
-After observing data $x=(x_1,\dots,x_n)$, the likelihood function describes how plausible different values of $\mu$ are given the data:
+\textbf{ii) Likelihood.} Given $\mu$, the probability of observing $x = (x_1,\dots,x_n)$ is:
 \[
-    p(x \mid \mu) \propto \exp\!\left(-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right).
+    p(x;\,\mu) = \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)
+    \propto \exp\!\left(-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2\right).
 \]
-This expression is maximized when $\mu$ is close to the sample mean
-\[
-    \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i,
-\]
-so the data suggest values of $\mu$ near $\bar{x}$.
+This expression is maximized when $\mu = \bar{x}$, where $\bar{x} = \tfrac{1}{n}\sum_{i=1}^n x_i$ is the sample mean, so the data favor values of $\mu$ near $\bar{x}$.
 
 \medskip
 
-The prior also has a Gaussian form:
+\textbf{iii) Marginal likelihood.} The marginal likelihood integrates out $\mu$:
 \[
-    \pi(\mu) \propto \exp\!\left(-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2\right),
+    p(x) = \int_{-\infty}^{+\infty} p(x;\,\mu)\,\pi(\mu)\,\mathrm{d}\mu,
 \]
-which favors values of $\mu$ close to $\mu_0$.
+and serves as a normalizing constant that does not depend on $\mu$.
 
 \medskip
 
-Bayesian inference combines these two pieces of information:
+\textbf{iv) Posterior via Bayes' rule.} Applying Bayes' rule:
 \[
-    \pi(\mu \mid x) \propto p(x \mid \mu)\,\pi(\mu).
+    \pi(\mu \mid x) = \frac{p(x;\,\mu)\,\pi(\mu)}{p(x)} \propto p(x;\,\mu)\,\pi(\mu).
 \]
-Multiplying the two exponentials results in another quadratic expression in $\mu$, which corresponds again to a Gaussian distribution. This is why the normal prior is called \emph{conjugate} to the normal likelihood.
-
-\medskip
-
-The posterior distribution is therefore
+Multiplying the two Gaussians yields a new quadratic in $\mu$, which is itself a Gaussian. This is why the normal prior is \emph{conjugate} to the normal likelihood. The posterior is:
 \[
-    \mu \mid x \sim \mathcal{N}\!\left(
-    \frac{\tfrac{n}{\sigma^2}\bar{x} + \tfrac{1}{\sigma_0^2}\mu_0}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}},
-    \;\frac{1}{\tfrac{n}{\sigma^2}+\tfrac{1}{\sigma_0^2}}
-    \right).
+    \mu \mid x \;\sim\; \mathcal{N}\!\left(\mu_n,\,\sigma_n^2\right),
+\]
+where
+\[
+    \mu_n = \frac{\dfrac{n}{\sigma^2}\,\bar{x} + \dfrac{1}{\sigma_0^2}\,\mu_0}{\dfrac{n}{\sigma^2}+\dfrac{1}{\sigma_0^2}}, \qquad
+    \sigma_n^2 = \frac{1}{\dfrac{n}{\sigma^2}+\dfrac{1}{\sigma_0^2}}.
 \]
 
-\medskip
-
-\textit{Interpretation.} The posterior mean is a weighted average of two quantities:
-
-\begin{itemize}
-    \item the sample mean $\bar{x}$ (information from the data),
-    \item the prior mean $\mu_0$ (initial belief).
-\end{itemize}
-
-The weights depend on the \emph{precision} (inverse variance). If we have many observations (large $n$), the term $\tfrac{n}{\sigma^2}$ becomes large, and the posterior mean is close to $\bar{x}$. If instead the prior is very precise (small $\sigma_0^2$), more weight is given to $\mu_0$.
+\textit{Interpretation.} The posterior mean $\mu_n$ is a weighted average of the sample mean $\bar{x}$ and the prior mean $\mu_0$, with weights proportional to their respective \emph{precisions} (inverse variances). As $n$ grows, the data dominate and $\mu_n \to \bar{x}$. If instead the prior is very precise (small $\sigma_0^2$), more weight is given to $\mu_0$.
 
 \medskip
 
-In simple terms, the posterior balances prior belief and observed data: it moves our estimate of $\mu$ toward the data, but not completely, unless the data are very informative.
+\textit{Frequentist comparison.} A classical approach would instead test hypotheses such as \(H_0:\ \mu = \mu_0\), \(H_1:\ \mu \neq \mu_0,\)
+compute a $z$-score from $\bar{x}$, and derive a $p$-value or confidence interval. However, confidence intervals are defined in terms of repeated sampling and do not assign probabilities to specific values of $\mu$. By contrast, the Bayesian posterior $\pi(\mu \mid x)$ directly quantifies how plausible each value of $\mu$ is, given the observed data.
 
 \medskip
 
-\textit{Frequentist comparison.}  
+\textbf{Example 3: Estimating a Poisson rate.}
 
 \medskip
 
-Similarly, in the Gaussian setting, a classical approach would begin by specifying hypotheses such as
+Suppose we count the number of events occurring in a fixed time interval---for instance, the number of emails received per hour, or the number of defects on a production line. A natural model is the Poisson distribution with unknown rate $\lambda > 0$:
 \[
-H_0:\ \mu = \mu_0, \qquad H_1:\ \mu \neq \mu_0.
+    X_i \sim \mathrm{Poisson}(\lambda),
 \]
-After collecting the data, we would compute a test statistic (typically based on the sample mean $\bar{x}$) and standardize it to form a $z$-score. From this, we would derive a $p$-value and decide whether to reject $H_0$ at a chosen significance level. Alternatively, we might construct a confidence interval for $\mu$. However, such intervals are defined in terms of repeated sampling and do not assign probabilities to specific parameter values. By contrast, the Bayesian approach produces a posterior distribution for $\mu$, allowing us to state directly how plausible different values of $\mu$ are given the observed data.
+where $\lambda$ represents the average number of events per interval. The goal is to infer $\lambda$ from $n$ observed counts $x_1,\dots,x_n$.
+
+\medskip
+
+\textbf{i) Prior distribution.} Since $\lambda > 0$, we need a prior supported on the positive real line. A natural and convenient choice is the Gamma distribution:
+\[
+    \lambda \sim \mathrm{Gamma}(\alpha, \beta),
+\]
+with density
+\[
+    \pi(\lambda) \propto \lambda^{\alpha-1} e^{-\beta\lambda},
+\]
+where $\alpha > 0$ is a shape parameter and $\beta > 0$ is a rate parameter. The prior mean is $\alpha/\beta$, so $\alpha$ and $\beta$ encode our initial belief about the event rate.
+
+\medskip
+
+\textbf{ii) Likelihood.} Given $\lambda$, the probability of observing counts $x = (x_1,\dots,x_n)$ is:
+\[
+    p(x;\,\lambda) = \prod_{i=1}^n \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}
+    \propto \lambda^{\sum_{i=1}^n x_i}\, e^{-n\lambda}.
+\]
+Writing $s = \sum_{i=1}^n x_i$ for the total count, this simplifies to
+\[
+    p(x;\,\lambda) \propto \lambda^{s}\, e^{-n\lambda}.
+\]
+
+\medskip
+
+\textbf{iii) Marginal likelihood.} The marginal likelihood integrates out $\lambda$:
+\[
+    p(x) = \int_0^{+\infty} p(x;\,\lambda)\,\pi(\lambda)\,\mathrm{d}\lambda,
+\]
+and serves as a normalizing constant that does not depend on $\lambda$.
+
+\medskip
+
+\textbf{iv) Posterior via Bayes' rule.} Applying Bayes' rule:
+\[
+    \pi(\lambda \mid x) \propto p(x;\,\lambda)\,\pi(\lambda) \propto \lambda^{\alpha + s - 1}\,e^{-(\beta+n)\lambda}.
+\]
+This is again a Gamma distribution, confirming that the Gamma prior is \emph{conjugate} to the Poisson likelihood. The posterior is:
+\[
+    \lambda \mid x \;\sim\; \mathrm{Gamma}(\alpha + s,\; \beta + n).
+\]
+The posterior mean is
+\[
+    \mathbb{E}[\lambda \mid x] = \frac{\alpha + s}{\beta + n},
+\]
+a weighted average between the prior mean $\alpha/\beta$ and the sample mean $\bar{x} = s/n$.
+
+\medskip
+
+\textit{Numerical example.} Suppose we believe the rate is around $2$ events per hour, encoded as $\alpha = 4$, $\beta = 2$ (prior mean $= 2$). We then observe $n = 5$ hours with a total of $s = 15$ events. The posterior is
+\[
+    \lambda \mid x \;\sim\; \mathrm{Gamma}(19,\; 7),
+\]
+with posterior mean $19/7 \approx 2.71$, reflecting an upward revision of our estimate toward the observed rate of $15/5 = 3$ events per hour.
