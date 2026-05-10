@@ -65,13 +65,13 @@ As a summary, sampling and proper description of data establish the ground upon 
 
 \medskip
 
-Let's end this section with a historical note. As we have mentioned, uncertainty has long been associated with games of chance and gambling, but it was not addressed as a statistical problem until much later. The Royal Statistical Society, founded in 1834, together with many other early statistical organizations, was originally established to gather and publish data, with the aim of informing social and economic questions through systematic measurement. It did not take long before statisticians began to ask how such data might best be analyzed and interpreted, and modern \textit{statistical inference} gradually emerged. Among the Society’s influential early figures were Adolphe Quetelet, whose work helped establish statistics as a tool for studying social phenomena, and Charles Babbage, who advocated quantitative approaches to scientific and administrative problems.
+Let's end this section with a historical note. As we have mentioned, uncertainty has long been associated with games of chance and gambling, but it was not addressed as a statistical problem until much later. The Royal Statistical Society, founded in 1834, together with many other early statistical organizations, was originally established to gather and publish data, with the aim of informing social and economic questions through systematic measurement. It did not take long before statisticians began to ask how such data might best be analyzed and interpreted, and modern \textit{statistical inference} gradually emerged. Among the Society’s influential early figures were Adolphe Quetelet, whose work helped establish statistics as a tool for studying social phenomena, and Charles Babbage, who advocated quantitative approaches to scientific and administrative problems \cite{babbage_1832_economy,babbage_1830_reflections}.
 
 Among its most famous members was Florence Nightingale, admitted in 1858 as the Society’s first female member, whose work exemplified the practical use of statistical reasoning in policy and public health. In the early $20^{\text{th}}$ century, foundational questions concerning probability and inference were further clarified through the work of thinkers such as Frank P. Ramsey, who connected probability with rational belief and decision-making \cite{ramsey_1931_foundations}. Other notable presidents of the Royal Statistical Society have included William Beveridge and Ronald Fisher, whose contributions will be discussed in Chapter~\ref{chapter4}.
 
 \medskip
 
-Andrew Lang's famous quote \textit{"most people use statistics as a drunken man uses lamp-posts—for support rather than illumination"}, highlights the tendency to use statistics as a crutch, relying on them for validation rather than seeking genuine understanding. Lang's observation serves as a cautionary reminder to approach statistical data with critical thinking and not merely as a tool to bolster preconceived notions.
+The famous quote often attributed to Andrew Lang \textit{"most people use statistics as a drunken man uses lamp-posts—for support rather than illumination"}, highlights the tendency to use statistics as a crutch, relying on them for validation rather than seeking genuine understanding. Lang's observation serves as a cautionary reminder to approach statistical data with critical thinking and not merely as a tool to bolster preconceived notions.
 
 % Central tendency and variation ......................................................................................
 \section{Central tendency and variation}
@@ -81,7 +81,7 @@ Once we have drawn a clear distinction between the population under study and th
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{5_figures/chapter1/estimators.png}
-    \caption{Representation of the \textit{true} population mean $\mu$, in black, and the observed \textit{sample} mean $\bar{x}$. The true mean is and ideal and inaccessible quantity, while the sample mean can be computed as an estimator of the finite sample.}
+    \caption{Representation of the \textit{true} population mean $\mu$, in black, and the observed \textit{sample} mean $\bar{x}$. The true mean is an ideal and inaccessible quantity, while the sample mean can be computed as an estimator of the finite sample.}
     \label{fig:estimators}
 \end{figure}
 
@@ -308,7 +308,7 @@ While numerical summaries are useful, the human mind often grasps patterns much 
 
     \medskip
 
-    \caption{Comparison of graphical summaries for $n=100$ observations drawn from a Gaussian distribution. Left column: uncontaminated data, with both small and large binning size. Right column: data affected by outliers, with both small and large binning size. Figure shows how a small bin size may give lead to resoulution, but also introduce noise.}
+    \caption{Comparison of graphical summaries for $n=100$ observations drawn from a Gaussian distribution. Left column: uncontaminated data, with both small and large binning size. Right column: data affected by outliers, with both small and large binning size. Figure shows how a small bin size may lead to higher resolution, but also introduce noise.}
     \label{fig:histogram_comparison}
     
 \end{figure}
@@ -413,18 +413,18 @@ Constructing an informative histogram requires some care. As a general rule, bin
     \end{subfigure}
 
     % ----------- Global caption -----------
-    \caption{Comparison of the three visualization methods discuseed in the chapter—the histogram, the box plot, and the violin plot—showing the mean and variability of three samples of size $n = 100$ drawn from a Gaussian distribution.}
+    \caption{Comparison of the three visualization methods discussed in the chapter—the histogram, the box plot, and the violin plot—showing the mean and variability of three samples of size $n = 100$ drawn from a Gaussian distribution.}
     \label{fig:mean_std_all}
 
 \end{figure}
 
 \medskip
 
-Another widely used visualization is the \textit{box plot}, also known as the \textit{box-and-whisker} plot, introduced by John Tukey in 1970 as part of his work on exploratory data analysis \cite{tukey_1977_eda}. The box plot offers a compact summary of a data set’s central tendency, spread, and potential outliers. It is constructed from five key statistics: the minimum, first quartile ($Q_1$), median ($Q_2$), third quartile ($Q_3$), and maximum. The box itself represents the interquartile range ($\mathrm{IQR} = Q_3 - Q_1$), while observations lying more than 1.5 times the IQR from the quartiles are typically flagged as outliers. Box plots allow for rapid comparisons across multiple groups and are particularly effective at revealing asymmetry and variability without being overly influenced by extreme values. For this reason, they are especially common in biological, medical, and clinical sciences, where experiments are often repeated many times with relatively small sample sizes.
+Another widely used visualization is the \textit{box plot}, also known as the \textit{box-and-whisker} plot, introduced by John Tukey in 1970 as part of his work on exploratory data analysis. He introduced the box plot in his 1970 unpublished course notes at Princeton, while it was formally published in his \textit{``Exploratory Data Analysis"} in 1977 \cite{tukey_1977_eda}. The box plot offers a compact summary of a data set’s central tendency, spread, and potential outliers. It is constructed from five key statistics: the minimum, first quartile ($Q_1$), median ($Q_2$), third quartile ($Q_3$), and maximum. The box itself represents the interquartile range ($\mathrm{IQR} = Q_3 - Q_1$), while observations lying more than 1.5 times the IQR from the quartiles are typically flagged as outliers. Box plots allow for rapid comparisons across multiple groups and are particularly effective at revealing asymmetry and variability without being overly influenced by extreme values. For this reason, they are especially common in biological, medical, and clinical sciences, where experiments are often repeated many times with relatively small sample sizes.
 
 \medskip
 
-More recently, the \textit{violin plot} has emerged as a refinement of the box plot, combining summary statistics with a smooth representation of the distribution’s shape. Although its precise origin is less sharply documented, the violin plot gained prominence in the late $20^{\text{th}}$ century with the development of statistical software environments such as \textsf{R} and \textsf{Python}, particularly following the work of Hintze and Nelson in the 1990s \cite{hintze_1997_violin}. A violin plot augments the box plot by incorporating a kernel density estimate of the data, producing a mirrored shape that reflects the underlying distribution. In addition to displaying the median and quartiles, violin plots reveal features such as skewness and multimodality that may be obscured in simpler summaries, making them especially useful for comparing several groups side by side.
+More recently, the \textit{violin plot} has emerged as a refinement of the box plot, combining summary statistics with a smooth representation of the distribution’s shape. Although its precise origin is less sharply documented, the violin plot gained prominence in the late $20^{\text{th}}$ century with the later development of statistical software environments such as \textsf{R} and \textsf{Python}, particularly following the work of Hintze and Nelson in the 1990s \cite{hintze_1997_violin}. A violin plot augments the box plot by incorporating a kernel density estimate of the data, producing a mirrored shape that reflects the underlying distribution. In addition to displaying the median and quartiles, violin plots reveal features such as skewness and multimodality that may be obscured in simpler summaries, making them especially useful for comparing several groups side by side.
 
 \medskip
 

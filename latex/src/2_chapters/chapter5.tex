@@ -70,7 +70,7 @@ In practice, observed data rarely follow these idealized forms exactly. Measurem
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/linear.png}
-        \caption{Representation of a linear function $y(x) = a \; x + b$. Examples of these are the force and displacement in a wire as given by Hooke's law $F(x) = k \; x$.}
+        \caption{Representation of a linear function $y(x) = a \; x + b$. Examples of these are the force and displacement in a spring as given by Hooke's law $F(x) = k \; x$.}
         \label{fig:linear1}
     \end{subfigure}
 
@@ -90,7 +90,7 @@ In practice, observed data rarely follow these idealized forms exactly. Measurem
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/sinusoidal.png}
-        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x)$. Example of there are, for instance, the position of a wirte with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
+        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x)$. Example of these are, for instance, the position of a wirte with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
         \label{fig:sinusoidal1}
     \end{subfigure}
 
@@ -129,7 +129,7 @@ The use of uppercase letters \(X, Y\), quite common in statistics textbooks, ref
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/linear_noise.png}
-        \caption{Representation of a linear function with some statistical noise $y(x) = a \; x + b \pm \varepsilon$. Examples of these are the force and displacement in a wire as given by Hooke's law $F(x) = k \; x$.}
+        \caption{Representation of a linear function with some statistical noise $y(x) = a \; x + b \pm \varepsilon$. Examples of these are the force and displacement in a spring as given by Hooke's law $F(x) = k \; x$.}
         \label{fig:linear2}
     \end{subfigure}
 
@@ -149,7 +149,7 @@ The use of uppercase letters \(X, Y\), quite common in statistics textbooks, ref
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{5_figures/chapter5/sinusoidal_noise.png}
-        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x) \pm \varepsilon$. Example of there are, for instance, the position of a write with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
+        \caption{Representation of a sinusoidal function $y(x) = a \; \sin(x) + b \; \cos(x) \pm \varepsilon$. Example of these are, for instance, the position of a write with respect to time in a harmonic movement $x(t) = A\cos(\omega t + \phi).$}
         \label{fig:sinusoidal2}
     \end{subfigure}
 
@@ -329,8 +329,8 @@ which reveals its connection to linear algebra. In this setting, estimation by l
 
 \medskip
 
-A final note, back to correlation. The Pearson sample correlation coefficient $r$, introduced by Karl Pearson in 1895, measures the strength and direction of linear association between two variables, taking values in the interval $[-1,1]$. In simple linear regression, people sometimes confuse that with its square $r^2$, normally called \textit{linear correlation coefficient}. 
+A final note, back to correlation. The Pearson sample correlation coefficient $r$, introduced by Karl Pearson across several works in the 1890s, measures the strength and direction of linear association between two variables, taking values in the  interval $[-1,1]$. In simple linear regression, it is common to also report its square $r^2$, known as the \textit{coefficient of determination}.
 
 \medskip
 
-This measure, bounded between \(0\) and \(1\), was later interpreted by Sewall Wright in 1921 as the coefficient of determination, representing the proportion of variance in the response variable explained by the linear relationship with the predictor \cite{wright_1921_correlation}. However, a high $r^2$ does not imply causation and may be misleading if the underlying relationship is non-linear, influenced by outliers, or driven by omitted variables. The frequent confusion between $r$ and $r^2$ arises because both quantify aspects of linear association and coincide in sign and magnitude only in special cases, while $r^2$, being always non-negative, is often reported as a measure of explanatory power rather than direction.
+This measure, bounded between \(0\) and \(1\), represents the proportion of variance  in the response variable explained by the linear relationship with the predictor. Its interpretation in terms of explained variance was developed within the broader regression framework established by Pearson and Fisher, and was later connected to path analysis by Sewall Wright in 1921 \cite{wright_1921_correlation}. However, a high $r^2$ does not imply causation and may be misleading if the underlying relationship is non-linear, influenced by outliers, or driven by omitted variables. The frequent confusion between $r$ and $r^2$ arises because both quantify aspects of linear association, but they carry different information: $r$ captures both the direction and strength of the relationship, while $r^2$, being always non-negative, discards directional information and is interpreted as a measure of explanatory power. They agree in magnitude only when $r \in \{-1, 0, 1\}$.

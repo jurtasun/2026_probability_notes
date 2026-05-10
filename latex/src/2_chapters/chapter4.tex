@@ -335,7 +335,7 @@ The ANOVA \(F\)-statistic is defined as
     F = \frac{s_{\text{between}}^2}{s_{\text{within}}^2},
     \label{f_statistic_anova}
 \end{equation}
-where \(s_{\text{between}}^2\) and \(s_{\text{between}}^2\) represent the variation between samples, and within samples, and are computed as
+where \(s_{\text{between}}^2\) and \(s_{\text{within}}^2\) represent the variation between samples, and within samples, and are computed as
 \[
     s_{\text{between}}^2
     =
@@ -593,7 +593,7 @@ where the coefficients \(a_i\) depend on normal order statistics. The distributi
 % Error types in hypothesis testing ...................................................................................
 \section{Error types in hypothesis testing}
 
-Modern hypothesis testing emerged in the early $20^{\text{th}}$ century as an attempt to formalize uncertainty, error, and decision making in empirical science.  Three major approaches—Fisherian significance testing, Neyman–Pearson hypothesis testing, and Bayesian inference—address these issues in fundamentally different ways, while later philosophical analyses by Reichenbach and Popper clarified their distinct aims.  Subsequent commentators such as Cox, Mayo, and Lehmann have emphasized both the strengths of each framework and the conceptual tensions created by their later amalgamation in textbook practice. Here we explore such different approaches to hypothesis testing, with the very idea of error in the different frameworks, aiming to clarify common missconceptions.
+Modern hypothesis testing emerged in the early $20^{\text{th}}$ century as an attempt to formalize uncertainty, error, and decision making in empirical science.  Three major approaches—Fisherian significance testing, Neyman–Pearson hypothesis testing, and Bayesian inference—address these issues in fundamentally different ways, while later philosophical analyses by Reichenbach and Popper clarified their distinct aims.  Subsequent commentators such as Cox, Mayo, and Lehmann have emphasized both the strengths of each framework and the conceptual tensions created by their later amalgamation in textbook practice. Here we explore such different approaches to hypothesis testing, with the very idea of error in the different frameworks, aiming to clarify common misconceptions.
 
 \medskip
 
@@ -689,7 +689,7 @@ The coexistence of Fisherian evidence, Neyman–Pearson decision rules, Bayesian
     \vspace{1.2em}
 
     % ----------- Global caption -----------
-    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the are under the curve —of the Student's \(t\)-distribution.}
+    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the area under the curve —of the Student's \(t\)-distribution.}
     \label{fig:t_p_values}
 
 \end{figure}
@@ -719,7 +719,7 @@ The coexistence of Fisherian evidence, Neyman–Pearson decision rules, Bayesian
     \vspace{1.2em}
 
     % ----------- Global caption -----------
-    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the are under the curve —of the Fisher's \(F^2\)-distribution.}
+    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the area under the curve —of the Fisher's \(F\)-distribution.}
     \label{fig:f_p_values}
 
 \end{figure}
@@ -742,11 +742,11 @@ The coexistence of Fisherian evidence, Neyman–Pearson decision rules, Bayesian
     \begin{subfigure}{0.8\textwidth}
         \centering
         \includegraphics[width=0.8\textwidth]{5_figures/chapter4/chi2_test_two_tailed.png}
-        \caption{Computation of the two-sided \(p\)-value, as the integral of both tails of the \(\chi^2\)-distribution. Given the asymmetry of the \(\chi^2\)-distribution, this is not double the size of the one-sided \(p\)-value, and both integrals need to be computed independently.}
+        \caption{Computation of the two-sided \(p\)-value, as the integral of both tails of the \(\chi^2\)-distribution. Given the asymmetry of the \(\chi^2\)-distribution, this is not double the size of the one-sided \(p\)-value, and as we said nonstandard and rarely meaningful in practic.}
         \label{fig:chi2_p_2_sided}
     \end{subfigure}
 
     % ----------- Global caption -----------
-    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the are under the curve —of the Pearson's \(\chi^2\)-distribution.}
+    \caption{Representation of the one-sided and two-sided \(p\)-value as the cumulative probability—the integral of the tails, the area under the curve —of the Pearson's \(\chi^2\)-distribution.}
     \label{fig:chi2_test_comparison}
 \end{figure}
