@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{ioannidis_2005_false}
 John P.~A. Ioannidis.
@@ -443,17 +443,6 @@ Marilyn vos Savant.
 \newblock {\em Parade Magazine}, 1990.
 \newblock Popularization of the Monty Hall problem and ensuing discussion.
 
-\bibitem{ulam_1976_adventures}
-Stanislaw Ulam.
-\newblock {\em ``{Adventures of a Mathematician}''}.
-\newblock Charles Scribner's Sons, New York, 1976.
-
-\bibitem{metropolis_1949_monte}
-Nicholas Metropolis and Stanislaw Ulam.
-\newblock {``\emph{The Monte Carlo Method}'"}.
-\newblock {\em Journal of the American Statistical Association},
-  44(247):335--341, 1949.
-
 \bibitem{norris_1997_markov}
 James~R. Norris.
 \newblock {\em ``{Markov Chains}''}.
@@ -475,6 +464,35 @@ Sergey Brin and Lawrence Page.
 Warren~J. Ewens.
 \newblock {\em ``{Mathematical Population Genetics}''}.
 \newblock Springer, New York, 2 edition, 2004.
+
+\bibitem{kendall_1953_queue}
+David~G. Kendall.
+\newblock {``\emph{Stochastic Processes Occurring in the Theory of Queues and
+  Their Analysis by the Method of the Imbedded Markov Chain}''}.
+\newblock {\em The Annals of Mathematical Statistics}, 24(3):338--354, 1953.
+
+\bibitem{kermack_1927_sir}
+William~O. Kermack and Anderson~G. McKendrick.
+\newblock {``\emph{A Contribution to the Mathematical Theory of Epidemics}''}.
+\newblock {\em Proceedings of the Royal Society of London A}, 115:700--721,
+  1927.
+
+\bibitem{qian_2008_biophy}
+Hong Qian.
+\newblock {``\emph{Cooperativity and Specificity in Enzyme Kinetics: A
+  Single-Molecule Time-Based Perspective}''}.
+\newblock {\em Biophysical Journal}, 95(1):10--17, 2008.
+
+\bibitem{ulam_1976_adventures}
+Stanislaw Ulam.
+\newblock {\em ``{Adventures of a Mathematician}''}.
+\newblock Charles Scribner's Sons, New York, 1976.
+
+\bibitem{metropolis_1949_monte}
+Nicholas Metropolis and Stanislaw Ulam.
+\newblock {``\emph{The Monte Carlo Method}'"}.
+\newblock {\em Journal of the American Statistical Association},
+  44(247):335--341, 1949.
 
 \bibitem{axler_2015_linear}
 Sheldon Axler.

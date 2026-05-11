@@ -4,59 +4,43 @@
 
 \epigraph{\textit{The theory of probabilities is at bottom nothing\\but common sense reduced to calculation.}}{— Pierre-Simon Laplace}
 
-There is a certain comfort in the assumption of independence. If the outcome of each experiment tells us nothing about the next, then the world becomes, in a sense, memoryless: the past dissolves, and only the present matters. Much of classical probability and statistics, as we have developed it in previous chapters, rests on this assumption. Samples are drawn independently, errors are uncorrelated, observations do not influence one another. These assumptions are not merely mathematical conveniences---they reflect a deeper philosophical position about how randomness operates in the world.
+Much of classical probability and statistics, as we have seen them in previous chapters, rests on the assumption of \textit{independence}. So far, we have generally assumed that samples are drawn independently, errors are uncorrelated, and observations do not influence one another. These assumptions are not merely mathematical conveniences; they also reflect a deeper philosophical picture of how randomness operates in the world. There is, perhaps, a certain comfort in the assumption of independence. If the outcome of one experiment tells us nothing about the next, then the world becomes, in a sense, \textit{memoryless}: the past dissolves, and only the present matters.
 
 \medskip
 
-The mathematization of uncertainty began precisely with this idealized picture. Bernoulli's law of large numbers established that stable regularities emerge from repeated random trials, revealing that randomness itself could obey precise quantitative laws and need not imply disorder \cite{bernoulli_1713_ars}. Laplace extended this insight beyond gambling to scientific reasoning more broadly, arguing that probability expresses rational inference under incomplete knowledge, and that apparent randomness often reflects limited information rather than metaphysical indeterminacy---thereby embedding uncertainty within a wider epistemological framework \cite{laplace_1812_theorie}. On this view, the world is not fundamentally chaotic; it is merely incompletely known, and probability is the language of that incompleteness.
+The mathematization of uncertainty, as we covered in previous chapters, began precisely from this idealized picture. Bernoulli's law of large numbers established that stable regularities emerge from repeated random trials, revealing that randomness itself could obey precise quantitative laws \cite{bernoulli_1713_ars}. Laplace extended this insight far beyond gambling to scientific reasoning more broadly, arguing that probability expresses rational inference under incomplete knowledge, and that apparent randomness often reflects limited information rather than metaphysical indeterminacy \cite{laplace_1812_theorie}. On this view, probability is thus embedded within a wider epistemological framework, and the world is not fundamentally chaotic; it is merely incompletely known, and probability is the language through which we reason about that incompleteness.
 
 \medskip
 
-Yet a moment's reflection reveals how rarely the assumption of independence holds in practice. The weather tomorrow is not independent of the weather today. The price of a stock this afternoon is shaped by its price this morning. The word that follows in a sentence is constrained by the words that came before. The health of a patient next week depends on their condition this week. In all these cases, the present state of a system carries information about its future evolution, and ignoring this dependence would lead to poor models and worse predictions.
+Yet independence is far rarer in practice than classical theory initially suggested. A familiar example is the weather forecast: tomorrow's weather is not independent of today's. Similarly, the price of a stock this afternoon is shaped by its price this morning, and the word that follows in a sentence is constrained by the words that came before it. In all these cases, the present state of a system carries information about its future evolution, and ignoring such dependence leads to poor models and unreliable predictions.
 
 \medskip
 
-During the nineteenth and early twentieth centuries, attention shifted from isolated probabilistic events to sequences of dependent variables evolving over time. The question was no longer merely what the probability of a single event is, but how a system changes, accumulates, and forgets as it moves through a succession of states. It is in this context that one of the more unusual disputes in the history of mathematics unfolded---one that was simultaneously about probability theory, theology, and the nature of human freedom.
+During the $19^{\text{th}}$ and early $20^{\text{th}}$ centuries, attention gradually shifted from isolated probabilistic events to sequences of dependent variables evolving through time. The question was no longer merely what the probability of a single event might be, but how a system changes, accumulates information, and forgets as it moves through a succession of states. It was in this context that one of the more unusual disputes in the history of mathematics unfolded---a dispute that was simultaneously about probability theory, theology, and the nature of human freedom.
 
 \medskip
 
-Pavel Nekrasov was a mathematician, theologian, and conservative intellectual who held a privileged position in the Russian academic establishment of the late nineteenth century, eventually becoming rector of Moscow University and a close ally of tsarist institutions. His central mathematical claim was that the law of large numbers required the events in question to be \textit{independent}. Nekrasov did not advance this claim merely as a technical observation. He argued that it had profound metaphysical consequences: if stable social regularities such as crime rates or patterns of collective behavior obeyed probabilistic laws, and if such laws required independence, then the individuals comprising society must each be making genuinely free and unconstrained choices. The law of large numbers, on this reading, was not merely a theorem about coin tosses---it was mathematical proof of free will, and by extension, of the moral foundations of Christian society and the legitimacy of the tsarist order. Mathematics, in Nekrasov's hands, had become a weapon of conservative theology.
+Among the first to address this problem was Russian mathematician Pavel Nekrasov. As a theologian and conservative intellectual, he occupied a prominent position within the Russian academic establishment of the late $19^{\text{th}}$ century, eventually becoming rector of Moscow University and a close ally of tsarist institutions. Nekrasov argued that the classical law of large numbers fundamentally depended upon assumptions of independence. He did not present this merely as a technical observation. Rather, he claimed that it carried profound metaphysical consequences: if stable social regularities such as crime rates or patterns of collective behavior obey probabilistic laws, and if such laws rely upon independent actions, then the individuals comprising society must each be making genuinely free and unconstrained choices. The law of large numbers, on this reading, became not merely a theorem about coin tosses, but evidence for free will and, by extension, for the moral foundations of Christian society and the legitimacy of the tsarist order. Mathematics, in Nekrasov's hands, became entangled with conservative theology.
 
 \medskip
 
-Andrey Andreyevich Markov (1856--1922) found this argument deeply objectionable, on both mathematical and personal grounds. Markov was, by all accounts, a man of fierce temperament and uncompromising convictions---an atheist, a socialist sympathizer, and an outspoken critic of the Orthodox Church and the tsarist establishment. When Lev Tolstoy was excommunicated from the Russian Orthodox Church in 1901, Markov publicly demanded his own excommunication in protest, a gesture of defiant solidarity that caused a considerable scandal. He was not a man inclined to let a mathematical error stand, least of all one dressed in theological clothing and deployed in support of institutions he despised. Nekrasov's claim that independence was necessary for the law of large numbers was, in Markov's view, simply wrong---and he set about proving it \cite{markov_1906_extension}.
+It is precisely this dispute that gives rise to the central topic of this chapter, through the works of Andrey Andreyevich Markov (1856--1922). As deeply concerned with pure analysis questions, and firmly against personal beliefs used to found mathematical theories. Markov was, by all accounts, a man of fierce temperament and uncompromising convictions. An atheist, a socialist sympathizer, and an outspoken critic of both the Orthodox Church and the tsarist establishment. When Lev Tolstoy was excommunicated from the Russian Orthodox Church in 1901, Markov publicly requested his own excommunication in protest, a gesture of defiant solidarity that caused considerable scandal. He was not inclined to let a mathematical error stand, least of all one wrapped in theological language and deployed in support of institutions he despised. In Markov's view, Nekrasov's insistence on independence was simply wrong, and he set out to demonstrate this explicitly \cite{markov_1906_extension}.
 
 \medskip
 
-Markov's strategy was to construct an explicit counterexample: a sequence of \textit{dependent} events that nonetheless exhibited the stable long-run regularities guaranteed by the law of large numbers. Rather than work with an artificial mathematical construction, he chose a literary one. He took the opening chapters of Pushkin's celebrated novel in verse \textit{Eugene Onegin} and proceeded to analyze the text with meticulous care, manually counting, letter by letter, the transitions between vowels and consonants across thousands of characters. For each letter, he recorded whether it was a vowel (V) or a consonant (C), and then tallied how often a vowel was followed by another vowel, how often by a consonant, how often a consonant was followed by a vowel, and so on. What emerged was a table of transition counts---the raw material for what we would now call a two-state Markov chain, with states V and C and transition probabilities estimated from the data.
+Markov's strategy was to construct a concrete counterexample: a sequence of \textit{dependent} events that nevertheless exhibited the stable long-run regularities associated with the law of large numbers. Rather than work with an artificial mathematical construction, he chose a literary one. He took the opening chapters of Pushkin's celebrated novel in verse, \textit{Eugene Onegin}, and analyzed the text with meticulous care, manually counting, letter by letter, the transitions between vowels and consonants across thousands of characters. For each letter, he recorded whether it was a vowel (V) or a consonant (C), and then counted how often a vowel was followed by another vowel, how often by a consonant, how often a consonant was followed by a vowel, and so on. The result was a table of transition counts: the raw material for what we would now call a two-state Markov chain, with states V and C and transition probabilities estimated from data.
 
 \medskip
 
-The point was precise and devastating. The letters of a text are manifestly not independent: knowing that the current letter is a vowel makes it more or less likely that the next is a consonant, depending on the phonological structure of the language. Dependence is everywhere. And yet the long-run proportions of vowels and consonants stabilize perfectly well, just as the law of large numbers would predict for independent events. Independence, Markov showed, was not a necessary condition for probabilistic regularity---it was merely a sufficient one. Nekrasov's theological argument collapsed with his mathematics.
+The point was both precise and devastating. The letters of a text are manifestly not independent: knowing that the current letter is a vowel changes the probability that the next letter will be a consonant or another vowel. Dependence is everywhere, and yet the long-run proportions of vowels and consonants stabilize perfectly well, much as the law of large numbers predicts in the independent case. Independence, Markov showed, is not a necessary condition for probabilistic regularity; it is merely a \textit{sufficient} one, and Nekrasov's theological argument collapsed along with its mathematical foundation.
 
 \medskip
 
-What Markov had done, almost as a polemical aside, was to inaugurate the systematic study of dependent stochastic sequences. The abstraction is straightforward once the example is in hand: instead of tracking the actual letters of a text, one retains only their classification into states---V or C---and studies how the system moves between these states over time. Each state carries a probability of transitioning to each other state, and the sequence of states forms what we now call a \textit{Markov chain}. The specific literary content of \textit{Eugene Onegin} drops away entirely; what remains is a mathematical structure of extraordinary generality and power.
+What Markov had done, almost as a polemical aside, was inaugurate the systematic study of dependent stochastic sequences. Once the example is understood, the abstraction becomes natural: instead of tracking the actual letters of a text, one retains only their classification into states---V or C---and studies how the system moves—evolves, \textit{transitions}—between those states over time. Each state carries probabilities of transitioning to other states, and the resulting sequence forms what we now call a \textit{Markov chain}. The specific literary content of \textit{Eugene Onegin} disappears entirely; what remains is a mathematical structure of extraordinary generality and power.
 
 \medskip
 
-The story does not end there. Several decades later, on the other side of the world, a different kind of mathematical problem was generating a different kind of urgency. The year was 1946, and Stanislaw Ulam was recovering from a serious illness at Los Alamos, passing the time by playing solitaire. He found himself wondering about a deceptively simple question: what is the probability that a game of solitaire comes out successfully? The combinatorics were intractable---the number of possible card arrangements is astronomical---but Ulam realized that one could simply \textit{play} the game many times and observe the fraction of successes. The answer could be estimated by simulation rather than derived by calculation. He brought the idea to John von Neumann, who immediately recognized its potential for the nuclear calculations then underway at Los Alamos, where the behavior of neutrons in fissile material presented exactly the same kind of high-dimensional intractability. The method needed a name, and Nicholas Metropolis provided one: Monte Carlo, after the famous casino in Monaco, with a nod to Ulam's uncle who was known to frequent it \cite{ulam_1976_adventures, metropolis_1949_monte}.
-
-\medskip
-
-What connected Ulam's solitaire game to Markov's vowel counts was not immediately obvious, but the connection runs deep. Both are fundamentally concerned with sequences that evolve step by step according to probabilistic rules. If the steps of that sequence are designed carefully---so that the long-run distribution of states matches a desired target---then simulating the sequence produces samples from that target distribution, even when the target is far too complex to work with analytically. This insight, that Markov chains could be used as engines of computation and not merely as objects of mathematical study, gave rise to the family of methods known as Markov chain Monte Carlo, which we will explore in detail later. It is one of the more remarkable convergences in the history of applied mathematics: a Russian atheist counting letters in a poem, and an ailing Polish mathematician playing cards in a New Mexico laboratory, had each contributed an essential half of one of the most powerful computational tools in modern science.
-
-\medskip
-
-This temporal generalization of probability was later placed on rigorous foundations through Kolmogorov's axiomatization and Doob's development of stochastic process theory, which formalized random evolution as measurable structure on a probability space and established the analytical framework that continues to underlie modern stochastic analysis \cite{kolmogorov_1933_grundbegriffe, doob_1953_stochastic}. Scientific models often begin with deterministic equations, yet many natural systems exhibit variability that cannot be captured by fixed trajectories alone. Stochastic modelling represents not chaos but structured uncertainty governed by probabilistic laws. Variability over time or across states may be intrinsic rather than merely observational, and it requires explicit probabilistic structure rather than deterministic approximation.
-
-\medskip
-
-The question, then, is not whether dependence and variability exist, but how to model them in a tractable and mathematically rigorous way. The most natural first step is to ask: what if the future depends on the present, but not on the more distant past? What if, given where we are now, where we came from is irrelevant? This simple and elegant idea---born from a dispute about free will, proved on a Russian poem, and later harnessed to simulate the behavior of neutrons---is the foundation of the theory of Markov models.
-
-\medskip
-
-In this chapter, we trace the development of this framework from its origins to its modern incarnations. We begin with the fundamental mathematical definition of a Markov chain and its key properties, illustrated through simple and familiar examples. We then extend the framework to continuous time, where states evolve not in discrete steps but along a continuous timeline. We introduce hidden Markov models, where the underlying state is not directly observable but must be inferred from indirect evidence. We discuss Markov chain Monte Carlo methods, which harness the structure of Markov chains to solve otherwise intractable problems in Bayesian computation. We then turn to Markov decision processes and the theory of reinforcement learning, where an agent must learn to act optimally in an uncertain environment. Finally, we trace the conceptual thread that connects these classical ideas to the modern architecture of large language models and transformers, and reflect on the limitations of the Markov assumption itself. Throughout, the emphasis will be on intuition and ideas rather than technical machinery. The mathematics will be introduced as needed, but always in service of understanding---what these models say, why they work, and where they fall short.
+Many of these ideas will reappear throughout this chapter in increasingly sophisticated forms. From the simple idea of memoryless processes, to Markov chains, hidden states, Monte Carlo methods, and modern topics such as reinforcement learning and large language models, they all share deep roots in Markovian stochasticity.
 
 % Section 1 ...........................................................................................................
 \section{Stochasticity and the Markov property}
@@ -82,7 +66,7 @@ The essential ingredient of a Markov chain is the collection of probabilities go
 \begin{equation}
     p_{ij} = \mathbb{P}(X_{n+1} = j \mid X_n = i) \; ,
 \end{equation}
-representing the probability of moving from state $i$ to state $j$ in one step. We assume throughout that these probabilities do not depend on the time $n$, a property called \textit{time homogeneity}: the rules of the game do not change as the system evolves. The transition probabilities satisfy, for each state $i$,
+representing the probability of moving from state $i$ to state $j$ in one step. We assume throughout that these probabilities do not depend on the time $n$, a property normally called \textit{time homogeneity}: the rules of the game do not change as the system evolves. The transition probabilities satisfy, for each state $i$,
 \begin{equation}
     p_{ij} \ge 0 \quad \text{for all } j \; , \qquad \sum_{j} p_{ij} = 1 \; ,
 \end{equation}
@@ -94,7 +78,11 @@ These probabilities are naturally arranged into a \textit{transition matrix} $\m
 
 \medskip
 
-\textit{Example.} Returning to Markov's original setting, consider a two-state chain with states V (vowel) and C (consonant). Suppose that a vowel is followed by another vowel with probability $0.4$ and by a consonant with probability $0.6$, while a consonant is followed by a vowel with probability $0.3$ and by another consonant with probability $0.7$. These numbers are schematic, but they reflect the qualitative structure Markov observed in Russian text: consonants are more likely to follow consonants, and vowels to follow vowels, but neither transition is impossible. The transition matrix is
+\textbf{Example: letters and words} 
+
+\medskip
+
+Returning to Markov's original setting, consider a two-state chain with states V (vowel) and C (consonant). Suppose that a vowel is followed by another vowel with probability $0.4$ and by a consonant with probability $0.6$, while a consonant is followed by a vowel with probability $0.3$ and by another consonant with probability $0.7$. These numbers are schematic, but they reflect the qualitative structure Markov observed in Russian text: consonants are more likely to follow consonants, and vowels to follow vowels, but neither transition is impossible. The transition matrix is
 \[
     \mathbf{P} = \bordermatrix{
         & \text{V} & \text{C} \cr
@@ -106,7 +94,11 @@ Reading row by row: from a vowel, we go to another vowel with probability $0.4$ 
 
 \medskip
 
-\textit{Example.} A simple weather model with two states, Sunny ($S$) and Rainy ($R$), captures the same structure in a different domain. Suppose that a sunny day is followed by another sunny day with probability $0.8$ and a rainy day with probability $0.2$, while a rainy day is followed by a sunny day with probability $0.4$ and another rainy day with probability $0.6$. The transition matrix is
+\textbf{Example: Weather forecast}
+
+\medskip
+
+A simple weather model with two states, Sunny ($S$) and Rainy ($R$), captures the same structure in a different domain. Suppose that a sunny day is followed by another sunny day with probability $0.8$ and a rainy day with probability $0.2$, while a rainy day is followed by a sunny day with probability $0.4$ and another rainy day with probability $0.6$. The transition matrix is
 \[
     \mathbf{P} = \bordermatrix{
         & S & R \cr
@@ -115,6 +107,10 @@ Reading row by row: from a vowel, we go to another vowel with probability $0.4$ 
     } \; .
 \]
 Despite the completely different subject matter, the mathematical structure is identical to the vowel-consonant chain. This is the power of abstraction: once a process has been encoded as a Markov chain, all the tools of the theory apply regardless of whether the states represent letters, weather patterns, or anything else.
+
+\medskip
+
+This idea, that \textit{states} are represented as vectors, and \textit{transitions}, or transition probabilities, as matrices, is extremely powerful, and it extends far beyond the further examples we will see (Hidden Markov Models, Monte Carlo, etc). From modern physics and quantum mechanics to modern machine learning algorithms, such as the transformer and GPT models, they all heavily rely in this kind of representation.
 
 \subsection{Chapman--Kolmogorov equations}
 
@@ -166,24 +162,108 @@ meaning that after sufficiently many steps, the probability of being in state $j
 
 \medskip
 
-The ergodic theorem also has a time-average interpretation: for any function $g$ of the state, the time average
+\textbf{Example: The random walk}
+
+\medskip
+
+Consider a particle on the integers that, at each step, moves one position to the right with probability $p$ and one position to the left with probability $1-p$. This is the simplest example of a random walk, and one of the most studied objects in probability theory. The state space is infinite, but the Markov property holds: the next position depends only on the current one. When $p = 1/2$, the walk is symmetric and recurrent in one and two dimensions---the particle will return to any given position with probability one---but transient in three or more dimensions, where it drifts away and never returns. This celebrated result is due to Pólya \cite{polya_1921_randomwalk}, and it has been described as one of the most surprising facts in all of probability.
+
+\medskip
+
+\textbf{Example: The gambler's ruin}
+
+\medskip
+
+A gambler starts with $k$ coins and plays a series of fair games, winning or losing one coin at each step. The game ends when the gambler either reaches $N$ coins (winning) or loses everything (ruin). Both endpoints are absorbing states: once reached, the chain stays there forever. The probability of ruin, starting from $k$ coins, is $(N-k)/N$ for a fair game. This result has a sobering implication: even in a perfectly fair game, a gambler with finite resources playing against an opponent with larger resources will eventually go bankrupt with certainty if the game continues indefinitely. The mathematics offers no comfort to the persistent gambler.
+
+\medskip
+
+\textbf{Example: PageRank}
+
+\medskip
+
+Google's original PageRank algorithm, developed by Brin and Page in the late 1990s, models a web surfer who randomly follows hyperlinks from page to page \cite{brin_1998_pagerank}. The web is treated as a directed graph, and the surfer's position is a Markov chain on the pages of the internet. The stationary distribution of this chain assigns to each page a score proportional to how often the random surfer would visit it in the long run. Pages linked to by many important pages receive high stationary probability, capturing the intuition that influence propagates through networks. The algorithm that shaped the modern internet is, at its mathematical core, the computation of a stationary distribution of a very large Markov chain.
+
+\medskip
+
+\textbf{Example: The Wright--Fisher model}
+
+\medskip
+
+In population genetics, the Wright--Fisher model describes how the frequency of a gene variant changes from generation to generation due to random reproduction \cite{ewens_2004_genetics}. A population of $N$ individuals is replaced each generation by sampling with replacement from the previous one. The frequency of a variant is the state, and the resulting Markov chain has absorbing states at zero and one, corresponding to the extinction or fixation of the variant. This model provides the mathematical foundation for understanding genetic drift---the random fluctuation of gene frequencies over time---and represents one of the earliest and most influential applications of Markov chains in biology.
+
+% Section 2 ...........................................................................................................
+\section{Continuous-time Markov chains}
+
+
+The Markov chains we have studied so far evolve in discrete steps: time advances by integer increments, and at each step the system transitions from one state to another. This framework is natural when the underlying process itself unfolds in discrete time---generations in a population, days in a weather model, moves in a game. But many processes in nature evolve continuously, and forcing them into a discrete-time framework introduces an artificial structure. Consider a radioactive atom that decays at a random moment, or a customer who arrives at a queue after a random waiting period, or a molecule that switches between states at unpredictable instants. In all these cases, the relevant question is not what happens at the next integer time step, but rather how long the system stays in its current state before transitioning, and where it goes when it does. This motivates \textit{continuous-time Markov chains}, in which time is a continuous variable but the state space remains discrete. The Markov property carries over directly: given the current state, the future is independent of the past.
+
+\medskip
+
+In continuous time, the transition matrix $\mathbf{P}$ is replaced by the \textit{generator matrix} $\mathbf{Q}$, also called the \textit{rate matrix}. Its off-diagonal entries $q_{ij} \ge 0$ represent the instantaneous rates of transitioning from state $i$ to state $j$, while the diagonal entries are defined by $q_{ii} = -\sum_{j \neq i} q_{ij}$, so that each row sums to zero. The time spent in state $i$ before any transition follows an exponential distribution with rate $|q_{ii}|$---a direct expression of the memoryless property in continuous time---and when the system leaves state $i$, it moves to state $j$ with probability $q_{ij}/|q_{ii}|$. The evolution of the probability distribution over states is governed by the \textit{Kolmogorov forward equations} \cite{kolmogorov_1933_grundbegriffe},
+\begin{equation}
+    \frac{d\boldsymbol{\pi}(t)}{dt} = \boldsymbol{\pi}(t)\,\mathbf{Q} \; ,
+\end{equation}
+and the stationary distribution, when it exists, satisfies $\boldsymbol{\pi}\mathbf{Q} = \mathbf{0}$. The simplest example is the \textit{Poisson process} \cite{poisson_1837_judgements}, which counts random events occurring at a constant average rate $\lambda$, with exponentially distributed waiting times between them. A natural generalization is the \textit{birth--death process}, where a population grows and shrinks by one individual at a time with state-dependent rates. In the M/M/1 queue of queueing theory, customers arrive at rate $\lambda$ and are served at rate $\mu$, and the system is stable when $\lambda < \mu$ \cite{kendall_1953_queue}.
+
+\medskip
+
+\textbf{Example: physical systems.} 
+
+\medskip
+
+Continuous-time Markov chains appear throughout the natural sciences. In physics, a radioactive atom transitions from an unstable to a stable state at a random exponentially distributed time, and at the population level the expected number of undecayed atoms follows $N(t) = N_0 e^{-\lambda t}$, recovering the deterministic decay law of Chapter~\ref{chapter5} as the mean of the stochastic process. 
+
+\medskip
+
+\textbf{Example: clinical sciences.}
+
+\medskip
+
+In epidemiology, the SIR model partitions a population into Susceptible, Infected, and Recovered individuals, and its stochastic formulation as a continuous-time Markov chain captures phenomena---such as the random extinction of a disease---that the deterministic version cannot represent \cite{kermack_1927_sir}. In molecular biology, proteins switch between conformational states at random times, and these transitions can be modeled as continuous-time chains whose generator entries are inferred from experimental data, providing a quantitative framework for understanding enzyme kinetics and ion channel gating \cite{qian_2008_biophy}. In each case, the continuous-time framework is not merely a mathematical refinement but a more faithful representation of the underlying process, capturing the randomness of timing rather than forcing it into artificial discrete steps.
+
+% Section 3 ...........................................................................................................
+\section{Hidden Markov models}
+
+The study of Markov processes eventually expanded far beyond the simple examples considered by Markov himself. In the 1940s, Stanislaw Ulam and John von Neumann realized that random sequences could be used not only to describe stochastic systems, but also to solve otherwise intractable computational problems \cite{ulam_1976_adventures, metropolis_1949_monte}. Their Monte Carlo methods estimated complicated probabilities by repeated simulation rather than direct calculation, an idea that later evolved into Markov chain Monte Carlo methods, now central to modern Bayesian statistics and machine learning. At the same time, Kolmogorov and Doob placed stochastic processes on rigorous mathematical foundations, formalizing random evolution over time within measure-theoretic probability \cite{kolmogorov_1933_grundbegriffe, doob_1953_stochastic}. Today, Markov models appear throughout science, from physics and genetics to economics, speech recognition, and artificial intelligence.
+
+\medskip
+
+In many real systems, however, the underlying state is not directly observable. A doctor may observe symptoms without directly seeing the disease process, or a speech recognition system may hear sounds without directly observing the words being spoken. This leads to the idea of a \textit{hidden Markov model} (HMM), in which the hidden states evolve according to a Markov chain, while the observations are noisy signals generated from those hidden states.
+
+\medskip
+
+Formally, let
 \[
-    \frac{1}{n} \sum_{t=0}^{n-1} g(X_t) \xrightarrow{n \to \infty} \sum_i \pi_i \, g(i) = \mathbb{E}_{\boldsymbol{\pi}}[g] \; ,
+X_1, X_2, \dots, X_T
 \]
-with probability one. This is a powerful statement: long-run time averages converge to expectations under the stationary distribution, regardless of starting point. It is this property that makes ergodic Markov chains useful as computational tools---by simulating the chain for long enough, we can estimate expectations under $\boldsymbol{\pi}$ without knowing $\boldsymbol{\pi}$ in closed form. This idea will return in full force in further sections.
-
-\subsection{Examples}
-
-\textbf{The random walk.} Consider a particle on the integers that, at each step, moves one position to the right with probability $p$ and one position to the left with probability $1-p$. This is the simplest example of a random walk, and one of the most studied objects in probability theory. The state space is infinite, but the Markov property holds: the next position depends only on the current one. When $p = 1/2$, the walk is symmetric and recurrent in one and two dimensions---the particle will return to any given position with probability one---but transient in three or more dimensions, where it drifts away and never returns. This celebrated result is due to Pólya \cite{polya_1921_randomwalk}, and it has been described as one of the most surprising facts in all of probability.
+denote the hidden states and
+\[
+O_1, O_2, \dots, O_T
+\]
+the observations. The hidden states satisfy the Markov property
+\[
+\mathbb{P}(X_{t+1}=j \mid X_t=i, X_{t-1},\dots,X_1)
+=
+\mathbb{P}(X_{t+1}=j \mid X_t=i),
+\]
+while each observation depends only on the current hidden state:
+\[
+\mathbb{P}(O_t=o \mid X_t=i)=b_i(o).
+\]
 
 \medskip
 
-\textbf{The gambler's ruin.} A gambler starts with $k$ coins and plays a series of fair games, winning or losing one coin at each step. The game ends when the gambler either reaches $N$ coins (winning) or loses everything (ruin). Both endpoints are absorbing states: once reached, the chain stays there forever. The probability of ruin, starting from $k$ coins, is $(N-k)/N$ for a fair game. This result has a sobering implication: even in a perfectly fair game, a gambler with finite resources playing against an opponent with larger resources will eventually go bankrupt with certainty if the game continues indefinitely. The mathematics offers no comfort to the persistent gambler.
+A simple example is weather prediction. Suppose the hidden state is either
+\[
+X_t \in \{\text{Sunny},\text{Rainy}\},
+\]
+but we cannot observe the weather directly. Instead, we only observe whether people carry umbrellas. A rainy day is more likely to produce umbrella observations, while sunny days are less likely to do so. By observing a sequence such as
+\[
+\text{Umbrella},\ \text{Umbrella},\ \text{No Umbrella},
+\]
+the goal is to infer the most probable hidden weather sequence that generated the observations.
 
 \medskip
 
-\textbf{PageRank.} Google's original PageRank algorithm, developed by Brin and Page in the late 1990s, models a web surfer who randomly follows hyperlinks from page to page \cite{brin_1998_pagerank}. The web is treated as a directed graph, and the surfer's position is a Markov chain on the pages of the internet. The stationary distribution of this chain assigns to each page a score proportional to how often the random surfer would visit it in the long run. Pages linked to by many important pages receive high stationary probability, capturing the intuition that influence propagates through networks. The algorithm that shaped the modern internet is, at its mathematical core, the computation of a stationary distribution of a very large Markov chain.
-
-\medskip
-
-\textbf{The Wright--Fisher model.} In population genetics, the Wright--Fisher model describes how the frequency of a gene variant changes from generation to generation due to random reproduction \cite{ewens_2004_genetics}. A population of $N$ individuals is replaced each generation by sampling with replacement from the previous one. The frequency of a variant is the state, and the resulting Markov chain has absorbing states at zero and one, corresponding to the extinction or fixation of the variant. This model provides the mathematical foundation for understanding genetic drift---the random fluctuation of gene frequencies over time---and represents one of the earliest and most influential applications of Markov chains in biology.
+Three fundamental computational problems arise naturally. First, given the observations, what is the probability that the model generated them? Second, what is the most likely hidden state sequence? Third, how can the transition probabilities and observation probabilities be learned from data? These questions lead respectively to the forward algorithm, the Viterbi algorithm, and the Baum--Welch algorithm, which we will study later in this chapter. Together, these ideas form one of the most important frameworks in modern probabilistic modelling.
