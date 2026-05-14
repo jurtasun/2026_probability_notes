@@ -4,31 +4,31 @@
 
 \epigraph{\textit{The development of mathematics is a continuous process of abstraction.}}{— Emmy Noether}
 
-In the previous chapters, we described data using summary statistics and introduced probability models to represent uncertainty \cite{diez_2025_openintro}. In this chapter, we connect these two perspectives. Estimation is the process through which data are used to learn about unknown features of a population, while probability provides the language to quantify how reliable such learning is \cite{degroot_2012_probability}.
+In the previous chapters, we described data using summary statistics and introduced probability models to represent uncertainty. In this chapter we connect these two perspectives. Estimation is the process through which data is used to learn about unknown features of a population, while probability provides a language to quantify how reliable such learning is, and focuses on making predictions \cite{degroot_2012_probability, bandyopadhyay_2011_philosophy}.
 
 \medskip
 
-As we discussed already, a crucial distinction must be made between \textit{prediction} and \textit{inference}. Prediction focuses on forecasting future observations, whereas inference aims to draw conclusions about underlying parameters or mechanisms that generate the data \cite{bandyopadhyay_2011_philosophy}. Estimation lies at the heart of inference: it transforms random samples into numerical statements about unknown quantities.
+As we discussed already, a crucial distinction must be made between \textit{prediction} and \textit{inference}. Prediction focuses on forecasting future observations, whereas inference aims to draw conclusions about underlying parameters or mechanisms that generate the data \cite{diez_2025_openintro}. Hence, estimation lies at the heart of inference: with some general results such as \textit{the Law of Large Numbers} and \textit{the Central Limit Theorem}, together with the idea of \textit{estimators} and \textit{bias}, we will transform random samples into numerical statements about unknown quantities.
 
 \medskip
 
-Because data are inherently variable, different samples lead to different estimates. Understanding how estimates behave across repeated samples is therefore essential. Rather than focusing on a single observed value, we study the \emph{distribution of the estimator} across all possible samples. This shift—from a fixed number to a random quantity—is central to statistical thinking \cite{degroot_2012_probability}.
+Because data is inherently variable, different samples lead to different estimates. Understanding how estimates behave across repeated samples is therefore essential. Rather than focusing on a single observed value, we study the \emph{distribution of the estimator} across all possible samples. This shift—from a fixed number to a random quantity—is central to statistical thinking \cite{degroot_2012_probability, bandyopadhyay_2011_philosophy}.
 
 \medskip
 
-Two fundamental results from probability theory provide the foundation for this analysis. The first is the \textit{law of large numbers}, which states, informally, that averages computed from large samples tend to stabilize around the true value. First studied systematically by Jacob Bernoulli, this result formalizes the idea that more data improves accuracy \cite{bernoulli_1713_ars}.
+Two fundamental results from probability theory provide the foundation for this analysis. The first is \textit{the Law of Large Numbers}, which states, informally, that averages computed from large samples tend to stabilize around the true value. First studied systematically by Jacob Bernoulli, this result formalizes the idea that more data improves accuracy \cite{bernoulli_1713_ars}.
 
 \medskip
 
-The second is the \textit{central limit theorem}, whose roots can be traced to Laplace \cite{laplace_1812_theorie}. It explains why many estimators exhibit approximately normal variability when the sample size is large, providing the basis for confidence intervals and hypothesis testing \cite{degroot_2012_probability}.
+The second is \textit{the Central Limit Theorem}, whose roots can be traced to Laplace \cite{laplace_1812_theorie}. It explains why many estimators exhibit approximately Gaussian variability when the sample size is large, providing the basis for confidence intervals and hypothesis testing.
 
 \medskip
 
-To compare estimators, we introduce two key concepts: \textit{bias} and \textit{variance}. The bias measures systematic deviation from the true value, while the variance captures fluctuations across samples \cite{degroot_2012_probability}. These two aspects are often in tension, and understanding their trade-off is central to statistical practice \cite{spiegelhalter_2019_art}.
+To compare estimators, we introduce two key concepts: \textit{bias} and \textit{variance}. The bias measures systematic deviation from the true value, while the variance captures fluctuations across samples. These two aspects are often in tension, and understanding their trade-off is central to statistical practice.
 
 \medskip
 
-Throughout this chapter, we formalize estimators as random variables, study their behavior through the law of large numbers and the central limit theorem, and use bias and variance to evaluate their performance. The emphasis will be on intuition supported by probabilistic reasoning, providing tools to assess what can be reliably learned from data.
+Throughout this chapter, we will also prepare the topics that will be central for hypothesis testing and modelling, rooted on the formalization of estimators as random variables, their behavior through the Law of Large Numbers and the Central Limit Theorem, and the use bias and variance to evaluate their performance. The emphasis will be on intuition supported by probabilistic reasoning, providing tools to assess what can be reliably learned from data.
 
 % The Law of Large Numbers ........................................................................
 \section{The Law of Large Numbers}
@@ -37,52 +37,52 @@ The Law of Large Numbers was first proved by Jacob Bernoulli in his posthumously
 
 \medskip
 
-Historically, this result played a central role in the development of probability as a scientific discipline. In the eighteenth and nineteenth centuries, it supported the view—later formalized by thinkers such as Laplace—that randomness at the individual level can coexist with regularity at the collective level. This idea influenced not only mathematics but also fields such as astronomy, physics, and the social sciences, where large populations exhibit stable statistical laws despite individual unpredictability.
+Historically, this result played a central role in the development of probability as a scientific discipline. In the $18^{\text{th}}$ and $19^{\text{th}}$ centuries, it supported the view—later formalized by thinkers such as Laplace—that randomness at the individual level can coexist with regularity at the collective level. This idea influenced not only mathematics but also fields such as astronomy, physics, and the social sciences, where large populations exhibit stable statistical laws despite individual unpredictability.
 
 \medskip
 
-The theorem formalizes a simple but powerful idea: while individual observations may be highly variable, their average becomes increasingly stable as more data are collected. In this sense, randomness averages out.
+The theorem formalizes a simple but powerful idea: while individual observations may be highly variable, their average becomes increasingly stable as more data is collected. In this sense, randomness averages out.
 
 \medskip
 
 Let $X_1, X_2, \dots$ be independent and identically distributed random variables with finite expectation $\mu = \mathbb{E}[X_1]$. The sample mean
 \begin{equation}
-\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i
+    \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i
 \end{equation}
-satisfies
+satisfies that $\bar{X}_n$ converges in probability to $\mu$
 \begin{equation}
-\bar{X}_n \xrightarrow{P} \mu \quad \text{as } n \to \infty,
+    \bar{X}_n \xrightarrow{P} \mu \quad \text{as } n \to \infty,
 \end{equation}
-that is, $\bar{X}_n$ converges in probability to $\mu$. This version is known as the \textit{Weak Law of Large Numbers}.
+This version is known as the \textit{Weak Law of Large Numbers}. As a note, it is remember again the notation we to used in the previous chapter, where uppercase letters (such as $X$) denote random variables, and lowercase letters (such as $x$) to denote their possible values.
 
 \medskip
 
 A stronger statement is also possible. Under the same conditions, one has
 \begin{equation}
-\bar{X}_n \xrightarrow{\text{a.s.}} \mu,
+    \bar{X}_n \xrightarrow{\text{a.s.}} \mu,
 \end{equation}
 meaning that the sample average converges to $\mu$ with probability one. This is called the \textit{Strong Law of Large Numbers}. Informally, while the weak law guarantees that large deviations become unlikely, the strong law ensures that the sequence of averages almost surely settles at the true value.
 
 \medskip
 
-\textit{Example (Coin Tossing).} Consider repeated tosses of a fair coin, where $X_i = 1$ for heads and $X_i = 0$ for tails. Then $\mu = 1/2$, and
+\textbf{Example:} Consider repeated tosses of a fair coin, where $X_i = 1$ for heads and $X_i = 0$ for tails. Then $\mu = 1/2$, and
 \[
 \bar{X}_n = \frac{\text{number of heads in } n \text{ tosses}}{n}.
 \]
-Although early results may fluctuate significantly, the proportion of heads stabilizes near $1/2$ as $n$ increases.
+Although early results may fluctuate significantly, the proportion of heads stabilizes near $1/2$ as the sample size $n$ increases.
 
 \medskip
 
-\textit{Example (Measurement).} Suppose we repeatedly measure the length of an object with small random errors. Each measurement may differ slightly, but their average provides a more reliable estimate of the true length. Increasing the number of measurements reduces the impact of random fluctuations.
+\textbf{Example:} Suppose we repeatedly measure the length of an object with small random errors. Each measurement may differ slightly, but their average provides a more reliable estimate of the true length. Increasing the number of measurements reduces the impact of random fluctuations.
 
 \medskip
 
-The Law of Large Numbers justifies the basic principle of statistical estimation: averages computed from sufficiently large samples provide reliable information about underlying quantities.
+The Law of Large Numbers justifies the basic principle, for which we share a common intuition, of statistical estimation: averages computed from sufficiently large samples (of large $n$) provide reliable information about underlying quantities.
 
 % The Central Limit Theorem .......................................................................
 \section{The Central Limit Theorem}
 
-Consider the following simple situation. Suppose a student records their daily study time (in hours) over many days. On some days they study 1 hour, on others 3 or 4 hours, and occasionally not at all. The data are clearly uneven and not symmetric. Now imagine taking the average study time over 30 days, and repeating this process many times for different months. Although the individual daily values are irregular, the distribution of these 30-day averages will tend to form a roughly bell-shaped pattern centered around the true average study time. This phenomenon—where averages of many observations become approximately normally distributed—is the essence of the Central Limit Theorem.
+Consider the following simple situation. Suppose a student records their daily study time (in hours) over many days. On some days they study 1 hour, on others 3 or 4 hours, and occasionally not at all. The data is clearly uneven and not symmetric. Now imagine taking the average study time over 30 days, and repeating this process many times for different months. Although the individual daily values are irregular, the distribution of these 30-day averages will tend to form a roughly bell-shaped pattern centered around the true average study time. This phenomenon—where averages of many observations become approximately normally distributed—is the essence of the Central Limit Theorem.
 
 \medskip
 
@@ -100,8 +100,7 @@ While the Law of Large Numbers explains where averages converge, it does not des
 
 Let $X_1, \dots, X_n$ be independent and identically distributed random variables with mean $\mu$ and finite variance $\sigma^2$. Then
 \begin{equation}
-\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1)
-\quad \text{as } n \to \infty,
+    \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1) \quad \text{as } n \to \infty,
 \end{equation}
 that is, the standardized sample mean converges in distribution to a standard normal random variable.
 
@@ -119,11 +118,11 @@ There are different levels of generality in the Central Limit Theorem. The class
 
 \medskip
 
-\textit{Example (Averaging Measurements).} Even if individual observations are skewed or irregular, the average of many such observations tends to have an approximately bell-shaped distribution.
+\textbf{Example (Averaging Measurements):} Even if individual observations are skewed or irregular, the average of many such observations tends to have an approximately bell-shaped distribution.
 
 \medskip
 
-\textit{Example (Binomial Approximation).} Let $X$ be the number of successes in $n$ independent trials with success probability $p$. For large $n$, the distribution of $X$ is well approximated by a normal distribution with mean $np$ and variance $np(1-p)$.
+\textbf{Example (Binomial Approximation):} Let $X$ be the number of successes in $n$ independent trials with success probability $p$. For large $n$, the distribution of $X$ is well approximated by a normal distribution with mean $np$ and variance $np(1-p)$.
 
 \medskip
 
@@ -132,23 +131,23 @@ The Central Limit Theorem explains the widespread appearance of the normal distr
 % Bias, variance and Mean Squared Error ...............................................................................
 \section{Bias, variance and Mean Squared Error}
 
-The systematic study of estimators and their properties developed alongside the rise of mathematical statistics in the late nineteenth and early twentieth centuries. Early statisticians recognized that good estimation procedures must balance systematic error and random variability. This insight led to the decomposition of mean squared error into variance and squared bias, a framework that remains central in both classical statistics and modern machine learning \cite{stigler_1986_history, rao_1973_linear, lehmann_1998_theory}.
+The systematic study of estimators and their properties developed alongside the rise of mathematical statistics in the late $19^{\text{th}}$ and early $20^{\text{th}}$ centuries. Early statisticians recognized that good estimation procedures must balance systematic error and random variability. This insight led to the decomposition of mean squared error into variance and squared bias, a framework that remains central in both classical statistics and modern machine learning, and that we will revisit in Chapter~\ref{chapter5} \cite{stigler_1986_history, rao_1973_linear, lehmann_1998_theory}.
 
 \medskip
 
-Before introducing the formal definitions, it is worth pausing on what an estimator actually is. Suppose we want to know the average height of all adults in a country---a quantity we cannot measure directly. We instead collect a random sample and compute the sample mean. That computed number is our \textit{estimator}: a recipe that turns data into a guess about an unknown quantity. But because the sample is random, the estimator is itself a random variable. If we repeated the study with a different sample, we would get a slightly different number. The natural question is: how good is our recipe, on average?
+Before introducing the formal definitions, it is worth pausing on what an estimator actually is. Suppose we want to know the average height of all adults in a country---again, a quantity we cannot measure directly. We instead collect a random sample and compute the sample mean, as we saw in Chapter~\ref{chapter1}. That computed number is our \textit{estimator}: a recipe that turns data into a guess about an unknown quantity. But because the sample is random, the estimator is itself a random variable. If we repeated the study with a different sample, we would get a slightly different number. The natural question is: how good is our recipe, on average?
 
 \medskip
 
 Two distinct things can go wrong. The estimator might be \textit{systematically off}---always a little too high, or always a little too low. This is \textit{bias}. Or it might be \textit{erratic}---sometimes far too high, sometimes far too low, even if it is correct on average. This is \textit{variance}. A good estimator should ideally be free of both, but as we will see, the two are often in tension.
 
-\subsection{Bias and variance}
+\subsection*{Bias and variance}
 
-If $\hat{\theta}$ is an estimator of an unknown parameter $\theta$, its \textit{bias} is
+If $\hat{\theta}$ is an estimator of an unknown parameter $\theta$ ($\bar{x}$ for $\mu$, $s$ for $\sigma$), we define its \textit{bias} as
 \begin{equation}
     \operatorname{Bias}(\hat{\theta}) = \mathbb{E}[\hat{\theta}] - \theta \; ,
 \end{equation}
-the difference between what the estimator returns on average and the true value. If $\operatorname{Bias}(\hat{\theta}) = 0$, the estimator is called \textit{unbiased}: it neither systematically over- nor underestimates. The \textit{variance} of the estimator is
+the difference between what the estimator returns on average and the true value. If $\operatorname{Bias}(\hat{\theta}) = 0$, the estimator is called \textit{unbiased}: it neither systematically over- nor underestimates. In the same way, the \textit{variance} of the estimator is
 \begin{equation}
     \operatorname{Var}(\hat{\theta}) = \mathbb{E}\!\left[(\hat{\theta} - \mathbb{E}[\hat{\theta}])^2\right] \; ,
 \end{equation}
@@ -164,7 +163,7 @@ The connection to bias and variance follows directly from the definition of expe
 \begin{equation}
     \operatorname{MSE}(\hat{\theta}) = \operatorname{Var}(\hat{\theta}) + \operatorname{Bias}(\hat{\theta})^2 \; .
 \end{equation}
-Total error is therefore the sum of spread and systematic offset, each squared. For an unbiased estimator the second term vanishes and MSE reduces to variance alone.
+Total error is therefore the sum of spread and systematic offset, each squared. For an unbiased estimator, the second term vanishes and MSE reduces to variance alone.
 
 \medskip
 
@@ -174,7 +173,7 @@ For the purposes of this chapter, MSE serves mainly as a compact summary of esti
 
 \textit{An analogy.} Imagine throwing darts at a target. An unbiased estimator with high variance is like a player whose throws cluster around the bullseye on average, but land all over the board on any given throw. A biased estimator with low variance is like a player whose throws are tightly grouped, but systematically to the left of center. Good statistical practice aims for tight grouping \textit{and} correct centering simultaneously.
 
-\subsection{The sample mean}
+\subsection*{The sample mean}
 
 Let $X_1, X_2, \dots, X_n$ be independent and identically distributed random variables, each with mean $\mu$ and variance $\sigma^2$. The most natural estimator of the population mean $\mu$ is the \textit{sample mean}:
 \begin{equation}
@@ -213,7 +212,7 @@ Two things are worth noting. First, the variance decreases as $n$ grows: larger 
 \]
 If the true mean weight is $\mu = 500\,\text{g}$, this particular sample happens to be exactly on target. Of course, a different set of five measurements would give a slightly different answer. The variance of the estimator, $\sigma^2/5$, tells us how large those fluctuations typically are.
 
-\subsection{The sample variance and Bessel's correction}
+\subsection*{The sample variance and Bessel's correction}
 
 A natural estimator of the population variance $\sigma^2$ is constructed by measuring how spread out the observations are around their mean. There are two closely related candidates. The first is the \textit{naive variance estimator}:
 \begin{equation}
@@ -283,11 +282,11 @@ The corrected sample variance divides by $n-1 = 4$: $s^2 = 10/4 = 2.5\,\text{g}^
 
 The corrected value is larger, reflecting the fact that the naive estimator systematically underestimates the true variability. For large samples, the difference between $n$ and $n-1$ is negligible. For small samples---such as $n = 5$---the correction matters.
 
-\subsection{The sample covariance}
+\medskip
 
 In many problems, we observe not one but two measurements on each individual: height and weight, temperature and pressure, exam score and hours studied. The \textit{covariance} between two variables $X$ and $Y$ measures the direction and strength of their linear relationship. If tall people tend to weigh more, the covariance between height and weight is positive. If hot days tend to have lower humidity, the covariance is negative.
 
-\medskip
+\subsection*{The sample covariance}
 
 The population covariance is defined as
 \begin{equation}
@@ -399,7 +398,7 @@ Assume the population standard deviation is known to be $\sigma = 2$. The standa
 \]
 Based on this small sample, plausible values for $\mu$ range from roughly $8.5$ to $12.5$. The width of the interval reflects both the variability of the data and the limited sample size.
 
-\subsection{The \texorpdfstring{$\sigma$}{sigma}-rules}
+\subsection*{The \texorpdfstring{$\sigma$}{sigma}-rules}
 
 Because of the Central Limit Theorem, sample means are approximately normally distributed for large samples. This means the coverage probabilities of intervals of the form $\bar{X}_n \pm k\,(\sigma/\sqrt{n})$ can be read directly off the standard normal distribution. The three most commonly used values are:
 
@@ -437,7 +436,7 @@ so approximately $99.7\%$ of the probability mass lies within three standard dev
 \]
 Wider intervals are more likely to contain the true mean, but are also less informative. The choice of confidence level is a deliberate trade-off between precision and reliability.
 
-\subsection{From \texorpdfstring{$3\sigma$}{3-sigma} to \texorpdfstring{$5\sigma$}{5-sigma}: evidence and discovery}
+\subsection*{From \texorpdfstring{$3\sigma$}{3-sigma} to \texorpdfstring{$5\sigma$}{5-sigma}: evidence and discovery}
 
 In some scientific fields, particularly physics, much stronger evidence is required before announcing a discovery. The reason is partly philosophical and partly practical: when searching for a rare signal among many possible measurements, a result that would occur by chance one time in a hundred---a $2\sigma$ fluctuation---is simply not surprising enough to be convincing.
 
@@ -445,9 +444,9 @@ In some scientific fields, particularly physics, much stronger evidence is requi
 
 The convention in particle physics is that a $3\sigma$ result ($p \approx 0.003$) constitutes \textit{evidence} for a new phenomenon, while a $5\sigma$ result ($p \approx 3 \times 10^{-7}$, or roughly one chance in three million) is required to claim a \textit{discovery}. This standard was famously applied in July 2012, when physicists at CERN announced the discovery of the Higgs boson: both the ATLAS and CMS experiments independently reported signals exceeding the $5\sigma$ threshold, ruling out a statistical fluctuation to an exceptionally high degree of confidence. The strictness of this criterion reflects the asymmetry between the cost of a false claim---announcing a particle that does not exist---and the cost of waiting longer for more data.
 
-\subsection{Confidence intervals and hypothesis tests}
+\subsection*{Confidence intervals and hypothesis tests}
 
-Confidence intervals and hypothesis tests are two sides of the same coin. A $100(1-\alpha)\%$ confidence interval for $\mu$ consists precisely of all the values $\mu_0$ that would \textit{not} be rejected by a two-sided hypothesis test at significance level $\alpha$. Equivalently, a value $\mu_0$ lies outside the confidence interval if and only if the data are sufficiently far from $\mu_0$ to reject it. This duality means that constructing a confidence interval and performing a hypothesis test are, in a formal sense, the same procedure viewed from different angles---one reports a range of compatible values, the other delivers a binary decision about a specific value. We will return to this connection in the next chapter, where hypothesis testing is developed in full.
+Confidence intervals and hypothesis tests are two sides of the same coin. A $100(1-\alpha)\%$ confidence interval for $\mu$ consists precisely of all the values $\mu_0$ that would \textit{not} be rejected by a two-sided hypothesis test at significance level $\alpha$. Equivalently, a value $\mu_0$ lies outside the confidence interval if and only if the data is sufficiently far from $\mu_0$ to reject it. This duality means that constructing a confidence interval and performing a hypothesis test are, in a formal sense, the same procedure viewed from different angles---one reports a range of compatible values, the other delivers a binary decision about a specific value. We will return to this connection in the next chapter, where hypothesis testing is developed in full.
 
 \begin{figure}[ht]
     
