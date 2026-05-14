@@ -494,6 +494,116 @@ Nicholas Metropolis and Stanislaw Ulam.
 \newblock {\em Journal of the American Statistical Association},
   44(247):335--341, 1949.
 
+\bibitem{metropolis_1953_equation}
+Nicholas Metropolis, Arianna~W. Rosenbluth, Marshall~N. Rosenbluth, Augusta~H.
+  Teller, and Edward Teller.
+\newblock {``\emph{Equation of State Calculations by Fast Computing
+  Machines}'"}.
+\newblock {\em The Journal of Chemical Physics}, 21(6):1087--1092, 1953.
+
+\bibitem{hastings_1970_monte}
+W.~K. Hastings.
+\newblock {``\emph{Monte Carlo Sampling Methods Using Markov Chains and Their
+  Applications}'"}.
+\newblock {\em Biometrika}, 57(1):97--109, 1970.
+
+\bibitem{geman_1984_stochastic}
+Stuart Geman and Donald Geman.
+\newblock {``\emph{Stochastic Relaxation, Gibbs Distributions, and the Bayesian
+  Restoration of Images}'"}.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  6(6):721--741, 1984.
+
+\bibitem{carpenter_2017_stan}
+Bob Carpenter, Andrew Gelman, Matthew~D. Hoffman, Daniel Lee, Ben Goodrich,
+  Michael Betancourt, Marcus Brubaker, Jiqiang Guo, Peter Li, and Allen
+  Riddell.
+\newblock {``\emph{Stan: A Probabilistic Programming Language}'"}.
+\newblock {\em Journal of Statistical Software}, 76(1):1--32, 2017.
+
+\bibitem{glauber_1963_ising}
+Roy~J. Glauber.
+\newblock {``\emph{Time-Dependent Statistics of the Ising Model}'"}.
+\newblock {\em Journal of Mathematical Physics}, 4(2):294--307, 1963.
+
+\bibitem{gelman_1992_inference}
+Andrew Gelman and Donald~B. Rubin.
+\newblock {``\emph{Inference from Iterative Simulation Using Multiple
+  Sequences}'"}.
+\newblock {\em Statistical Science}, 7(4):457--472, 1992.
+
+\bibitem{bellman_1957_dynamic}
+Richard Bellman.
+\newblock {\em ``{Dynamic Programming}''}.
+\newblock Princeton University Press, Princeton, 1957.
+
+\bibitem{puterman_1994_mdp}
+Martin~L. Puterman.
+\newblock {\em ``{Markov Decision Processes: Discrete Stochastic Dynamic
+  Programming}''}.
+\newblock John Wiley \& Sons, New York, 1994.
+
+\bibitem{sutton_2018_reinforcement}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em ``{Reinforcement Learning: An Introduction}''}.
+\newblock MIT Press, Cambridge, MA, 2 edition, 2018.
+
+\bibitem{watkins_1992_qlearning}
+Christopher J. C.~H. Watkins and Peter Dayan.
+\newblock {``\emph{Q-Learning}'"}.
+\newblock {\em Machine Learning}, 8:279--292, 1992.
+
+\bibitem{silver_2017_mastering}
+David Silver, Julian Schrittwieser, Karen Simonyan, Ioannis Antonoglou, Aja
+  Huang, Arthur Guez, Thomas Hubert, Lucas Baker, Matthew Lai, Adrian Bolton,
+  et~al.
+\newblock {``\emph{Mastering the Game of Go without Human Knowledge}'"}.
+\newblock {\em Nature}, 550:354--359, 2017.
+
+\bibitem{brown_2020_language}
+Tom~B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan,
+  Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda
+  Askell, et~al.
+\newblock {``\emph{Language Models Are Few-Shot Learners}'"}.
+\newblock {\em Advances in Neural Information Processing Systems},
+  33:1877--1901, 2020.
+
+\bibitem{ouyang_2022_training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela
+  Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et~al.
+\newblock {``\emph{Training Language Models to Follow Instructions with Human
+  Feedback}'"}.
+\newblock {\em Advances in Neural Information Processing Systems},
+  35:27730--27744, 2022.
+
+\bibitem{rumelhart_1986_learning}
+David~E. Rumelhart, Geoffrey~E. Hinton, and Ronald~J. Williams.
+\newblock {``\emph{Learning Representations by Back-Propagating Errors}'"}.
+\newblock {\em Nature}, 323:533--536, 1986.
+
+\bibitem{hochreiter_1997_lstm}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock {``\emph{Long Short-Term Memory}'"}.
+\newblock {\em Neural Computation}, 9(8):1735--1780, 1997.
+
+\bibitem{vaswani_2017_attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock {``\emph{Attention Is All You Need}'"}.
+\newblock {\em Advances in Neural Information Processing Systems}, 30, 2017.
+
+\bibitem{ho_2020_denoising}
+Jonathan Ho, Ajay Jain, and Pieter Abbeel.
+\newblock {``\emph{Denoising Diffusion Probabilistic Models}'"}.
+\newblock {\em Advances in Neural Information Processing Systems},
+  33:6840--6851, 2020.
+
+\bibitem{gu_2023_mamba}
+Albert Gu and Tri Dao.
+\newblock {``\emph{Mamba: Linear-Time Sequence Modeling with Selective State
+  Spaces}'"}.
+\newblock {\em arXiv preprint arXiv:2312.00752}, 2023.
+
 \bibitem{axler_2015_linear}
 Sheldon Axler.
 \newblock {\em ``{Linear Algebra Done Right}''}.
