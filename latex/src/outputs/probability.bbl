@@ -526,12 +526,6 @@ Roy~J. Glauber.
 \newblock {``\emph{Time-Dependent Statistics of the Ising Model}'"}.
 \newblock {\em Journal of Mathematical Physics}, 4(2):294--307, 1963.
 
-\bibitem{gelman_1992_inference}
-Andrew Gelman and Donald~B. Rubin.
-\newblock {``\emph{Inference from Iterative Simulation Using Multiple
-  Sequences}'"}.
-\newblock {\em Statistical Science}, 7(4):457--472, 1992.
-
 \bibitem{bellman_1957_dynamic}
 Richard Bellman.
 \newblock {\em ``{Dynamic Programming}''}.
@@ -597,12 +591,6 @@ Jonathan Ho, Ajay Jain, and Pieter Abbeel.
 \newblock {``\emph{Denoising Diffusion Probabilistic Models}'"}.
 \newblock {\em Advances in Neural Information Processing Systems},
   33:6840--6851, 2020.
-
-\bibitem{gu_2023_mamba}
-Albert Gu and Tri Dao.
-\newblock {``\emph{Mamba: Linear-Time Sequence Modeling with Selective State
-  Spaces}'"}.
-\newblock {\em arXiv preprint arXiv:2312.00752}, 2023.
 
 \bibitem{axler_2015_linear}
 Sheldon Axler.

@@ -60,7 +60,8 @@ In words: given the present state $X_n$, the probability of the next state $X_{n
 
 It is worth pausing to appreciate what this assumption does and does not say. It does not claim that the past has no influence on the future---it clearly does, through the current state. What it says is that all the relevant information about the past is \textit{summarized} in the present state. If we know where we are, knowing the path we took to get here adds nothing. In Markov's vowel-consonant chain, for instance, knowing that the current letter is a vowel tells us everything the model needs to know about what comes next---we do not need to remember whether the letter before that was also a vowel, or what the opening line of the poem said. This is a modeling assumption, not a law of nature, and its appropriateness depends entirely on how we define the state of the system. Chosen well, the state summarizes the past; chosen poorly, the Markov property fails and the model misleads.
 
-\subsection{Transition probabilities and the transition matrix}
+% Subsection ..........................................................................................................
+\subsection*{Transition probabilities and the transition matrix}
 
 The essential ingredient of a Markov chain is the collection of probabilities governing how the system moves from one state to another. For a finite state space $\mathcal{S} = \{1, 2, \dots, k\}$, these are called \textit{transition probabilities}:
 \begin{equation}
@@ -112,7 +113,8 @@ Despite the completely different subject matter, the mathematical structure is i
 
 This idea, that \textit{states} are represented as vectors, and \textit{transitions}, or transition probabilities, as matrices, is extremely powerful, and it extends far beyond the further examples we will see (Hidden Markov Models, Monte Carlo, etc). From modern physics and quantum mechanics to modern machine learning algorithms, such as the transformer and GPT models, they all heavily rely in this kind of representation.
 
-\subsection{Chapman--Kolmogorov equations}
+% Subsection ..........................................................................................................
+\subsection*{Chapman--Kolmogorov equations}
 
 A natural question is: what is the probability of moving from state $i$ to state $j$ in exactly $n$ steps, rather than just one? If we want to know the probability that it will be sunny in three days given that it is raining today, we cannot simply read off an entry of $\mathbf{P}$---we need to account for all the possible intermediate states the system might pass through. These are called the \textit{$n$-step transition probabilities}, written $p_{ij}^{(n)}$, and they satisfy the \textit{Chapman--Kolmogorov equations}:
 \begin{equation}
@@ -120,7 +122,8 @@ A natural question is: what is the probability of moving from state $i$ to state
 \end{equation}
 This equation says that the probability of going from $i$ to $j$ in $m+n$ steps equals the sum, over all possible intermediate states $k$, of the probability of reaching $k$ from $i$ in $m$ steps and then reaching $j$ from $k$ in $n$ steps. All paths through the state space are accounted for, weighted by their probabilities. In matrix notation, this takes a particularly clean form: the $n$-step transition matrix is simply $\mathbf{P}^n$, the $n$-th matrix power of $\mathbf{P}$ \cite{norris_1997_markov}. To find the probability distribution over states after $n$ steps, starting from an initial distribution $\boldsymbol{\pi}_0$, one computes $\boldsymbol{\pi}_0 \mathbf{P}^n$.
 
-\subsection{Classification of states}
+% Subsection ..........................................................................................................
+\subsection*{Classification of states}
 
 Not all states in a Markov chain behave in the same way, and understanding the long-run behavior of the chain requires classifying them. Some states, once left, may never be returned to; others are visited again and again, indefinitely. A state $i$ is called \textit{recurrent} if, starting from $i$, the chain returns to $i$ with probability one. Intuitively, a recurrent state is one the system cannot escape permanently---it will always come back, however long it wanders. A state is called \textit{transient} if there is a positive probability that the chain never returns to it after leaving. A particularly extreme case is an \textit{absorbing state}: a state $i$ with $p_{ii} = 1$, from which there is no escape at all. In the gambler's ruin problem, bankruptcy and winning are both absorbing states.
 
@@ -128,7 +131,8 @@ Not all states in a Markov chain behave in the same way, and understanding the l
 
 A Markov chain is called \textit{irreducible} if every state can be reached from every other state in a finite number of steps. Irreducibility ensures that the chain does not fracture into isolated components that can never communicate. It is a global property of the chain as a whole, and it plays a central role in guaranteeing the existence and uniqueness of a stationary distribution, as we will see shortly. A chain is called \textit{aperiodic} if the system does not get trapped in a fixed cycle, returning to each state only at regular multiples of some period greater than one. Irreducibility and aperiodicity together are the key conditions for the chain to behave well in the long run.
 
-\subsection{Stationary distributions and detailed balance}
+% Subsection ..........................................................................................................
+\subsection*{Stationary distributions and detailed balance}
 
 One of the most important questions about a Markov chain is what happens as time goes on. If we run the chain for a very long time, does the distribution over states settle into a stable pattern, independent of where we started? The answer is given by the notion of a \textit{stationary distribution}. A probability distribution $\boldsymbol{\pi} = (\pi_1, \pi_2, \dots, \pi_k)$ over the state space is called \textit{stationary} if
 \begin{equation}
@@ -152,7 +156,8 @@ A sufficient condition for $\boldsymbol{\pi}$ to be stationary is the \textit{de
 \end{equation}
 This condition says that, in the stationary regime, the flow of probability from state $i$ to state $j$ exactly equals the flow from $j$ to $i$. The system is in equilibrium not just globally but at every pair of states individually. Chains satisfying detailed balance are called \textit{reversible}, because their dynamics look the same whether run forwards or backwards in time. Reversibility is a stronger condition than stationarity---it implies stationarity but is not implied by it---and it plays a central role in the design of Markov chain Monte Carlo algorithms.
 
-\subsection{Ergodicity and convergence}
+% Subsection ..........................................................................................................
+\subsection*{Ergodicity and convergence}
 
 The central theorem of Markov chain theory, which justifies much of what follows in this chapter, concerns the long-run behavior of irreducible and aperiodic chains. Such chains are called \textit{ergodic}, and for them the following holds: regardless of the initial state, the distribution over states converges to the unique stationary distribution as the number of steps grows. Formally,
 \begin{equation}
@@ -223,7 +228,7 @@ Continuous-time Markov chains appear throughout the natural sciences. In physics
 In epidemiology, the SIR model partitions a population into Susceptible, Infected, and Recovered individuals, and its stochastic formulation as a continuous-time Markov chain captures phenomena---such as the random extinction of a disease---that the deterministic version cannot represent \cite{kermack_1927_sir}. In molecular biology, proteins switch between conformational states at random times, and these transitions can be modeled as continuous-time chains whose generator entries are inferred from experimental data, providing a quantitative framework for understanding enzyme kinetics and ion channel gating \cite{qian_2008_biophy}. In each case, the continuous-time framework is not merely a mathematical refinement but a more faithful representation of the underlying process, capturing the randomness of timing rather than forcing it into artificial discrete steps.
 
 % Section 3 ...........................................................................................................
-\section{Hidden Markov models}
+\section{Hidden Markov Models}
 
 The study of Markov processes eventually expanded far beyond the simple examples considered by Markov himself. In the 1940s, Stanislaw Ulam and John von Neumann realized that random sequences could be used not only to describe stochastic systems, but also to solve otherwise intractable computational problems \cite{ulam_1976_adventures, metropolis_1949_monte}. Their Monte Carlo methods estimated complicated probabilities by repeated simulation rather than direct calculation, an idea that later evolved into Markov chain Monte Carlo methods, now central to modern Bayesian statistics and machine learning. At the same time, Kolmogorov and Doob placed stochastic processes on rigorous mathematical foundations, formalizing random evolution over time within measure-theoretic probability \cite{kolmogorov_1933_grundbegriffe, doob_1953_stochastic}. Today, Markov models appear throughout science, from physics and genetics to economics, speech recognition, and artificial intelligence.
 
@@ -235,32 +240,30 @@ In many real systems, however, the underlying state is not directly observable. 
 
 Formally, let
 \[
-X_1, X_2, \dots, X_T
+    X_1, X_2, \dots, X_T
 \]
 denote the hidden states and
 \[
-O_1, O_2, \dots, O_T
+    O_1, O_2, \dots, O_T
 \]
 the observations. The hidden states satisfy the Markov property
 \[
-\mathbb{P}(X_{t+1}=j \mid X_t=i, X_{t-1},\dots,X_1)
-=
-\mathbb{P}(X_{t+1}=j \mid X_t=i),
+    \mathbb{P}(X_{t+1}=j \mid X_t=i, X_{t-1},\dots,X_1) = \mathbb{P}(X_{t+1}=j \mid X_t=i),
 \]
 while each observation depends only on the current hidden state:
 \[
-\mathbb{P}(O_t=o \mid X_t=i)=b_i(o).
+    \mathbb{P}(O_t=o \mid X_t=i)=b_i(o).
 \]
 
 \medskip
 
 A simple example is weather prediction. Suppose the hidden state is either
 \[
-X_t \in \{\text{Sunny},\text{Rainy}\},
+    X_t \in \{\text{Sunny},\text{Rainy}\},
 \]
 but we cannot observe the weather directly. Instead, we only observe whether people carry umbrellas. A rainy day is more likely to produce umbrella observations, while sunny days are less likely to do so. By observing a sequence such as
 \[
-\text{Umbrella},\ \text{Umbrella},\ \text{No Umbrella},
+    \text{Umbrella},\ \text{Umbrella},\ \text{No Umbrella},
 \]
 the goal is to infer the most probable hidden weather sequence that generated the observations.
 
@@ -269,9 +272,12 @@ the goal is to infer the most probable hidden weather sequence that generated th
 Three fundamental computational problems arise naturally. First, given the observations, what is the probability that the model generated them? Second, what is the most likely hidden state sequence? Third, how can the transition probabilities and observation probabilities be learned from data? These questions lead respectively to the forward algorithm, the Viterbi algorithm, and the Baum--Welch algorithm, which we will study later in this chapter. Together, these ideas form one of the most important frameworks in modern probabilistic modelling.
 
 % Section 4 ...........................................................................................................
-\section{Monte Carlo methods and Markov chain Monte Carlo}
+\section{Beyond Markov chains}
 
-If the history of Markov chains begins with a literary quarrel in St.\ Petersburg, the history of Monte Carlo methods begins in a hospital bed in Los Alamos, New Mexico, during the Second World War. The mathematician Stanislaw Ulam, convalescing from a bout of encephalitis in 1946, found himself playing solitaire and wondering what the probability was of a particular game succeeding. He could not work it out analytically. Instead, he reasoned, one could simply play the game many times and count the fraction of successes. The idea of using repeated random simulation to estimate quantities that resist exact calculation struck him as both obvious and powerful. He mentioned it to John von Neumann, who immediately saw its potential for numerical problems in neutron diffusion, and a method was born \cite{ulam_1976_adventures}. They named it Monte Carlo, after the famous casino in Monaco, as a knowing tribute to chance itself.
+% Subsection ..........................................................................................................
+\subsection{The Monte Carlo method}
+
+The history of Markov chains begins with a literary quarrel in St.\ Petersburg, the history of Monte Carlo methods begins in a hospital bed in Los Alamos, New Mexico, during the Second World War. The mathematician Stanislaw Ulam, convalescing from encephalitis in 1946, found himself playing solitaire and wondering what the probability was of a particular game succeeding. He could not work it out analytically. Instead, he reasoned, one could simply play the game many times and count the fraction of successes. The idea of using repeated random simulation to estimate quantities that resist exact calculation struck him as both obvious and powerful. He mentioned it to John von Neumann, who immediately saw its potential for numerical problems in neutron diffusion, and a method was born \cite{ulam_1976_adventures}. They named it Monte Carlo, after the famous casino in Monaco, as a knowing tribute to chance itself.
 
 \medskip
 
@@ -289,7 +295,8 @@ By the law of large numbers, $\hat{I}_N \to I$ as $N \to \infty$. The convergenc
 
 The practical difficulty, however, is that drawing independent samples from $p(x)$ may itself be difficult, particularly when $p$ is a complicated posterior distribution arising in Bayesian inference, or a Boltzmann distribution in statistical physics. This is where Markov chains enter the picture.
 
-\subsection{Markov chain Monte Carlo}
+% Subsection ..........................................................................................................
+\subsection{Markov Chain Monte Carlo}
 
 The central insight of \textit{Markov chain Monte Carlo} (MCMC) is that, rather than drawing independent samples from a target distribution $\pi$, one can construct a Markov chain whose stationary distribution \textit{is} $\pi$, and then simulate that chain. After a sufficient number of steps---a \textit{burn-in} period during which the chain approaches stationarity---the states visited by the chain constitute approximate samples from $\pi$, which can be used to estimate expectations of interest. One trades the independence of classical Monte Carlo for a chain with memory, but gains the ability to sample from distributions that would otherwise be inaccessible.
 
@@ -315,7 +322,7 @@ A particularly important special case is \textit{Gibbs sampling}, introduced by 
 
 \medskip
 
-\textbf{Example: Bayesian posterior inference.}
+\textbf{Example: Bayesian posterior inference:}
 
 \medskip
 
@@ -327,19 +334,15 @@ but the normalizing constant is typically intractable. MCMC allows us to draw ap
 
 \medskip
 
-\textbf{Example: The Ising model.}
+\textbf{Example: The Ising model:}
 
 \medskip
 
-In statistical physics, the Ising model describes a lattice of spins, each taking values $\pm 1$, interacting with their neighbors. The probability of a configuration $\mathbf{x}$ is the Boltzmann distribution $\pi(\mathbf{x}) \propto \exp(-E(\mathbf{x})/T)$, where $E(\mathbf{x})$ is the energy and $T$ is temperature. Direct sampling is infeasible for large lattices, but the Glauber dynamics---a Gibbs sampler for the Ising model---provides an efficient Markov chain whose stationary distribution is exactly $\pi$ \cite{glauber_1963_ising}. This connection between MCMC and physical simulation runs deep: thermodynamics and Bayesian inference share, at a mathematical level, the same fundamental structure of sampling from distributions proportional to exponentials.
+The Ising model imagines a grid of tiny magnets, each pointing either up or down ($\pm 1$), where neighboring magnets prefer to align. The probability of any given configuration depends on its energy and temperature through the Boltzmann distribution $\pi(\mathbf{x}) \propto \exp(-E(\mathbf{x})/T)$: low-energy configurations are more likely, and higher temperatures make the distribution more uniform. For a large grid, the number of possible configurations is astronomical, and direct sampling is completely infeasible.
 
 \medskip
 
-\textbf{Practical considerations.}
-
-\medskip
-
-MCMC methods raise practical questions that classical Monte Carlo does not. Because consecutive states of the chain are correlated, the effective sample size is smaller than the number of iterations. Assessing whether the chain has converged to stationarity---whether the burn-in period has been long enough---is a non-trivial diagnostic problem. A widely used approach is to run multiple chains from overdispersed starting points and check whether they have mixed together, a criterion formalized by Gelman and Rubin \cite{gelman_1992_inference}. Despite these complications, MCMC has become a cornerstone of modern probabilistic inference, enabling statistical models of a complexity that analytic methods could not reach.
+This is precisely where Markov chain Monte Carlo enters. The Glauber dynamics---a Gibbs sampler that updates one spin at a time according to its neighbors---defines a Markov chain whose stationary distribution is exactly $\pi$ \cite{glauber_1963_ising}. The connection runs deeper than a convenient trick: thermodynamics and Bayesian inference share, at a mathematical level, the same fundamental structure of distributions proportional to exponentials, and MCMC is the natural computational bridge between them.
 
 % Section 5 ...........................................................................................................
 \section{Transformers and modern Machine Learning}
@@ -422,18 +425,6 @@ Consider a large language model generating text token by token. At each step, th
 
 A further connection between modern machine learning and Markov chains arises in \textit{diffusion models}, which have become the leading approach to image and audio generation. The forward process of a diffusion model is a discrete-time Markov chain that gradually corrupts a data point $x_0$ by adding Gaussian noise at each step, producing a sequence $x_0, x_1, \dots, x_T$ where $x_T$ is approximately pure noise. The generative model learns to reverse this chain: starting from noise and applying a learned denoising step at each stage, it recovers a sample from the data distribution. The mathematics of this reversal is precisely the theory of time-reversed Markov chains, and the training objective---predicting the noise added at each step---can be derived from variational inference and the theory of score functions. The Markovian structure is not a simplifying assumption adopted for tractability, but a deliberate architectural choice that makes the training problem tractable while retaining expressive generative power \cite{ho_2020_denoising}.
 
-\subsection{Mamba and state space models}
+\newpage
 
-The sequential nature of language has recently prompted renewed interest in alternatives to the transformer that preserve explicit state representations. \textit{State space models} (SSMs), and in particular the Mamba architecture \cite{gu_2023_mamba}, revisit the idea of a hidden state that is updated sequentially, but formulate it in continuous-time terms borrowed from control theory and signal processing. The state $h_t$ is updated by a linear recurrence
-\begin{equation}
-    h_t = \bar{A} h_{t-1} + \bar{B} x_t \; , \qquad y_t = C h_t \; ,
-\end{equation}
-where $\bar{A}$ and $\bar{B}$ are discretizations of continuous-time system matrices, and the key innovation is making the parameters of this recurrence \textit{input-dependent}---different parts of the sequence receive different dynamics. The result is an architecture that combines the efficiency of linear recurrence with the selectivity of the attention mechanism, and that explicitly encodes the idea that the future depends on the present state rather than on the raw history. The loop from Markov's memoryless property to the latest sequence modeling architectures has, in a sense, come full circle: the most principled way to model long sequences may still be to ask, carefully and thoughtfully, what information the present state must contain to render the past irrelevant.
-
-\medskip
-
-\textbf{Closing remarks.}
-
-\medskip
-
-The arc traced in this chapter spans more than a century, from a theological dispute in late Imperial Russia to the neural networks that process billions of documents daily. What is perhaps most striking about this arc is not the sophistication of the destination, but the continuity of the ideas throughout. The Markov property---the compression of history into a sufficient present state---the transition matrix---states as vectors, dynamics as linear maps---the stationary distribution---the long-run behavior that emerges from iterated transitions---and the ergodic theorem---the convergence of time averages to ensemble averages---all of these ideas, developed in the first decade of the $20^{\text{th}}$ century for the analysis of poetry, recur as structural principles in the most advanced systems of the $21^{\text{st}}$. Mathematics, when it is right, does not become obsolete; it finds new homes.
+The arc traced in this chapter spans more than a century, from a theological dispute in late Imperial Russia to the neural networks that process billions of documents daily. What is perhaps most striking about this arc is not the sophistication of the destination, but the continuity of the ideas throughout. The Markov property, the compression of history into a sufficient present state, the transition matrix, states as vectors, dynamics as linear maps, the convergence of time averages to ensemble averages, etc, all developed in the first decade of the $20^{\text{th}}$ century for the analysis of poetry, regarded today as structural principles in the most advanced systems of the $21^{\text{st}}$. 
