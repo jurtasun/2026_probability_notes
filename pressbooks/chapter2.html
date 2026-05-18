@@ -1,0 +1,192 @@
+<blockquote style="text-align: right;border-left: none;padding-left: 0;margin: 0 0 2rem 30%">
+  <p style="margin: 0"><em>It is through the calculation of probabilities that the divine order becomes visible.</em></p>
+  <p style="margin: 0.25rem 0 0">&#8212; Jacob Bernoulli</p>
+</blockquote>
+
+<p>At its heart, probability is nothing more&#8212;and nothing less&#8212;than a branch of mathematics developed to describe random phenomena, also referred to as <em>stochastic</em>. The word &#8220;stochastic&#8221; comes from the Greek <em>στοχαστικός</em>, literally meaning &#8220;to guess&#8221; or &#8220;to aim.&#8221; Probability thus provides a numerical language for uncertainty, allowing us to quantify how surprising or plausible an outcome is before it is observed.</p>
+
+<p>The study of probability, though having very ancient roots, began its modern development in the 17<sup>th</sup> century through the famous correspondence between Blaise Pascal and Pierre de Fermat. Their discussion about games of chance, and in particular the &#8220;problem of the division of stakes&#8221;, laid the groundwork for a systematic mathematical analysis of uncertain events. A few decades later, Jacob Bernoulli&#8217;s <em>&#8220;Ars Conjectandi&#8221;</em> provided the first sustained theoretical treatment of probability, including an early formulation of the law of large numbers [1, 2]. Subsequent refinements by Abraham de Moivre, particularly his work on normal approximation, and by Pierre-Simon Laplace transformed probability into a powerful analytical theory, while its fully axiomatic structure only crystallised in the 20<sup>th</sup> century, as we will see [3].</p>
+
+<p>Beyond games of chance, probability rapidly became essential for the understanding of natural phenomena and human affairs. Astronomy, population studies, and various physical problems required tools to reason quantitatively about variability, error, and incomplete information. During the 19<sup>th</sup> century, thinkers such as Cournot emphasized the connection between probabilistic laws and empirical regularities, arguing that probability acquires meaning through its relation to observable frequencies in the world. In this sense, probability emerged not merely as a mathematical curiosity, but as a response to practical problems involving uncertainty and regularity in the empirical world.</p>
+
+<p>As we have mentioned already, a decisive step toward mathematical rigor was taken by Andrey Kolmogorov in 1933. In his <em>&#8220;Grundbegriffe der Wahrscheinlichkeitsrechnung&#8221;</em> [4], Kolmogorov showed that probability could be treated as a branch of measure theory, independent of any specific interpretation. This formulation built directly on earlier developments in analysis, most notably Henri Lebesgue&#8217;s theory of integration, which provided the mathematical language needed to define probabilities as measures on sets [5]. Rather than defining probability through intuition, symmetry, or frequency, Kolmogorov postulated a small set of axioms from which the entire formal theory follows.</p>
+
+<p>The measure-theoretic approach introduced by Kolmogorov was later systematized and widely disseminated through modern mathematical treatments of probability, most famously in Patrick Billingsley&#8217;s <em>Probability and Measure</em> [6]. These works established the now-standard framework in which random variables, expectations, and convergence are treated using the tools of modern analysis.</p>
+
+<p>From a philosophical point of view, two influential strands in the interpretation of probability emerge from these debates. On the one hand, the frequentist program, most clearly articulated by Richard von Mises, grounded probability in long-run relative frequencies of repeatable experiments. On the other hand, approaches originating with Thomas Bayes and later developed in the twentieth century interpreted probability as a rational degree of belief. Both perspectives play an important role in modern probability and statistics, and their mathematical and philosophical foundations will be examined in detail in Chapter 6.</p>
+
+<p>Parallel developments in the early 20<sup>th</sup> century focused on statistical inference from data rather than individual decision-making. These approaches emphasized long-run frequency properties, error control, and sampling distributions, leading to the classical framework of statistical inference that still underlies much of modern applied statistics.</p>
+
+<h2>Probability and random events</h2>
+
+<p>In modern mathematics, probability is defined axiomatically following Kolmogorov&#8217;s axioms [4]. Without much technicality, probability [latex]\mathbb{P}[/latex] is a number we associate to each event, satisfying three fundamental rules:</p>
+
+<ul>
+  <li>Probabilities are never negative: [latex]\mathbb{P}(A) \ge 0[/latex] for any event [latex]A[/latex].</li>
+  <li>The probability of a certain event is [latex]1[/latex].</li>
+  <li>If two events cannot occur together, the probability that one or the other occurs is the sum of their probabilities.</li>
+</ul>
+
+<p>For a discrete set of all possible outcomes [latex]\{x_1, x_2, \dots, x_n\}[/latex], these rules imply the normalization condition</p>
+
+[latex display="true"]\sum_{i=1}^n \mathbb{P}(x_i) = 1[/latex]
+
+<p>also referred to as <em>unitarity</em>, which simply states that <em>something must happen</em>.</p>
+
+<p>The numerical value of a probability reflects how surprising an outcome would be. For a given event [latex]A[/latex], such as observing heads in a coin toss, or a specific face in a dice roll, when [latex]\mathbb{P}(A) \to 0[/latex], the event is almost impossible; observing it would be highly surprising. On the contrary, when [latex]\mathbb{P}(A) \to 1[/latex], the event is almost certain; its occurrence carries little surprise. For anything in between, there is a level of <em>uncertainty</em>, or <em>surprise</em>, where probability quantifies degrees of expectation, rather than absolute certainty or impossibility.</p>
+
+<p>Why, for example, do we say that a fair coin has probability [latex]1/2[/latex] of landing heads, or that a fair die has probability [latex]1/6[/latex] of showing a given face? These numbers are not empirical facts but modeling assumptions based on symmetry. When all outcomes are assumed to be equally possible and indistinguishable before observation, probability assigns equal weight to each outcome. Probability theory then explores the logical consequences of these assumptions.</p>
+
+<p>This idea, that half of the times we toss a coin we obtain heads, hence we assign [latex]1/2[/latex] probability, or that one every six times we roll dice we see a specific face, hence we assign [latex]1/6[/latex] probability, leads to common interpretation of probability known as the <em>frequentist</em> view, developed most clearly by von Mises in his <em>&#8220;Probability, Statistics and Truth&#8221;</em> [7]. In this perspective, probability is identified with the long-run relative frequency of an event in repeated, identical experiments. Saying that a coin has probability [latex]0.5[/latex] of landing heads means that, over many tosses, roughly half will result in heads. And as we increase the number of observations, at higher <em>frequencies</em>, we expect that number to converge to a perfect half.</p>
+
+<p>An alternative interpretation is the <em>Bayesian</em> view, originating with Thomas Bayes [8] and developed further by Laplace and later authors such as de Finetti [9] and Jaynes [10]. Here, probability quantifies uncertainty or degree of belief rather than long-run frequency, and probabilities are updated as new information becomes available using Bayes&#8217; theorem.</p>
+
+<p>Both interpretations use the same mathematical rules and rely on Kolmogorov&#8217;s axioms. The difference lies not in the calculations, but in how probability statements are interpreted. Bayesian methods and their practical consequences will be introduced formally in Chapter 6.</p>
+
+<h2>Discrete events</h2>
+
+<p>With this simple definition of probability, we can now start categorizing events based on how their probabilities are <em>distributed</em>. By <em>discrete</em> events we mean those where the set of possible outcomes is finite or countably infinite. From coins and dice to counting, discrete models are particularly useful when outcomes correspond to counts, successes and failures, or categorical observations. In such cases, probability distributions will represent exact probabilities to individual outcomes and are therefore called probability <em>mass</em> functions.</p>
+
+<p>Mathematically, a discrete probability distribution assigns a probability [latex]\mathbb{P}(x_i)[/latex] to each possible outcome [latex]x_i[/latex], such that</p>
+
+[latex display="true"]\mathbb{P}(x_i) \ge 0, \qquad \sum_{\forall i} \mathbb{P}(x_i) = 1[/latex]
+
+<p>where the [latex]\forall[/latex] symbol is just a mathematical character meaning &#8220;for all&#8221;.</p>
+
+<h3>Bernoulli trials</h3>
+
+<p>The Bernoulli trial was formalized by Jacob Bernoulli in <em>&#8220;Ars Conjectandi&#8221;</em> (1713) [1]. His motivation was to understand how regularity emerges from randomness when an experiment with two outcomes is repeated many times.</p>
+
+<p>A Bernoulli random variable [latex]x[/latex] takes only two values, usually [latex]1[/latex] (success) and [latex]0[/latex] (failure). Its probability mass function is</p>
+
+[latex display="true"]\mathbb{P}(x;\; p) = \begin{cases} p, &amp; x = 1, \\ 1-p, &amp; x = 0, \end{cases} \qquad 0 \le p \le 1[/latex]
+
+<p>Bernoulli trials are used whenever an experiment has exactly two possible outcomes. Typical examples include the heads and tails of the coin, success or failure of a medical treatment, or whether a user clicks on a digital advertisement. In all these cases, the outcome is binary, even if the underlying process is complex.</p>
+
+<p><em>Example:</em> A single coin toss of a fair coin can be modeled as a Bernoulli trial, with [latex]x=1[/latex] representing heads and [latex]x=0[/latex] tails. For a fair coin, symmetry suggests [latex]p=1/2[/latex].</p>
+
+<p><em>Example:</em> A single coin toss of a biased coin can be modeled as a Bernoulli trial, with [latex]x=1[/latex] representing heads and [latex]x=0[/latex] tails, but now the probability of success would be, for instance, [latex]p=2/3[/latex].</p>
+
+<!-- Figure: bernoulli_1.png and bernoulli_2.png — insert via Pressbooks media uploader -->
+
+<h3>Discrete uniform distribution</h3>
+
+<p>The discrete uniform distribution has its roots in classical symmetry arguments used in early probability theory. It formalizes the idea that, in the absence of distinguishing information, all outcomes should be treated equally. This idea reflects a principle already present in early probability theory: when no outcome can be distinguished from another based on available information, they should be treated symmetrically. Laplace formalized this reasoning as &#8220;the principle of insufficient reason&#8221;.</p>
+
+<p>If a random variable [latex]x[/latex] can take [latex]n[/latex] distinct values [latex]\{x_1, \dots, x_n\}[/latex], the discrete uniform distribution assigns</p>
+
+[latex display="true"]\mathbb{P}(x;\; n) = \frac{1}{n}, \qquad i = 1, \dots, n[/latex]
+
+<p>Discrete uniform distributions appear whenever outcomes are assumed to be equally likely. Examples include faces of dice, card draws from a well-shuffled deck, or randomized experimental assignments where each category is given equal probability.</p>
+
+<p><em>Example:</em> Rolling a fair six-sided die can be modeled as a discrete uniform distribution on [latex]\{1,2,3,4,5,6\}[/latex], where each face has probability [latex]1/6[/latex].</p>
+
+<!-- Figure: duniform_1.png and duniform_1_cum.png — insert via Pressbooks media uploader -->
+
+<h3>Binomial distribution</h3>
+
+<p>The binomial distribution was systematically studied by Abraham de Moivre in the early 18<sup>th</sup> century. His analysis of repeated Bernoulli trials led not only to the binomial formula but also to the first appearance of the normal approximation. De Moivre introduced the binomial distribution while studying games of chance, but its importance quickly extended far beyond gambling. By considering repeated trials under identical conditions, the binomial distribution became a central model for understanding variability in counting processes.</p>
+
+<p>The binomial distribution models the number of successes in [latex]n[/latex] independent Bernoulli trials with success probability [latex]p[/latex]. Its probability mass function, given a total number of attempts [latex]n[/latex] and the individual probability [latex]p[/latex] of each success, is</p>
+
+[latex display="true"]\mathbb{P}(x;\; n,\; p) = \binom{n}{x} p^x (1-p)^{n-x}, \qquad x = 0, 1, \dots, n[/latex]
+
+<p>Binomial models naturally arise when we count how many times a certain event occurs in a fixed number of attempts. Examples include the number of defective items in a batch, the number of patients responding to a treatment, or the number of voters favoring a candidate in a survey.</p>
+
+<p><em>Example:</em> The number of heads obtained when tossing a fair coin [latex]10[/latex] times follows a binomial distribution with [latex]n=10[/latex] and [latex]p=1/2[/latex].</p>
+
+<p><em>Example:</em> The number of 4s obtained when rolling a fair die [latex]10[/latex] times follows a binomial distribution with [latex]n=10[/latex] and [latex]p=1/6[/latex].</p>
+
+<!-- Figure: binomial_1.png and binomial_1_cum.png — insert via Pressbooks media uploader -->
+
+<h3>Poisson distribution</h3>
+
+<p>The Poisson distribution was introduced by Sim&#233;on Denis Poisson in 1837 while studying rare events in judicial statistics. It arises as a limiting case of the binomial distribution when events are rare but opportunities are numerous. Poisson originally introduced this distribution to study rare events, such as wrongful convictions in court cases. Its mathematical simplicity and clear interpretation soon made it a fundamental model for random counts occurring over time or space.</p>
+
+<p>The Poisson distribution models the number of events occurring in a fixed interval of time or space. Its probability mass function, given the observed historical average [latex]\lambda[/latex], also known as &#8220;rate of occurrence&#8221;, is</p>
+
+[latex display="true"]\mathbb{P}(x;\; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}, \qquad x = 0, 1, 2, \dots[/latex]
+
+<p>Poisson distributions are commonly used to model events that occur independently and sporadically. Typical examples include the number of phone calls received by a call center, the number of typing errors on a page, or the number of decay events detected by a sensor during a fixed time interval.</p>
+
+<p><em>Example:</em> The number of emails received in one hour, when messages arrive independently at an average rate of [latex]\lambda=5[/latex] per hour, can be modeled using a Poisson distribution.</p>
+
+<p><em>Example:</em> The number of cancer patients observed in a hospital over a week, when the average patients happen at a rate of [latex]\lambda=7[/latex] per week, can also be modeled using a Poisson distribution.</p>
+
+<!-- Figure: poisson_1.png and poisson_1_cum.png — insert via Pressbooks media uploader -->
+
+<p><strong>Cumulative probabilities:</strong></p>
+
+<p>So far, we have described probability distributions by assigning probabilities to individual outcomes. While this is natural for discrete models, it is often more informative to consider the probability that a random variable takes a value <em>up to</em>, greater or smaller than a given threshold. This leads to the notion of <em>cumulative probability</em>.</p>
+
+<p>As a note, it is common notation to use uppercase letters (such as [latex]X[/latex]) to denote random variables, and lowercase letters (such as [latex]x[/latex]) to denote their possible values. For a discrete random variable [latex]X[/latex], the <em>cumulative distribution function</em> (CDF) is defined as</p>
+
+[latex display="true"]F(x) = \mathbb{P}(X \le x)[/latex]
+
+<p>that is, the probability that the outcome of the experiment is less than or equal to [latex]x[/latex].</p>
+
+<p>If the possible values of [latex]X[/latex] are [latex]\{x_1, x_2, \dots\}[/latex], the cumulative probability at a point [latex]x[/latex] is obtained by summing the probabilities of all outcomes less than or equal to [latex]x[/latex]:</p>
+
+[latex display="true"]F(x) = \sum_{x_i \le x} \mathbb{P}(X = x_i)[/latex]
+
+<p>The cumulative distribution function provides a global view of the distribution. While the probability mass function tells us how probability is assigned locally to each outcome, the CDF tells us how probability accumulates as we move along the real line.</p>
+
+<p>Several important properties follow immediately from the definition:</p>
+
+<ul>
+  <li>[latex]F(x)[/latex] is non-decreasing.</li>
+  <li>[latex]0 \le F(x) \le 1[/latex] for all [latex]x[/latex].</li>
+  <li>[latex]\lim_{x \to -\infty} F(x) = 0[/latex] and [latex]\lim_{x \to +\infty} F(x) = 1[/latex].</li>
+</ul>
+
+<p><em>Example.</em> For a fair six-sided die, the probability that the outcome is <em>at most</em> [latex]4[/latex] is</p>
+
+[latex display="true"]\mathbb{P}(X \le 4) = \mathbb{P}(1) + \mathbb{P}(2) + \mathbb{P}(3) + \mathbb{P}(4) = \frac{4}{6}[/latex]
+
+<p>The corresponding cumulative distribution function increases in steps of size [latex]1/6[/latex] at each integer outcome.</p>
+
+<p>Cumulative probabilities play a central role in probability theory because they naturally generalize to the continuous case, where individual outcomes no longer carry positive probability.</p>
+
+<h2>Continuous events</h2>
+
+<p>By <em>continuous</em> events, in contrast to the discrete case, we mean that the set of possible outcomes is uncountably infinite, typically forming an interval of real numbers. In such cases, individual outcomes have zero probability, and uncertainty is described using probability <em>densities</em>. Probabilities are obtained by integrating the density over ranges of values.</p>
+
+<p>When moving from discrete to continuous outcomes, the frequentist intuition that works well for counting events begins to break down. In a discrete setting, probabilities can be interpreted as long-run relative frequencies of individual outcomes. For example, the probability of rolling a [latex]3[/latex] with a fair die can be understood as the fraction of times the outcome [latex]3[/latex] appears when the die is rolled repeatedly. Each outcome has a positive probability, and frequencies converge to these values as the number of trials grows.</p>
+
+<p>In a continuous setting, this interpretation can no longer be applied directly. If outcomes lie on a continuous interval, such as all real numbers between [latex]0[/latex] and [latex]1[/latex], the probability of observing any exact value is zero. No matter how many times the experiment is repeated, the relative frequency of obtaining exactly [latex]0.37[/latex] will be zero. Same would happen with the probability of measuring a specific temperature in a room, let&#8217;s say [latex]25.0[/latex] degrees. Since there is an infinite, continuous amount of values from [latex]24.999\ldots[/latex] to [latex]25.000[/latex], and from [latex]25.000[/latex] to [latex]25.001[/latex], the probability of measuring a single value would also be mathematically zero. This does not mean that the outcome is impossible, but rather that probability must now be assigned to <em>ranges</em> of values rather than to individual points. We just need a new mathematical object that represents this information.</p>
+
+<p>The concept of a probability <em>density</em> is introduced precisely to resolve this issue: densities describe how probability is distributed locally, while actual probabilities are obtained by integrating the density over intervals. In this way, the frequentist idea of long-run relative frequency is preserved, but it applies to intervals of outcomes rather than to single values.</p>
+
+<p>Mathematically, a continuous probability distribution is described by a density function [latex]f(x)[/latex] such that</p>
+
+[latex display="true"]f(x) \ge 0, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1[/latex]
+
+<p>The probability that a random variable lies in an interval [latex][a,b][/latex] is then given by the area under the density curve between [latex]a[/latex] and [latex]b[/latex].</p>
+
+<h3>Gaussian distribution</h3>
+
+<p>The Gaussian distribution emerged from the work of Abraham de Moivre in the early 18<sup>th</sup> century and was later developed systematically by Gauss and Laplace. Its physical interpretation was provided by Carl Friedrich Gauss in <em>&#8220;Theoria Motus Corporum Coelestium&#8221;</em> (1809) [11], in the context of measuring errors of astronomical observations, where repeated measurements of the same quantity produced small deviations around a central value. This interpretation linked probability theory directly to experimental science.</p>
+
+<p>The Gaussian distribution models the accumulation of many small, independent effects. Its central role in probability theory is explained by the central limit theorem, which establishes it as a universal limiting distribution, and that we will cover in Chapter 3.</p>
+
+<p>The probability density function of a Gaussian random variable [latex]x[/latex] with mean [latex]\mu[/latex] and variance [latex]\sigma^2[/latex] is</p>
+
+[latex display="true"]f(x;\; \mu,\; \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \qquad x \in \mathbb{R}[/latex]
+
+<p>Gaussian distributions are used to model many natural and social phenomena where values cluster around an average, and it appears incredibly often. Examples include measurement errors, biological traits such as height, and aggregated effects of many small influences acting together. Why so many physical phenomena tend to appear centered around a mean value ([latex]\mu[/latex]), with some notion of spread ([latex]\sigma[/latex]), and converging to a perfect Gaussian bell-shape as the number of observations increase, is still an open question which triggers various philosophical debates.</p>
+
+<p><em>Example:</em> Measurement errors in physical experiments are often modeled as Gaussian, with [latex]\mu=0[/latex] representing no systematic bias and [latex]\sigma[/latex] describing measurement precision.</p>
+
+<!-- Figure: gaussian_1.png and gaussian_2.png — insert via Pressbooks media uploader -->
+
+<h3>Exponential distribution</h3>
+
+<p>The exponential distribution arose in the 19<sup>th</sup> century in the study of waiting times and decay processes, closely connected to Poisson&#8217;s work on random events and later developments in queueing theory and stochastic processes [12, 13]. The exponential distribution emerged naturally from the study of random event timing, particularly in physics and telecommunications. Its mathematical form reflects the assumption that events occur independently and at a constant average rate.</p>
+
+<p>It naturally models the time until the first occurrence of a random event and is characterized by the absence of memory: the future waiting time does not depend on how much time has already elapsed.</p>
+
+<p>The probability density function of an exponential random variable [latex]X[/latex] with rate [latex]\lambda &gt; 0[/latex] is</p>
+
+[latex display="true"]f(x;\; \lambda) = \lambda e^{-\lambda x}, \qquad x \ge 0[/latex]
+
+<p>Exponential models are appropriate for waiting-time phenomena. Examples include the time until a machine fails, the time until the next customer arrives
